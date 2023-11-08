@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const Navigation = () => {
   return (
-    <nav className="sticky top-0">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="sticky top-0 bg-groupWhite z-10">
+      <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" className="flex items-center">
           <Image
             src="/296-group-logo.png"
@@ -38,7 +38,7 @@ const Navigation = () => {
           </svg>
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-l md:flex-row md:space-x-8 md:mt-0 md:border-0">
             <li>
               <a
                 href="#"
@@ -50,31 +50,23 @@ const Navigation = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="#what_we_do"
                 className="block py-2 pl-3 pr-4 text-groupBlue"
               >
-                About
+                What We Do
               </a>
             </li>
             <li>
               <a
-                href="#"
+                href="#our_focus"
                 className="block py-2 pl-3 pr-4 text-groupBlue"
               >
-                Services
+                Our Focus
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-groupBlue"
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
+                href="#contact"
                 className="block py-2 pl-3 pr-4 text-groupBlue"
               >
                 Contact
