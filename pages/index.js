@@ -22,22 +22,22 @@ export default function Home() {
     <main>
       <Navigation />
       <Container type="full">
-        <div className="flex lg:flex-row md:flex-col xs:flex-col h-[calc(100vh-140px)] lg:place-items-center md:place-content-center md:place-items-start">
-          <div className="w-1/2">
-            <h1 className="font-semibold lg:text-9xl md:text-7xl sm:text-5xl">
-              Launch, Scale, Grow
+        <div className="flex xs:flex-col h-[calc(100vh-140px)] max-sm:h-[calc(100vh-72px)] lg:flex-row lg:place-items-center md:place-content-center max-sm:justify-center max-sm:items-center">
+          <div className="lg:w-1/2">
+            <h1 className="font-heading font-semibold lg:text-9xl md:text-7xl max-sm:text-5xl max-sm:text-center">
+              Launch Scale <br/>Grow
             </h1>
-            <p className="lg:text-2xl md:text-xl sm:text-lg my-6">
+            <p className="font-body max-sm:text-2xl max-xs:text-center text-groupBlack lg:text-2xl md:text-xl my-6">
               A boutique technology consulting and development firm that
               specializes in helping start-ups and emerging business ventures
               launch, scale and grow rapidly.
             </p>
-            <div className="lg:w-3/5 md:auto flex flex-row justify-between">
-              <Button text="See Our Work" type="primary" />
-              <Button text="See Our Work" type="secondary" />
+            <div className="w-4/5 max-sm:w-full md:auto flex flex-row justify-between max-sm:justify-around">
+              <Button text="See Our Work" type="primary" link="#see_our_work"/>
+              <Button text="Contact Us" type="secondary" link="#contact_us"/>
             </div>
           </div>
-          <div className="w-1/2"></div>
+          <div className="lg:w-1/2 max-xs:hidden"></div>
         </div>
         <div className="flex justify-center items-center">
           <Image
@@ -49,7 +49,7 @@ export default function Home() {
           />
         </div>
       </Container>
-      <section className="flex bg-groupBlue h-5/6 w-full py-28 px-40">
+      <section className="flex bg-groupBlue h-5/6 w-full py-28 px-40 max-sm:px-4">
         <div>
           <div>
             <h2 className="text-white font-semibold lg:text-7xl md:text-7xl sm:text-5xl my-10">
@@ -72,7 +72,7 @@ export default function Home() {
               <h3 className="text-white lg:text-4xl">
                 Strategic Business Partner, <br /> Not Just an IT Vendor
               </h3>
-              <p className="text-white lg:text-2xl md:text-xl sm:text-lg my-6">
+              <p className="font-body text-white lg:text-2xl md:text-xl sm:text-lg my-6">
                 We prioritize establishing a strategic business partnership with
                 our clients. Our commitment to long-term relationships allows us
                 to develop enterprise-grade solutions, incrementally. This
@@ -87,7 +87,7 @@ export default function Home() {
         <div id="what_we_do" className="flex flex-row h-[calc(100vh/1.6)] relative my-24">
           <div className="w-1/2"></div>
           <div className="flex flex-col absolute  top-10">
-            <h2 className="font-semibold lg:text-6xl md:text-3xl sm:text-5xl">
+            <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-3xl max-sm:text-5xl">
               What <span className="text-groupBlue">we do</span>
             </h2>
             <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
@@ -95,8 +95,8 @@ export default function Home() {
               <ul>
                 {services.services.map((service, idx) => {
                   return (
-                    <li key={idx} className="text-3xl py-1">
-                      <p>{service}</p>
+                    <li key={idx} className="py-1">
+                      <p className="text-3xl max-sm:text-2xl font-body text-groupBlack">{service}</p>
                     </li>
                   );
                 })}
@@ -106,7 +106,7 @@ export default function Home() {
           <div
             className="rounded-xl"
             style={{
-              backgroundImage: `linear-gradient(to right, rgba(253, 253, 253, 1), rgba(255, 255, 255, 0.0)), url(${manAtDesk.src})`,
+              backgroundImage: `linear-gradient(to right, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url(${manAtDesk.src})`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPositionX: "10%",
@@ -121,7 +121,7 @@ export default function Home() {
           <div
             className="rounded-xl"
             style={{
-              backgroundImage: `linear-gradient(to left, rgba(253, 253, 253, 1), rgba(255, 255, 255, 0.0)), url(${teamPhoto.src})`,
+              backgroundImage: `linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url(${teamPhoto.src})`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPositionX: "",
@@ -129,16 +129,16 @@ export default function Home() {
               height: "100%",
             }}
           ></div>
-          <div className="flex flex-col absolute right-0 top-24">
-            <h2 className="font-semibold lg:text-5xl md:text-3xl sm:text-5xl">
+          <div className="flex flex-col absolute right-0 top-24 max-xs:top-10">
+          <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-3xl max-sm:text-5xl">
               Our <span className="text-groupBlue">Focus</span>
             </h2>
             <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
             <ul>
               {focusContent.focuses.map((focus, idx) => {
                 return (
-                  <li key={idx} className="text-3xl py-1">
-                    {focus}
+                  <li key={idx} className="py-1">
+                    <p className="text-3xl max-sm:text-2xl font-body text-groupBlack">{focus}</p>
                   </li>
                 );
               })}
@@ -150,10 +150,10 @@ export default function Home() {
         <div id="our_team" className="flex flex-col h-[calc(100vh/1.3)] relative my-24">
           <div>
             <div className="my-10">
-              <h2 className="mb-3 font-semibold lg:text-4xl md:text-3xl sm:text-5xl">
+              <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-3xl sm:text-5xl">
                 Our <span className="text-groupBlue">Team</span>
               </h2>
-              <span className="block w-40 border-y-2 border-gray-800 my-61"></span>
+              <span className="block w-40 border-y-2 border-groupBlack my-61"></span>
             </div>
             <ul className="flex flex-row space-x-5">
               {team.team.map((member, idx) => {
@@ -180,7 +180,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      <section id="contact" className="flex bg-groupBlue h-5/6 w-full py-28 px-40">
+      <section id="contact" className="flex bg-groupBlue h-5/6 w-full py-28 px-40 max-sm:px-4">
         <div className="flex flex-row h-[calc(100vh/1.6)] relative my-7">
           <div className="w-1/2">
             <h1 className="font-semibold lg:text-9xl md:text-7xl sm:text-5xl text-white">

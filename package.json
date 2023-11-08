@@ -14,7 +14,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
-    "react-scroll-parallax": "^3.4.3"
+    "react-scroll-parallax": "^3.4.3",
+    "tailwindcss-classnames": "^3.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

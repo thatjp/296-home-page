@@ -41,10 +41,12 @@ module.exports = {
       },
       fontFamily: {
         heading: "karla, semi-bold",
+        body: "roboto flex"
       },
       colors: {
         groupBlue: "#398BF9",
-        groupWhite: "#fafafa"
+        groupWhite: "#fafafa",
+        groupBlack: "#343333"
       },
     },
   },
