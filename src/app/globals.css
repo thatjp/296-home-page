@@ -24,3 +24,11 @@ body {
   background: rgb(var(--background-main));
 }
 
+.slide.active-anim {
+  width: 100vw;
+  display: block;
+}
+
+.slide {
+  display: none;
+}

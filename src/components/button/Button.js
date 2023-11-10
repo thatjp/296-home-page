@@ -6,17 +6,17 @@ const Button = ({ text, type = "primary", link = "" }) => {
     <a href={link}>
       <div
         className={classnames(
-          "bg-groupBlue mr-auto lg:w-52 md:w-40 text-center lg:p-4 md:p-2 rounded-xl border-2 border-groupBlue hover:bg-white max-sm:p-3",
+          "primary bg-groupBlue mr-auto w-40 lg:w-52 md:w-40 text-center lg:p-4 md:p-2 rounded-xl border-2 hover:bg-white p-4",
           {
-            "bg-groupWhite hover:bg-groupBlue ":
+            "bg-groupWhite hover:bg-groupBlue":
               type === "secondary",
           }
         )}
       >
         {type === "secondary" ? (
-          <p className="text-groupBlue hover:text-groupWhite">{text}</p>
+          <p className="text-groupBlue">{text}</p>
         ) : (
-          <p className="text-groupWhite hover:text-groupBlue">{text}</p>
+          <p className="text-groupWhite">{text}</p>
         )}
       </div>
     </a>
