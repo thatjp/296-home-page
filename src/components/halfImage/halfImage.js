@@ -10,7 +10,7 @@ const HalfImage = ({
   mobileImageSrc,
   data,
   title = "",
-  isMobile,
+  isMobile = false,
 }) => {
   const [ref, springs] = useInView(
     () => ({
@@ -48,7 +48,7 @@ const HalfImage = ({
             style={{
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
-              backgroundPositionX: "",
+              backgroundPositionX: "30%",
               height: "100%",
             }}
           ></div>
@@ -60,7 +60,7 @@ const HalfImage = ({
             style={{
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
-              backgroundPositionX: "",
+              backgroundPositionX: "30%",
               height: "100%",
             }}
           ></div>
@@ -72,7 +72,7 @@ const HalfImage = ({
             style={{
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
-              backgroundPositionX: "",
+              backgroundPositionX: "30%",
               height: "100%",
             }}
           ></div>
@@ -115,7 +115,7 @@ const HalfImage = ({
           className="flex flex-row max-sm:flex-col h-[calc(100vh/1.6)] max-sm:h-screen relative my-24"
         >
           <div className="w-1/2"></div>
-          {isMobile ? handleMobileImage(anchorId) : null}
+          {!isMobile ? handleMobileImage(anchorId) :  <div className="hidden"></div>}
           <div className="flex flex-col max-sm:relative absolute top-10">
             {createHighlightedTitle(title)}
             <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
@@ -133,7 +133,7 @@ const HalfImage = ({
               </ul>
             </ul>
           </div>
-          {!isMobile ? handleMobileImage(anchorId) : null}
+          {isMobile ? handleMobileImage(anchorId) : <div className="hidden"></div>}
         </animated.div>
       )}
     </Container>

@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { useSpringRef } from "@react-spring/web";
+import { isMobile } from "react-device-detect";
 
 import Hero from "@/components/hero/Hero";
 import Scroll from "@/components/scroll/Scroll";
@@ -29,7 +30,6 @@ import "../src/app/globals.css";
 import styles from "../src/app/Animation.module.css";
 import CaseStudies from "@/components/caseStudies/CaseStudies";
 import HalfImage from "@/components/halfImage/halfImage";
-import { isMobile } from "react-device-detect";
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
