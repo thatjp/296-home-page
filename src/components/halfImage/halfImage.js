@@ -3,7 +3,15 @@ import { useInView, animated } from "@react-spring/web";
 
 import Container from "../container/Container";
 
-const HalfImage = ({ anchorId, imageSide, imageSrc, data, title = "" }) => {
+const HalfImage = ({
+  anchorId,
+  imageSide,
+  imageSrc,
+  mobileImageSrc,
+  data,
+  title = "",
+  isMobile,
+}) => {
   const [ref, springs] = useInView(
     () => ({
       from: {
@@ -20,15 +28,58 @@ const HalfImage = ({ anchorId, imageSide, imageSrc, data, title = "" }) => {
     }
   );
 
-  const blueTitle = (title) => {
+  const createHighlightedTitle = (title) => {
     const plainWords = title.split(" ").slice(0, -1).join(" ");
     const blueWord = title.split(" ").slice(-1)[0];
-    
+
     return (
       <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl">
         {plainWords} <span className="text-groupBlue">{blueWord}</span>
       </h2>
     );
+  };
+
+  const handleMobileImage = (id) => {
+    switch (id) {
+      case "what_we_do":
+        return (
+          <div
+            className={`w-[calc(60%)] h-full max-sm:w-full max-sm:bg-team-meeting-mobile sm:bg-team-meeting max-sm:relative rounded-xl`}
+            style={{
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPositionX: "",
+              height: "100%",
+            }}
+          ></div>
+        );
+      case "our_focus":
+        return (
+          <div
+            className={`w-[calc(60%)] h-full max-sm:w-full max-sm:bg-focus-mobile sm:bg-focus max-sm:relative rounded-xl`}
+            style={{
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPositionX: "",
+              height: "100%",
+            }}
+          ></div>
+        );
+      case "industry_experience":
+        return (
+          <div
+            className={`w-[calc(60%)] h-full max-sm:w-full max-sm:bg-team-top-down-mobile sm:bg-team-top-down max-sm:relative rounded-xl`}
+            style={{
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPositionX: "",
+              height: "100%",
+            }}
+          ></div>
+        );
+      default:
+        break;
+    }
   };
 
   return (
@@ -38,21 +89,11 @@ const HalfImage = ({ anchorId, imageSide, imageSrc, data, title = "" }) => {
         <animated.div
           ref={ref}
           style={springs}
-          className="flex flex-row h-[calc(100vh/1.6)] relative my-24"
+          className="flex flex-row max-sm:flex-col h-[calc(100vh/1.6)] max-sm:h-screen relative my-24"
         >
-          <div
-            className="rounded-xl"
-            style={{
-              backgroundImage: `linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url(${imageSrc})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPositionX: "",
-              width: "60%",
-              height: "100%",
-            }}
-          ></div>
-          <div className="flex flex-col absolute right-0 top-2 max-sm:top-10 max-sm:items-end md:items-end">
-            {blueTitle(title)}
+          {handleMobileImage(anchorId)}
+          <div className="flex flex-col max-sm:relative absolute right-0 top-2 max-sm:top-10 max-sm:items-end md:items-end">
+            {createHighlightedTitle(title)}
             <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
             <ul>
               {data.map((focus, idx) => {
@@ -71,11 +112,12 @@ const HalfImage = ({ anchorId, imageSide, imageSrc, data, title = "" }) => {
         <animated.div
           ref={ref}
           style={springs}
-          className="flex flex-row h-[calc(100vh/1.6)] relative my-24"
+          className="flex flex-row max-sm:flex-col h-[calc(100vh/1.6)] max-sm:h-screen relative my-24"
         >
           <div className="w-1/2"></div>
-          <div className="flex flex-col absolute top-10">
-            {blueTitle(title)}
+          {isMobile ? handleMobileImage(anchorId) : null}
+          <div className="flex flex-col max-sm:relative absolute top-10">
+            {createHighlightedTitle(title)}
             <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
             <ul>
               <ul>
@@ -91,17 +133,7 @@ const HalfImage = ({ anchorId, imageSide, imageSrc, data, title = "" }) => {
               </ul>
             </ul>
           </div>
-          <div
-            className="rounded-xl"
-            style={{
-              backgroundImage: `linear-gradient(to right, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url(${imageSrc})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPositionX: "10%",
-              width: "60%",
-              height: "100%",
-            }}
-          ></div>
+          {!isMobile ? handleMobileImage(anchorId) : null}
         </animated.div>
       )}
     </Container>

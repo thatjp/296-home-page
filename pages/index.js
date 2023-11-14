@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { useSpringRef } from "@react-spring/web";
 
@@ -30,6 +29,7 @@ import "../src/app/globals.css";
 import styles from "../src/app/Animation.module.css";
 import CaseStudies from "@/components/caseStudies/CaseStudies";
 import HalfImage from "@/components/halfImage/halfImage";
+import { isMobile } from "react-device-detect";
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
@@ -204,22 +204,22 @@ export default function Home() {
         anchorId={"what_we_do"}
         imageSide={"left"}
         data={services.services}
-        imageSrc={teamMeeting.src}
         title={"What We Do"}
+        isMobile={isMobile}
       />
       <HalfImage
         anchorId={"our_focus"}
         imageSide={"right"}
         data={focusContent.focuses}
-        imageSrc={teamFocus.src}
         title={"Our Focus"}
+        isMobile={isMobile}
       />
        <HalfImage
         anchorId={"industry_experience"}
         imageSide={"left"}
         data={industryExperience.experiences}
-        imageSrc={teamTopDown.src}
         title={"Industry Experience"}
+        isMobile={isMobile}
       />
       <Container>
         <div id="our_team" className="anchor"></div>

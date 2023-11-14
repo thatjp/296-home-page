@@ -21,6 +21,18 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "focus":
+          "linear-gradient(to right, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('../../public/focus.jpg')",
+        "focus-mobile":
+          "linear-gradient(to top, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('../../public/focus.jpg')",
+        "team-meeting":
+          "linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('../../public/team-meeting.jpg')",
+        "team-meeting-mobile":
+          "linear-gradient(to top, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('../../public/team-meeting.jpg')",
+        "team-top-down":
+          "linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('../../public/team.jpg')",
+        "team-top-down-mobile":
+          "linear-gradient(to top, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('../../public/team.jpg')",
       },
       screens: {
         xs: "400px",
@@ -41,12 +53,12 @@ module.exports = {
       },
       fontFamily: {
         heading: "karla, semi-bold",
-        body: "roboto flex"
+        body: "roboto flex",
       },
       colors: {
         groupBlue: "#398BF9",
         groupWhite: "#fafafa",
-        groupBlack: "#343333"
+        groupBlack: "#343333",
       },
     },
   },
