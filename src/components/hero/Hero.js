@@ -26,7 +26,7 @@ const Hero = ({ data = [1] }) => {
             <span>Scale</span>
             <span>Grow</span>
           </Trail>
-          <div className="max-sm:top-10">
+          <div className='max-sm:top-10'>
             <p className="font-body max-sm:text-xl max-xs:text-left text-groupBlack lg:text-2xl md:text-2xl my-6 sm:mb-16">
               A boutique technology consulting and development firm that
               specializes in helping start-ups and emerging business ventures
@@ -34,7 +34,7 @@ const Hero = ({ data = [1] }) => {
             </p>
             <div className="flex flex-row justify-between w-4/5 lg:w-4/5 max-sm:w-full md:w-1/2 max-sm:justify-between">
               <Button text="Our Work" type="primary" link="#case-studies" />
-              <Button text="Contact Us" type="secondary" link="#contact_us" />
+              <Button text="Contact Us" type="secondary" link="#contact" />
             </div>
           </div>
         </div>

@@ -1,29 +1,23 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import {
-  useSpringRef,
-  useTransition,
-  useScroll,
-  animated,
-  useSpring,
-} from "@react-spring/web";
+import { useSpringRef } from "@react-spring/web";
 
 import Hero from "@/components/hero/Hero";
 import Scroll from "@/components/scroll/Scroll";
-import Heading from "@/components/heading/Heading";
 import Navigation from "../src/components/navigation/Navigation";
 import Container from "../src/components/container/Container";
 import Slider from "../src/components/slider/Slider";
 import ContactForm from "../src/components/contactForm/ContactForm";
 
 // Site Images
-import manAtDesk from "../public/man_at_desk.jpeg";
-import teamPhoto from "../public/team-problem.jpeg";
+import teamFocus from "../public/focus.jpg";
 import handShake from "../public/handshake-white.svg";
+import teamTopDown from "../public/team.jpg";
 import jeffPhoto from "../public/jeff.jpeg";
 import bharatPhoto from "../public/bharat.jpg";
 import noprofile from "../public/noprofile.png";
+import teamMeeting from "../public/team-meeting.jpg";
 
 // Site Copy
 import focusContent from "../public/focuses.json";
@@ -35,12 +29,12 @@ import industryExperience from "../public/industry-experience.json";
 import "../src/app/globals.css";
 import styles from "../src/app/Animation.module.css";
 import CaseStudies from "@/components/caseStudies/CaseStudies";
+import HalfImage from "@/components/halfImage/halfImage";
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
 
   const parallax = useRef();
-  const containerRef = useRef();
 
   const scroll = (to) => {
     if (parallax.current) {
@@ -48,17 +42,6 @@ export default function Home() {
     }
   };
   const transRef = useSpringRef();
-
-  const onClick = () => setClicked((state) => !state);
-
-  const transitions = useTransition(clicked, {
-    ref: transRef,
-    keys: null,
-    initial: { opacity: 0 },
-    from: { opacity: 1 },
-    enter: { opacity: 0 },
-    leave: { opacity: 1 },
-  });
 
   useEffect(() => {
     transRef.start();
@@ -78,10 +61,9 @@ export default function Home() {
   };
 
   return (
-    <main ref={containerRef}>
+    <main>
       <Navigation />
       <Hero />
-      {/* <Scroll /> */}
       <section className="flex flex-col bg-groupBlue w-screen h-screen max-sm:h-screen pb-10 max-sm:py-16">
         <div>
           <h2 className="text-white font-semibold lg:text-7xl md:text-7xl max-sm:text-5xl mb-10">
@@ -218,108 +200,27 @@ export default function Home() {
           backgroundImage: `linear-gradient(to bottom, rgba(57, 139, 249, 1), rgba(255, 255, 255, 0.0))`,
         }}
       ></div> */}
-      <Container>
-        <div id="what_we_do" className="anchor"></div>
-        <div className="flex flex-row h-[calc(100vh/1.6)] relative my-24">
-          <div className="w-1/2"></div>
-          <div className="flex flex-col absolute top-10">
-            <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl">
-              What <span className="text-groupBlue">we do</span>
-            </h2>
-            <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
-            <ul>
-              <ul>
-                {services.services.map((service, idx) => {
-                  return (
-                    <li key={idx} className="py-1">
-                      <p className="text-3xl max-sm:text-2xl font-body text-groupBlack">
-                        {service}
-                      </p>
-                    </li>
-                  );
-                })}
-              </ul>
-            </ul>
-          </div>
-          <div
-            className="rounded-xl"
-            style={{
-              backgroundImage: `linear-gradient(to right, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url(${manAtDesk.src})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPositionX: "10%",
-              width: "60%",
-              height: "100%",
-            }}
-          ></div>
-        </div>
-      </Container>
-      <Container>
-        <div id="our_focus" className="anchor"></div>
-        <div className="flex flex-row h-[calc(100vh/1.6)] relative my-24">
-          <div
-            className="rounded-xl"
-            style={{
-              backgroundImage: `linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url(${teamPhoto.src})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPositionX: "",
-              width: "60%",
-              height: "100%",
-            }}
-          ></div>
-          <div className="flex flex-col absolute right-0 top-24 max-sm:top-10 max-sm:items-end md:items-end">
-            <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl">
-              Our <span className="text-groupBlue">Focus</span>
-            </h2>
-            <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
-            <ul>
-              {focusContent.focuses.map((focus, idx) => {
-                return (
-                  <li key={idx} className="py-1">
-                    <p className="text-3xl max-sm:text-2xl font-body text-groupBlack max-sm:text-end md:text-end">
-                      {focus}
-                    </p>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </Container>
-      <Container>
-        <div id="industry-experience" className="anchor"></div>
-        <div className="flex flex-row h-[calc(100vh/1.6)] relative my-24">
-          <div
-            className="rounded-xl"
-            style={{
-              backgroundImage: `linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url(${teamPhoto.src})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPositionX: "",
-              width: "60%",
-              height: "100%",
-            }}
-          ></div>
-          <div className="flex flex-col absolute right-0 max-sm:top-10 max-sm:items-end md:items-end">
-            <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl">
-              Industry <span className="text-groupBlue">Experience</span>
-            </h2>
-            <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
-            <ul>
-              {industryExperience.experiences.map((focus, idx) => {
-                return (
-                  <li key={idx} className="py-1">
-                    <p className="text-3xl max-sm:text-2xl font-body text-groupBlack max-sm:text-end md:text-end">
-                      {focus}
-                    </p>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </Container>
+      <HalfImage
+        anchorId={"what_we_do"}
+        imageSide={"left"}
+        data={services.services}
+        imageSrc={teamMeeting.src}
+        title={"What We Do"}
+      />
+      <HalfImage
+        anchorId={"our_focus"}
+        imageSide={"right"}
+        data={focusContent.focuses}
+        imageSrc={teamFocus.src}
+        title={"Our Focus"}
+      />
+       <HalfImage
+        anchorId={"industry_experience"}
+        imageSide={"left"}
+        data={industryExperience.experiences}
+        imageSrc={teamTopDown.src}
+        title={"Industry Experience"}
+      />
       <Container>
         <div id="our_team" className="anchor"></div>
         <div className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative my-24">
@@ -382,7 +283,7 @@ export default function Home() {
           </Parallax>
         </div>
       </section>
-      <section className="flex bg-groupBlue w-full py-28 max-w-md:py-20 max-sm:py-16 px-40 max-sm:px-4">
+      <section className="flex bg-groupBlue w-full lg:px-40 py-28 max-md:py-10 max-sm:py-16 max-sm:px-4">
         <div id="contact" className="anchor"></div>
         <div className="flex flex-row max-sm:flex-col max-sm:place-content-center h-[calc(100vh/1.6)] relative my-7 justify-evenly">
           <div className="w-1/2 max-sm:w-full m-auto max-sm:px-10">

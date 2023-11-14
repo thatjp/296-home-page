@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { useScroll, animated, useSpring } from "@react-spring/web";
+import { useScroll, animated, useSpring, } from "@react-spring/web";
 
 import styles from "./styles.module.css";
 
-const PAGE_COUNT = 4;
+const PAGE_COUNT = 2;
 
 const Scroll = () => {
   const containerRef = useRef(null);
@@ -13,24 +13,13 @@ const Scroll = () => {
   }))
 
   const { scrollYProgress } = useScroll({
-    container: containerRef,
-    onChange: ({ value: { scrollYProgress } }) => {
-      if (scrollYProgress > 0.7) {
-        textApi.start({ y: '0' })
-      } else {
-        textApi.start({ y: '100%' })
-      }
-    },
-    default: {
-      immediate: true,
-    },
+    container: containerRef
   })
 
-  console.log(scrollYProgress);
   return (
     <div ref={containerRef} className={"h-full overflow-y-scroll"}>
       <div className={styles.animated__layers}>
-        <animated.div className={"absolute top-1/2 left-1/2"}>
+        <animated.div style={{ opacity: scrollYProgress }} className={"absolute bg-groupBlue top-1/2 left-1/2"}>
           <h1
             className={
               `${styles.text}`
