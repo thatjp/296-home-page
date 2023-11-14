@@ -6,6 +6,8 @@ import Trail from "../trail/Trail";
 import Container from "../container/Container";
 import Button from "../button/Button";
 import chevron from "../../../public/296-Chevron.svg";
+import bracketLeft from "../../../public/bracket-left.svg";
+import bracketRight from "../../../public/bracket-right.svg";
 
 import styles from "../../app/Animation.module.css";
 
@@ -26,7 +28,7 @@ const Hero = ({ data = [1] }) => {
             <span>Scale</span>
             <span>Grow</span>
           </Trail>
-          <div className='max-sm:top-10'>
+          <div className="max-sm:top-10">
             <p className="font-body max-sm:text-xl max-xs:text-left text-groupBlack lg:text-2xl md:text-2xl my-6 sm:mb-16">
               A boutique technology consulting and development firm that
               specializes in helping start-ups and emerging business ventures
@@ -38,7 +40,26 @@ const Hero = ({ data = [1] }) => {
             </div>
           </div>
         </div>
-        <div className="lg:w-1/2 max-xs:hidden"></div>
+        <div className="flex lg:w-1/2 max-xs:hidden">
+          <div className="absolute top-28 right-[calc(28rem)]">
+            <Image
+              priority
+              src={bracketLeft}
+              height={90}
+              width={200}
+              alt="Follow us on Twitter"
+            />
+          </div>
+          <div className="absolute top-52 right-52">
+            <Image
+              priority
+              src={bracketRight}
+              height={90}
+              width={200}
+              alt="Follow us on Twitter"
+            />
+          </div>
+        </div>
       </div>
       <div className="flex justify-center items-center">
         <Image

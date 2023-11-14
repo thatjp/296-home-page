@@ -64,7 +64,7 @@ export default function Home() {
     <main>
       <Navigation />
       <Hero />
-      <section className="flex flex-col bg-groupBlue w-screen h-screen max-sm:h-screen pb-10 max-sm:py-16">
+      {/* <section className="flex flex-col bg-groupBlue w-screen h-screen max-sm:h-screen pb-10 max-sm:py-16">
         <div>
           <h2 className="text-white font-semibold lg:text-7xl md:text-7xl max-sm:text-5xl mb-10">
             Why is 296 Group Different?
@@ -97,7 +97,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <div
         className="h-screen"

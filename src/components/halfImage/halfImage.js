@@ -23,6 +23,7 @@ const HalfImage = ({ anchorId, imageSide, imageSrc, data, title = "" }) => {
   const blueTitle = (title) => {
     const plainWords = title.split(" ").slice(0, -1).join(" ");
     const blueWord = title.split(" ").slice(-1)[0];
+    
     return (
       <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl">
         {plainWords} <span className="text-groupBlue">{blueWord}</span>
