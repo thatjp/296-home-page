@@ -1,10 +1,21 @@
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import {
+  useSpringRef,
+  useTransition,
+  useScroll,
+  animated,
+  useSpring,
+} from "@react-spring/web";
+
+import Hero from "@/components/hero/Hero";
+import Scroll from "@/components/scroll/Scroll";
+import Heading from "@/components/heading/Heading";
 import Navigation from "../src/components/navigation/Navigation";
 import Container from "../src/components/container/Container";
 import Slider from "../src/components/slider/Slider";
 import ContactForm from "../src/components/contactForm/ContactForm";
-import Button from "../src/components/button/Button";
-import chevron from "../public/296-Chevron.svg";
 
 // Site Images
 import manAtDesk from "../public/man_at_desk.jpeg";
@@ -16,13 +27,43 @@ import noprofile from "../public/noprofile.png";
 
 // Site Copy
 import focusContent from "../public/focuses.json";
+import caseStudies from "../public/case-studies.json";
 import services from "../public/services.json";
 import team from "../public/team.json";
+import industryExperience from "../public/industry-experience.json";
 
 import "../src/app/globals.css";
 import styles from "../src/app/Animation.module.css";
+import CaseStudies from "@/components/caseStudies/CaseStudies";
 
 export default function Home() {
+  const [clicked, setClicked] = useState(false);
+
+  const parallax = useRef();
+  const containerRef = useRef();
+
+  const scroll = (to) => {
+    if (parallax.current) {
+      parallax.current.scrollTo(to);
+    }
+  };
+  const transRef = useSpringRef();
+
+  const onClick = () => setClicked((state) => !state);
+
+  const transitions = useTransition(clicked, {
+    ref: transRef,
+    keys: null,
+    initial: { opacity: 0 },
+    from: { opacity: 1 },
+    enter: { opacity: 0 },
+    leave: { opacity: 1 },
+  });
+
+  useEffect(() => {
+    transRef.start();
+  }, [clicked]);
+
   const selectProfilePicture = (member) => {
     switch (member.name) {
       case "Jeff Kendal":
@@ -37,50 +78,19 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main ref={containerRef}>
       <Navigation />
-      <Container type="full">
-        <div
-          className={`${styles.slide__left_medium} flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)] lg:flex-row`}
-        >
-          <div className="lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
-            <h1 className="font-heading font-semibold sm:text-9xl max-sm:text-8xl max-sm:text-left max-sm:absolute max-sm:bottom-0">
-              Launch <br /> Scale <br />
-              Grow
-            </h1>
-            <div className="max-sm:absolute max-sm:top-10">
-              <p className="font-body max-sm:text-xl max-xs:text-left text-groupBlack lg:text-2xl md:text-2xl my-6 sm:mb-16">
-                A boutique technology consulting and development firm that
-                specializes in helping start-ups and emerging business ventures
-                launch, scale and grow rapidly.
-              </p>
-              <div className="flex flex-row justify-between w-4/5 lg:w-4/5 max-sm:w-full md:w-1/2 max-sm:justify-between">
-                <Button text="Our Work" type="primary" link="#see_our_work" />
-                <Button text="Contact Us" type="secondary" link="#contact_us" />
-              </div>
-            </div>
-          </div>
-          <div className="lg:w-1/2 max-xs:hidden"></div>
-        </div>
-        <div className="flex justify-center items-center">
-          <Image
-            priority
-            src={chevron}
-            height={90}
-            width={90}
-            alt="Follow us on Twitter"
-          />
-        </div>
-      </Container>
-      <section className="flex bg-groupBlue h-5/6 max-sm:h-screen w-full py-28 max-sm:py-16 px-40 max-sm:px-4">
+      <Hero />
+      {/* <Scroll /> */}
+      <section className="flex flex-col bg-groupBlue w-screen h-screen max-sm:h-screen pb-10 max-sm:py-16">
         <div>
-          <div>
-            <h2 className="text-white font-semibold lg:text-7xl md:text-7xl max-sm:text-5xl my-10">
-              Why is 296 Group Different?
-            </h2>
-            <span className="block w-3/5 border-y-2"></span>
-          </div>
-          <div className="flex flex-row max-sm:flex-col my-6">
+          <h2 className="text-white font-semibold lg:text-7xl md:text-7xl max-sm:text-5xl mb-10">
+            Why is 296 Group Different?
+          </h2>
+          <span className="block w-3/5 border-y-2"></span>
+        </div>
+        <div>
+          <div className="flex flex-row max-sm:flex-col mx-20">
             <div className="pr-10 py-10 max-sm:hidden">
               <Image
                 priority
@@ -106,11 +116,111 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* <div
+        className="h-screen"
+        style={{
+          backgroundImage: `linear-gradient(to top, rgba(57, 139, 249, 1), rgba(255, 255, 255, 0.0))`,
+        }}
+      ></div>
+      <section className="flex flex-col bg-groupBlue w-screen h-screen max-sm:h-screen pb-10 max-sm:py-16">
+        <div>
+          <h2 className="text-white font-semibold lg:text-7xl md:text-7xl max-sm:text-5xl mb-10">
+            Why is 296 Group Different?
+          </h2>
+          <span className="block w-3/5 border-y-2"></span>
+        </div>
+        <div>
+          <Parallax pages={4}>
+            <ParallaxLayer offset={1} speed={0.5}>
+              <div className="flex flex-row max-sm:flex-col mx-20">
+                <div className="pr-10 py-10 max-sm:hidden">
+                  <Image
+                    priority
+                    src={handShake}
+                    height={400}
+                    width={300}
+                    alt="Follow us on Twitter"
+                    color="white"
+                  />
+                </div>
+                <div className="flex flex-col max-sm:mt-auto">
+                  <h3 className="text-white lg:text-4xl max-sm:text-3xl">
+                    Strategic Business Partner, <br /> Not Just an IT Vendor
+                  </h3>
+                  <p className="font-body text-white lg:text-2xl md:text-xl sm:text-lg my-6">
+                    We prioritize establishing a strategic business partnership
+                    with our clients. Our commitment to long-term relationships
+                    allows us to develop enterprise-grade solutions,
+                    incrementally. This approach accelerates our partners’
+                    growth compared to traditional development methods.
+                  </p>
+                </div>
+              </div>
+            </ParallaxLayer>
+            <ParallaxLayer offset={2} speed={0.5}>
+              <div className="flex flex-row max-sm:flex-col mx-20">
+                <div className="pr-10 py-10 max-sm:hidden">
+                  <Image
+                    priority
+                    src={handShake}
+                    height={400}
+                    width={300}
+                    alt="Follow us on Twitter"
+                    color="white"
+                  />
+                </div>
+                <div className="flex flex-col max-sm:mt-auto">
+                  <h3 className="text-white lg:text-4xl max-sm:text-3xl">
+                    Project Execution <br /> On Time & On Budget
+                  </h3>
+                  <p className="font-body text-white lg:text-2xl md:text-xl sm:text-lg my-6">
+                    Our entrepreneurial mindset and experience ensure timely and
+                    budget conscious project delivery. We take pride in
+                    identifying efficient solutions and implementing them
+                    quickly.
+                  </p>
+                </div>
+              </div>
+            </ParallaxLayer>
+            <ParallaxLayer offset={3} speed={0.5}>
+              <div className="flex flex-row max-sm:flex-col mx-20">
+                <div className="pr-10 py-10 max-sm:hidden">
+                  <Image
+                    priority
+                    src={handShake}
+                    height={400}
+                    width={300}
+                    alt="Follow us on Twitter"
+                    color="white"
+                  />
+                </div>
+                <div className="flex flex-col max-sm:mt-auto">
+                  <h3 className="text-white lg:text-4xl max-sm:text-3xl">
+                    Resource Flexibility
+                  </h3>
+                  <p className="font-body text-white lg:text-2xl md:text-xl sm:text-lg my-6">
+                    Our approach to staffing is both dedicated and flexible at
+                    the same time. Our model allows us to staff projects with
+                    the right resources, either onshore or offshore, in response
+                    to the business’ needs. We then make staffing adjustments as
+                    the project and business needs evolve.
+                  </p>
+                </div>
+              </div>
+            </ParallaxLayer>
+          </Parallax>
+        </div>
+      </section>
+      <div
+        className="h-screen"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(57, 139, 249, 1), rgba(255, 255, 255, 0.0))`,
+        }}
+      ></div> */}
       <Container>
-        <div
-          id="what_we_do"
-          className="flex flex-row h-[calc(100vh/1.6)] relative my-24"
-        >
+        <div id="what_we_do" className="anchor"></div>
+        <div className="flex flex-row h-[calc(100vh/1.6)] relative my-24">
           <div className="w-1/2"></div>
           <div className="flex flex-col absolute top-10">
             <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl">
@@ -145,10 +255,8 @@ export default function Home() {
         </div>
       </Container>
       <Container>
-        <div
-          id="our_focus"
-          className="flex flex-row h-[calc(100vh/1.6)] relative my-24"
-        >
+        <div id="our_focus" className="anchor"></div>
+        <div className="flex flex-row h-[calc(100vh/1.6)] relative my-24">
           <div
             className="rounded-xl"
             style={{
@@ -180,10 +288,41 @@ export default function Home() {
         </div>
       </Container>
       <Container>
-        <div
-          id="our_team"
-          className="flex flex-col h-[calc(100vh/2.3)] max-sm:h-[calc(100vh/1.4ç)] relative my-24"
-        >
+        <div id="industry-experience" className="anchor"></div>
+        <div className="flex flex-row h-[calc(100vh/1.6)] relative my-24">
+          <div
+            className="rounded-xl"
+            style={{
+              backgroundImage: `linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url(${teamPhoto.src})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPositionX: "",
+              width: "60%",
+              height: "100%",
+            }}
+          ></div>
+          <div className="flex flex-col absolute right-0 max-sm:top-10 max-sm:items-end md:items-end">
+            <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl">
+              Industry <span className="text-groupBlue">Experience</span>
+            </h2>
+            <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
+            <ul>
+              {industryExperience.experiences.map((focus, idx) => {
+                return (
+                  <li key={idx} className="py-1">
+                    <p className="text-3xl max-sm:text-2xl font-body text-groupBlack max-sm:text-end md:text-end">
+                      {focus}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </Container>
+      <Container>
+        <div id="our_team" className="anchor"></div>
+        <div className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative my-24">
           <div className="my-10">
             <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
               Our <span className="text-groupBlue">Team</span>
@@ -193,7 +332,6 @@ export default function Home() {
           <div className="md:hidden">
             <Slider data={team.team} />
           </div>
-          {/* should only be seen on large screens*/}
           <ul className="flex flex-row space-x-5 max-sm:hidden">
             {team.team.map((member, idx) => {
               return (
@@ -205,7 +343,7 @@ export default function Home() {
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "100%",
                       width: "100%",
-                      height: "200px",
+                      height: "400px",
                     }}
                   ></div>
                   <div className="my-3">
@@ -216,34 +354,36 @@ export default function Home() {
               );
             })}
           </ul>
-          {/* <ul className="flex flex-row space-x-5">
-              {team.team.map((member, idx) => {
-                return (
-                  <li key={idx} className="w-1/3">
-                    <div
-                      className="rounded-xl"
-                      style={{
-                        backgroundImage: `url(${teamPhoto.src})`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                        width: "100%",
-                        height: "500px",
-                      }}
-                    ></div>
-                    <div className="my-3">
-                      <h2 className="text-groupBlue text-2xl">{member.name}</h2>
-                      <p className="text-xl">{member.position}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul> */}
         </div>
       </Container>
       <section
-        id="contact"
-        className="flex bg-groupBlue w-full py-28 max-w-md:py-20 max-sm:py-16 px-40 max-sm:px-4"
+        id="case-studies"
+        className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh)] relative"
       >
+        <div id="case-studies" className="anchor"></div>
+        <div style={{ background: "#dfdfdf" }}>
+          <Parallax
+            className={styles.container}
+            ref={parallax}
+            pages={3}
+            horizontal
+          >
+            {caseStudies.studies.map((study, idx) => {
+              return (
+                <CaseStudies
+                  key={idx}
+                  offset={idx}
+                  gradient="teal"
+                  onClick={() => scroll(idx)}
+                  data={study}
+                />
+              );
+            })}
+          </Parallax>
+        </div>
+      </section>
+      <section className="flex bg-groupBlue w-full py-28 max-w-md:py-20 max-sm:py-16 px-40 max-sm:px-4">
+        <div id="contact" className="anchor"></div>
         <div className="flex flex-row max-sm:flex-col max-sm:place-content-center h-[calc(100vh/1.6)] relative my-7 justify-evenly">
           <div className="w-1/2 max-sm:w-full m-auto max-sm:px-10">
             <h1 className="font-semibold lg:text-8xl md:text-7xl max-sm:text-5xl text-white">
