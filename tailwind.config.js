@@ -22,17 +22,17 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "focus":
-          "linear-gradient(to right, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/public/focus.jpg')",
+          "linear-gradient(to right, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/static/media/focus.jpg')",
         "focus-mobile":
-          "linear-gradient(to top, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/public/focus.jpg')",
+          "linear-gradient(to top, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/static/media/focus.jpg')",
         "team-meeting":
-          "linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/public/team-meeting.jpg')",
+          "linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/static/media/team-meeting.jpg')",
         "team-meeting-mobile":
-          "linear-gradient(to top, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/public/team-meeting.jpg')",
+          "linear-gradient(to top, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/static/media/team-meeting.jpg')",
         "team-top-down":
-          "linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/public/team.jpg')",
+          "linear-gradient(to left, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/static/media/team.jpg')",
         "team-top-down-mobile":
-          "linear-gradient(to top, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/public/team.jpg')",
+          "linear-gradient(to top, rgba(250, 250, 250, 1), rgba(255, 255, 255, 0.0)), url('/static/media/team.jpg')",
       },
       screens: {
         xs: "400px",
