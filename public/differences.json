@@ -1,7 +1,22 @@
 {
   "differences": [
-    {"heading":"Strategic Business Partner, Not Just an IT Vendor", "body": "We prioritize establishing a strategic business partnership with our clients.  Our commitment to long-term relationships allows us to develop enterprise-grade solutions, incrementally.  This approach accelerates our partners’ growth compared to traditional development methods."},
-    {"heading":"Project Execution – On Time & On Budget", "body": "Our entrepreneurial mindset and experience ensure timely and budget conscious project delivery.  We take pride in identifying efficient solutions and implementing them quickly."},
-    {"heading":"Resource Flexibility", "body": "Our approach to staffing is both dedicated and flexible at the same time.  Our model allows us to staff projects with the right resources, either onshore or offshore, in response to the business’ needs.  We then make staffing adjustments as the project and business needs evolve."}
+    {
+      "offset": 0.5,
+      "sticky": { "start": 1.5, "end": 2 },
+      "heading": "Strategic Business Partner, Not Just an IT Vendor",
+      "body": "We prioritize establishing a strategic business partnership with our clients.  Our commitment to long-term relationships allows us to develop enterprise-grade solutions, incrementally.  This approach accelerates our partners’ growth compared to traditional development methods."
+    },
+    {
+      "offset": 2.5,
+      "sticky": { "start": 2.5, "end": 3 },
+      "heading": "Project Execution – On Time & On Budget",
+      "body": "Our entrepreneurial mindset and experience ensure timely and budget conscious project delivery.  We take pride in identifying efficient solutions and implementing them quickly."
+    },
+    {
+      "offset": 3.5,
+      "sticky": { "start": 3.5, "end": 4 },
+      "heading": "Resource Flexibility",
+      "body": "Our approach to staffing is both dedicated and flexible at the same time.  Our model allows us to staff projects with the right resources, either onshore or offshore, in response to the business’ needs.  We then make staffing adjustments as the project and business needs evolve."
+    }
   ]
 }

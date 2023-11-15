@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { useTransition, animated } from "@react-spring/web";
+import { ParallaxLayer } from "@react-spring/parallax";
 
 import Trail from "../trail/Trail";
 import Container from "../container/Container";
@@ -41,24 +42,28 @@ const Hero = ({ data = [1] }) => {
           </div>
         </div>
         <div className="flex lg:w-1/2 max-xs:hidden">
-          <div className="absolute top-28 right-[calc(28rem)]">
-            <Image
-              priority
-              src={bracketLeft}
-              height={90}
-              width={200}
-              alt="Follow us on Twitter"
-            />
-          </div>
-          <div className="absolute top-52 right-52">
-            <Image
-              priority
-              src={bracketRight}
-              height={90}
-              width={200}
-              alt="Follow us on Twitter"
-            />
-          </div>
+          <ParallaxLayer offset={0} speed={1.3}>
+            <div className="absolute top-28 right-[calc(28rem)]">
+              <Image
+                priority
+                src={bracketLeft}
+                height={90}
+                width={200}
+                alt="Follow us on Twitter"
+              />
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer offset={0} speed={1}>
+            <div className="absolute top-52 right-52">
+              <Image
+                priority
+                src={bracketRight}
+                height={90}
+                width={200}
+                alt="Follow us on Twitter"
+                />
+            </div>
+          </ParallaxLayer>
         </div>
       </div>
       <div className="flex justify-center items-center">

@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { useSpringRef } from "@react-spring/web";
 import { isMobile } from "react-device-detect";
@@ -11,13 +12,10 @@ import Slider from "../src/components/slider/Slider";
 import ContactForm from "../src/components/contactForm/ContactForm";
 
 // Site Images
-import teamFocus from "../public/focus.jpg";
 import handShake from "../public/handshake-white.svg";
-import teamTopDown from "../public/team.jpg";
 import jeffPhoto from "../public/jeff.jpeg";
 import bharatPhoto from "../public/bharat.jpg";
 import noprofile from "../public/noprofile.png";
-import teamMeeting from "../public/team-meeting.jpg";
 
 // Site Copy
 import focusContent from "../public/focuses.json";
@@ -63,7 +61,8 @@ export default function Home() {
   return (
     <main>
       <Navigation />
-      <Hero />
+      {/* <Hero /> */}
+      <Scroll />
       {/* <section className="flex flex-col bg-groupBlue w-screen h-screen max-sm:h-screen pb-10 max-sm:py-16">
         <div>
           <h2 className="text-white font-semibold lg:text-7xl md:text-7xl max-sm:text-5xl mb-10">
@@ -214,7 +213,7 @@ export default function Home() {
         title={"Our Focus"}
         isMobile={isMobile}
       />
-       <HalfImage
+      <HalfImage
         anchorId={"industry_experience"}
         imageSide={"left"}
         data={industryExperience.experiences}
