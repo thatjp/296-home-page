@@ -44,7 +44,11 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
       className="place-content-start flex lg:px-40 md:py-[50%] mt-auto sm:px-40 max-sm:px-10 lg:py-96 max-sm:py-40"
       sticky={sticky}
     >
-      <animated.div ref={imgRef} style={imgSprings} className="pr-10 py-10 max-sm:hidden">
+      <animated.div
+        ref={imgRef}
+        style={imgSprings}
+        className="pr-10 py-10 max-sm:hidden"
+      >
         <Image
           priority
           src={imageSrc}
@@ -54,11 +58,19 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
           color="white"
         />
       </animated.div>
-      <div className="flex flex-col max-sm:mt-20 text-left">
-        <animated.h3 style={springs} ref={ref} className="text-white md:text-4xl lg:text-6xl max-sm:text-3xl lg:w-1/2">
+      <div className="flex flex-col max-sm:mt-20 text-left w-[50%]">
+        <animated.h3
+          style={springs}
+          ref={ref}
+          className="text-white md:text-4xl lg:text-6xl max-sm:text-3xl"
+        >
           {heading}
         </animated.h3>
-        <animated.p style={springs} ref={ref} className="font-body text-white lg:text-2xl md:text-xl sm:text-lg my-6">
+        <animated.p
+          style={springs}
+          ref={ref}
+          className="font-body text-white lg:text-2xl md:text-xl sm:text-lg my-6"
+        >
           {body}
         </animated.p>
       </div>

@@ -35,7 +35,7 @@ const Hero = ({ data = [1] }) => {
               specializes in helping start-ups and emerging business ventures
               launch, scale and grow rapidly.
             </p>
-            <div className="flex flex-row justify-between w-4/5 lg:w-4/5 max-sm:w-full md:w-1/2 max-sm:justify-between">
+            <div className="flex flex-row justify-between w-4/5 lg:w-4/5 max-sm:w-full md:w-3/4 max-sm:justify-between">
               <Button text="Our Work" type="primary" link="#case-studies" />
               <Button text="Contact Us" type="secondary" link="#contact" />
             </div>
@@ -43,7 +43,7 @@ const Hero = ({ data = [1] }) => {
         </div>
         <div className="flex lg:w-1/2 max-xs:hidden">
           <ParallaxLayer offset={0} speed={1.3}>
-            <div className="absolute top-28 right-[calc(28rem)]">
+            <div className="absolute top-28 right-[calc(28rem)] ">
               <Image
                 priority
                 src={bracketLeft}
@@ -61,7 +61,7 @@ const Hero = ({ data = [1] }) => {
                 height={90}
                 width={200}
                 alt="Follow us on Twitter"
-                />
+              />
             </div>
           </ParallaxLayer>
         </div>
