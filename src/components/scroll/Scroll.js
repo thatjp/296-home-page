@@ -20,7 +20,7 @@ const Scroll = () => {
 
   return (
     <div className="h-screen bg-groupBlue">
-      <Parallax pages={5} enabled={true}>
+      <Parallax pages={7} enabled={true}>
         <ParallaxLayer className="bg-groupWhite">
           <Hero />
         </ParallaxLayer>
@@ -50,6 +50,14 @@ const Scroll = () => {
             />
           );
         })}
+        <ParallaxLayer offset={6} className="bg-groupWhite">
+          <div
+            className="h-[calc(100vh/2)]"
+            style={{
+              backgroundImage: `linear-gradient(to bottom, rgba(57, 139, 249, 1), rgba(255, 255, 255, 0.0))`,
+            }}
+          ></div>
+        </ParallaxLayer>
       </Parallax>
     </div>
   );

@@ -58,7 +58,7 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
           color="white"
         />
       </animated.div>
-      <div className="flex flex-col max-sm:mt-20 text-left w-[50%]">
+      <div className="flex flex-col max-sm:mt-20 text-left md:w-[50%]">
         <animated.h3
           style={springs}
           ref={ref}
