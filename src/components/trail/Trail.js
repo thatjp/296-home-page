@@ -1,12 +1,12 @@
 import React from "react";
-import { useTrail, a } from "@react-spring/web";
+import { useTrail, a, config } from "@react-spring/web";
 
 import styles from "./styles.module.css";
 
-const Trail = ({ open, children }) => {
+const Trail = ({ open, children, size }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 400 },
+    config: { mass: 5, tension: 1000, friction: 200 },
     opacity: open ? 1 : 0,
     y: open ? 0 : 40,
     x: 0,
@@ -15,6 +15,7 @@ const Trail = ({ open, children }) => {
     delay: 250,
     from: { opacity: 0, x: 0, height: 0, width: 0 },
   });
+
   return (
     <div>
       {trail.map(({ height, width, ...style }, index) => (

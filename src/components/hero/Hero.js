@@ -18,17 +18,15 @@ const Hero = () => {
   const [leftRef, leftSprings] = useInView(
     () => ({
       from: {
-        // opacity: 0.25,
-        x: -900,
+        x: -1000,
       },
       to: {
-        opacity: 1,
         x: 0,
       },
       config: {
-        mass: 5,
-        friction: 175,
-        tension: 300,
+        mass: 20,
+        friction: 250,
+        tension: 400,
       },
     }),
     { once: true, loop: true }
@@ -36,11 +34,9 @@ const Hero = () => {
 
   const [rightRef, rightSprings] = useInView(() => ({
     from: {
-      // opacity: 0.25,
       x: -900,
     },
     to: {
-      opacity: 1,
       x: 0,
     },
     config: {
@@ -52,10 +48,7 @@ const Hero = () => {
 
   return (
     <Container type="full">
-      {/* <div className="flex-col justify-center md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)]"> */}
-        <div
-        className="flex-col justify-center md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)] lg:flex-row"
-      >
+      <div className="flex-col justify-center md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)] lg:flex-row">
         <div className="lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
           <Trail open={true}>
             <span>Launch</span>
@@ -80,7 +73,6 @@ const Hero = () => {
               ref={leftRef}
               style={leftSprings}
               className="absolute top-20 right-[25%]"
-              // className="absolute top-20 right-[50%]"
             >
               <Image
                 priority
@@ -96,7 +88,6 @@ const Hero = () => {
               ref={rightRef}
               style={rightSprings}
               className="absolute top-36 right-[10%]"
-              // className="absolute top-20 right-[50%]"
             >
               <Image
                 priority

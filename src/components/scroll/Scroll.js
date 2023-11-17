@@ -1,18 +1,16 @@
-import React, { useEffect, useRef } from "react";
-import Image from "next/image";
+import React from "react";
 import Hero from "../hero/Hero";
 import ScrollLayer from "../scrollLayer/ScrollLayer";
-import { useScroll, animated, useSpring } from "@react-spring/web";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 import differences from "../../../public/differences.json";
 
 import handShake from "../../../public/handshake-white.svg";
 
-const Scroll = () => {
+const Scroll = ({ children }) => {
   return (
     <div className="h-screen bg-groupBlue">
-      <Parallax pages={7} enabled={true}>
+      <Parallax pages={6} enabled={true}>
         <ParallaxLayer className="bg-groupWhite">
           <Hero />
         </ParallaxLayer>
@@ -41,15 +39,8 @@ const Scroll = () => {
             />
           );
         })}
-        <ParallaxLayer offset={6} className="bg-groupWhite">
-          <div
-            className="h-[calc(100vh/2)]"
-            style={{
-              backgroundImage: `linear-gradient(to bottom, rgba(57, 139, 249, 1), rgba(255, 255, 255, 0.0))`,
-            }}
-          ></div>
-        </ParallaxLayer>
       </Parallax>
+      {children}
     </div>
   );
 };

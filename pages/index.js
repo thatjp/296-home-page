@@ -31,7 +31,7 @@ import HalfImage from "@/components/halfImage/halfImage";
 
 import FirstSessionContext from "../src/components/context/FirstSessionContext";
 
-import styles from './styles.module.css'
+import styles from "./styles.module.css";
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
@@ -74,70 +74,85 @@ export default function Home() {
     <main>
       <FirstSessionContext.Provider value={isFirstSession}>
         <Navigation />
-        <Scroll />
-        <HalfImage
-          anchorId={"what_we_do"}
-          imageSide={"left"}
-          data={services.services}
-          title={"What We Do"}
-          isMobile={isMobile}
-        />
-        <HalfImage
-          anchorId={"our_focus"}
-          imageSide={"right"}
-          data={focusContent.focuses}
-          title={"Our Focus"}
-          isMobile={isMobile}
-        />
-        <HalfImage
-          anchorId={"industry_experience"}
-          imageSide={"left"}
-          data={industryExperience.experiences}
-          title={"Industry Experience"}
-          isMobile={isMobile}
-        />
-        <Container>
-          <div id="our_team" className="anchor"></div>
-          <div className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative my-24">
-            <div className="my-10">
-              <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
-                Our <span className="text-groupBlue">Team</span>
-              </h2>
-              <span className="block w-40 max-sm:w-52 border-y-2 border-groupBlack my-61"></span>
+        <Scroll>
+          <div
+            className="h-screen"
+            style={{
+              backgroundImage: `linear-gradient(to bottom, rgba(57, 139, 249, 1), rgba(255, 255, 255, 0.0))`,
+            }}
+          ></div>
+          <HalfImage
+            anchorId={"what_we_do"}
+            imageSide={"left"}
+            data={services.services}
+            title={"What We Do"}
+            isMobile={isMobile}
+          />
+          <HalfImage
+            anchorId={"our_focus"}
+            imageSide={"right"}
+            data={focusContent.focuses}
+            title={"Our Focus"}
+            isMobile={isMobile}
+          />
+          <HalfImage
+            anchorId={"industry_experience"}
+            imageSide={"left"}
+            data={industryExperience.experiences}
+            title={"Industry Experience"}
+            isMobile={isMobile}
+          />
+          <Container>
+            <div id="our_team" className="anchor"></div>
+            <div className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative my-24">
+              <div className="my-10">
+                <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
+                  Our <span className="text-groupBlue">Team</span>
+                </h2>
+                <span className="block w-40 max-sm:w-52 border-y-2 border-groupBlack my-61"></span>
+              </div>
+              <div className="md:hidden">
+                <Slider data={team.team} />
+              </div>
+              <ul className="flex flex-row space-x-5 max-sm:hidden">
+                {team.team.map((member, idx) => {
+                  return (
+                    <li key={idx} className="w-1/3">
+                      <div
+                        className="rounded-xl"
+                        style={{
+                          backgroundImage: `url(${selectProfilePicture(
+                            member
+                          )})`,
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "100%",
+                          width: "100%",
+                          height: "400px",
+                        }}
+                      ></div>
+                      <div className="my-3">
+                        <h2 className="text-groupBlue text-2xl">
+                          {member.name}
+                        </h2>
+                        <p className="text-xl">{member.position}</p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-            <div className="md:hidden">
-              <Slider data={team.team} />
-            </div>
-            <ul className="flex flex-row space-x-5 max-sm:hidden">
-              {team.team.map((member, idx) => {
-                return (
-                  <li key={idx} className="w-1/3">
-                    <div
-                      className="rounded-xl"
-                      style={{
-                        backgroundImage: `url(${selectProfilePicture(member)})`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "100%",
-                        width: "100%",
-                        height: "400px",
-                      }}
-                    ></div>
-                    <div className="my-3">
-                      <h2 className="text-groupBlue text-2xl">{member.name}</h2>
-                      <p className="text-xl">{member.position}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </Container>
-        <section
-          id="case-studies"
-          className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh)] relative"
-        >
-          <div id="case-studies" className="anchor"></div>
-            <Parallax ref={parallax} pages={3} horizontal className={styles.container}>
+          </Container>
+          <section
+            id="case-studies"
+            className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh)] relative"
+          >
+            <div id="case-studies" className="anchor"></div>
+            <Parallax
+              ref={parallax}
+              pages={3}
+              horizontal
+              className={styles.container}
+            >
               {caseStudies.studies.map((study, idx) => {
                 return (
                   <CaseStudies
@@ -150,26 +165,27 @@ export default function Home() {
                 );
               })}
             </Parallax>
-        </section>
-        <section className="flex bg-groupBlue w-full lg:px-40 py-28 max-md:py-10 max-sm:py-16 max-sm:px-4">
-          <div id="contact" className="anchor"></div>
-          <div className="flex flex-row max-sm:flex-col max-sm:place-content-center h-[calc(100vh/1.6)] relative my-7 justify-evenly">
-            <div className="w-1/2 max-sm:w-full m-auto max-sm:px-10">
-              <h1 className="font-semibold lg:text-8xl md:text-7xl max-sm:text-5xl text-white">
-                Contact Us!
-              </h1>
-              <h2 className="text-white font-semibold lg:text-6xl md:text-3xl max-sm:text-2xl my-10">
-                We’re here to help you reach all of your technical goals!
-              </h2>
+          </section>
+          <section className="flex bg-groupBlue w-full lg:px-40 py-28 max-md:py-10 max-sm:py-16 max-sm:px-4">
+            <div id="contact" className="anchor"></div>
+            <div className="flex flex-row max-sm:flex-col max-sm:place-content-center h-[calc(100vh/1.6)] relative my-7 justify-evenly">
+              <div className="w-1/2 max-sm:w-full m-auto max-sm:px-10">
+                <h1 className="font-semibold lg:text-8xl md:text-7xl max-sm:text-5xl text-white">
+                  Contact Us!
+                </h1>
+                <h2 className="text-white font-semibold lg:text-6xl md:text-3xl max-sm:text-2xl my-10">
+                  We’re here to help you reach all of your technical goals!
+                </h2>
+              </div>
+              <div className="w-1/2 max-sm:w-full px-10 m-auto">
+                <ContactForm />
+              </div>
             </div>
-            <div className="w-1/2 max-sm:w-full px-10 m-auto">
-              <ContactForm />
-            </div>
-          </div>
-        </section>
-        <footer className="w-full h-12 bg-slate-50 flex justify-center place-items-center">
-          <p>Copyright © 296 Group Inc. 2023</p>
-        </footer>
+          </section>
+          <footer className="w-full h-12 bg-slate-50 flex justify-center place-items-center">
+            <p>Copyright © 296 Group Inc. 2023</p>
+          </footer>
+        </Scroll>
       </FirstSessionContext.Provider>
     </main>
   );
