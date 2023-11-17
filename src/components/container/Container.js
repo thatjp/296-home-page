@@ -1,5 +1,4 @@
 import React from "react";
-import { useParallax } from "react-scroll-parallax";
 
 const Container = ({ children, type, border=false }) => {
   return (
