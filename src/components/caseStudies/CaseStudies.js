@@ -1,14 +1,14 @@
-import React, { useRef } from "react";
-import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
+import React from "react";
+import { ParallaxLayer } from "@react-spring/parallax";
 import styles from "./styles.module.css";
 
 const CaseStudies = ({ offset, gradient, onClick, data }) => (
   <>
-    <ParallaxLayer offset={offset} speed={0.2} onClick={onClick}>
+    <ParallaxLayer offset={offset} speed={0.2} onClick={() => onClick()}>
       <div className={styles.slopeBegin} />
     </ParallaxLayer>
 
-    <ParallaxLayer offset={offset} speed={0.6} onClick={onClick}>
+    <ParallaxLayer offset={offset} speed={0.6} onClick={() => onClick()}>
       <div className={`${styles.slopeEnd} ${styles[gradient]}`} />
     </ParallaxLayer>
 
@@ -19,7 +19,7 @@ const CaseStudies = ({ offset, gradient, onClick, data }) => (
     >
       <span>0{offset + 1}</span>
     </ParallaxLayer>
-    <ParallaxLayer offset={offset} speed={0.3}>
+    <ParallaxLayer offset={offset} speed={0.3} onClick={() => onClick()}>
       <div className="w-1/2 max-sm:w-screen">
         <h2 className="text-slate-200 lg:text-6xl md:text-5xl max-sm:text-5xl">
           {data.company}

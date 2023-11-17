@@ -39,7 +39,14 @@
   cursor: pointer;
 }
 
-.teal {
-  background: linear-gradient(to bottom, #fafafa, #398BF9 100%);
+.pink {
+  background: linear-gradient(to right, deeppink 0%, coral 100%);
 }
 
+.teal {
+  background: linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%);
+}
+
+.tomato {
+  background: linear-gradient(to right, tomato 0%, gold 100%);
+}

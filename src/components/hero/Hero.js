@@ -18,17 +18,17 @@ const Hero = () => {
   const [leftRef, leftSprings] = useInView(
     () => ({
       from: {
-        // opacity: 0,
-        x: 0,
+        // opacity: 0.25,
+        x: -900,
       },
       to: {
         opacity: 1,
-        x: -500,
+        x: 0,
       },
       config: {
         mass: 5,
-        friction: 75,
-        tension: 200,
+        friction: 175,
+        tension: 300,
       },
     }),
     { once: true, loop: true }
@@ -36,26 +36,26 @@ const Hero = () => {
 
   const [rightRef, rightSprings] = useInView(() => ({
     from: {
-      // opacity: 0,
-      x: 0,
+      // opacity: 0.25,
+      x: -900,
     },
     to: {
       opacity: 1,
-      x: 600,
+      x: 0,
     },
     config: {
       mass: 5,
-      friction: 75,
-      tension: 200,
+      friction: 175,
+      tension: 400,
     },
   }));
 
   return (
     <Container type="full">
-      <div className="flex-col justify-center md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)]">
-        {/* <div
+      {/* <div className="flex-col justify-center md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)]"> */}
+        <div
         className="flex-col justify-center md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)] lg:flex-row"
-      ></div> */}
+      >
         <div className="lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
           <Trail open={true}>
             <span>Launch</span>
@@ -74,19 +74,19 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="flex lg:w-1/2 max-lg:invisible">
+        <div className="lg:w-1/2 max-lg:invisible">
           <ParallaxLayer offset={0} speed={1.3}>
             <animated.div
               ref={leftRef}
               style={leftSprings}
-              // className="absolute top-20 right-[calc(32rem)] "
-              className="absolute top-20 right-[50%]"
+              className="absolute top-20 right-[25%]"
+              // className="absolute top-20 right-[50%]"
             >
               <Image
                 priority
                 src={bracketLeft}
                 height={90}
-                width={220}
+                width={200}
                 alt="right"
               />
             </animated.div>
@@ -95,14 +95,14 @@ const Hero = () => {
             <animated.div
               ref={rightRef}
               style={rightSprings}
-              // className="absolute top-36"
-              className="absolute top-20 right-[50%]"
+              className="absolute top-36 right-[10%]"
+              // className="absolute top-20 right-[50%]"
             >
               <Image
                 priority
                 src={bracketRight}
                 height={90}
-                width={220}
+                width={200}
                 alt="left"
               />
             </animated.div>

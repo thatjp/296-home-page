@@ -5,6 +5,7 @@ import Trail from "../trail/Trail";
 import { useInView, animated } from "@react-spring/web";
 
 const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
+
   const [ref, springs] = useInView(
     () => ({
       from: {
@@ -15,9 +16,16 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
         opacity: 1,
         y: 0,
       },
+      onStart: {
+        // onStart is called for each key when the animation starts
+        y: () => console.log('y key has started'),
+      },
+      onPause: {
+        y: () => console.log('y key has paused'),
+      }
     }),
     {
-      rootMargin: "-20% 0%",
+      rootMargin: "10% 0%",
     }
   );
 
@@ -33,7 +41,7 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
       },
     }),
     {
-      rootMargin: "-30% 0%",
+      rootMargin: "-20% 0%",
     }
   );
 
@@ -41,7 +49,7 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
     <ParallaxLayer
       offset={offset}
       speed={1.5}
-      className="place-content-start flex lg:px-40 md:py-[50%] mt-auto sm:px-40 max-sm:px-10 lg:py-96 max-sm:py-40"
+      className="place-content-start flex lg:px-40 mt-auto sm:px-40 max-sm:px-10 lg:py-[23rem] max-sm:py-40"
       sticky={sticky}
     >
       <animated.div
@@ -53,23 +61,23 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
           priority
           src={imageSrc}
           height={400}
-          width={300}
+          width={200}
           alt="Follow us on Twitter"
           color="white"
         />
       </animated.div>
-      <div className="flex flex-col max-sm:mt-20 text-left md:w-[50%]">
+      <div className="flex flex-col max-sm:mt-20 text-left md:w-[75%]">
         <animated.h3
           style={springs}
           ref={ref}
-          className="text-white md:text-4xl lg:text-6xl max-sm:text-3xl"
+          className="text-white md:text-4xl lg:text-5xl max-sm:text-3xl"
         >
           {heading}
         </animated.h3>
         <animated.p
           style={springs}
           ref={ref}
-          className="font-body text-white lg:text-2xl md:text-xl sm:text-lg my-6"
+          className="font-body text-white lg:text-xl md:text-xl sm:text-lg my-6"
         >
           {body}
         </animated.p>

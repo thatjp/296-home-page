@@ -29,7 +29,9 @@ import "../src/app/globals.css";
 import CaseStudies from "@/components/caseStudies/CaseStudies";
 import HalfImage from "@/components/halfImage/halfImage";
 
-import FirstSessionContext from '../src/components/context/FirstSessionContext'
+import FirstSessionContext from "../src/components/context/FirstSessionContext";
+
+import styles from './styles.module.css'
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
@@ -135,26 +137,19 @@ export default function Home() {
           className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh)] relative"
         >
           <div id="case-studies" className="anchor"></div>
-          <div style={{ background: "#dfdfdf" }}>
-            <Parallax
-              // className={styles.container}
-              ref={parallax}
-              pages={3}
-              horizontal
-            >
+            <Parallax ref={parallax} pages={3} horizontal className={styles.container}>
               {caseStudies.studies.map((study, idx) => {
                 return (
                   <CaseStudies
                     key={idx}
                     offset={idx}
                     gradient="teal"
-                    onClick={() => scroll(idx)}
+                    onClick={() => scroll(idx + 1)}
                     data={study}
                   />
                 );
               })}
             </Parallax>
-          </div>
         </section>
         <section className="flex bg-groupBlue w-full lg:px-40 py-28 max-md:py-10 max-sm:py-16 max-sm:px-4">
           <div id="contact" className="anchor"></div>

@@ -5,19 +5,11 @@ import ScrollLayer from "../scrollLayer/ScrollLayer";
 import { useScroll, animated, useSpring } from "@react-spring/web";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
-import styles from "./styles.module.css";
-
 import differences from "../../../public/differences.json";
 
 import handShake from "../../../public/handshake-white.svg";
 
 const Scroll = () => {
-  const alignCenter = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "left",
-  };
-
   return (
     <div className="h-screen bg-groupBlue">
       <Parallax pages={7} enabled={true}>
@@ -26,15 +18,14 @@ const Scroll = () => {
         </ParallaxLayer>
 
         <ParallaxLayer
-          sticky={{ start: 1, end: 4 }}
-          className="lg:px-40 md:px-32 sm:py-52 max-sm:py-10 max-sm:px-10"
-          style={{ ...alignCenter, justifyContent: "flex-start" }}
+          sticky={{ start: 1, end: 5 }}
+          className="lg:px-40 md:px-32 sm:py-20 max-sm:py-10 max-sm:px-10 flex flex-col justify-start"
         >
           <div>
             <h2 className="text-white font-semibold lg:text-8xl md:text-7xl max-sm:text-4xl mb-10 mx-sm:m-4">
               Why is 296 Group Different?
             </h2>
-            <span className="block w-3/5 border-y-2"></span>
+            <span className="block w-[75%] border-y-2"></span>
           </div>
         </ParallaxLayer>
 
