@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
-import { useTransition, animated } from "@react-spring/web";
+import { useTransition, animated, useInView } from "@react-spring/web";
 import { ParallaxLayer } from "@react-spring/parallax";
 
 import Trail from "../trail/Trail";
@@ -10,19 +10,52 @@ import chevron from "../../../public/296-Chevron.svg";
 import bracketLeft from "../../../public/bracket-left.svg";
 import bracketRight from "../../../public/bracket-right.svg";
 
-import styles from "../../app/Animation.module.css";
+import FirstSessionContext from "../context/FirstSessionContext";
 
-const Hero = ({ data = [1] }) => {
-  const [transitions, api] = useTransition(data, () => ({
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
+const Hero = () => {
+  let isFirstSession = useContext(FirstSessionContext);
+
+  const [leftRef, leftSprings] = useInView(
+    () => ({
+      from: {
+        // opacity: 0,
+        x: 0,
+      },
+      to: {
+        opacity: 1,
+        x: -500,
+      },
+      config: {
+        mass: 5,
+        friction: 75,
+        tension: 200,
+      },
+    }),
+    { once: true, loop: true }
+  );
+
+  const [rightRef, rightSprings] = useInView(() => ({
+    from: {
+      // opacity: 0,
+      x: 0,
+    },
+    to: {
+      opacity: 1,
+      x: 600,
+    },
+    config: {
+      mass: 5,
+      friction: 75,
+      tension: 200,
+    },
   }));
-  return transitions((style, item) => (
+
+  return (
     <Container type="full">
-      <div
-        className={`md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)] lg:flex-row`}
-      >
+      <div className="flex-col justify-center md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)]">
+        {/* <div
+        className="flex-col justify-center md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)] lg:flex-row"
+      ></div> */}
         <div className="lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
           <Trail open={true}>
             <span>Launch</span>
@@ -43,26 +76,36 @@ const Hero = ({ data = [1] }) => {
         </div>
         <div className="flex lg:w-1/2 max-lg:invisible">
           <ParallaxLayer offset={0} speed={1.3}>
-            <div className="absolute top-28 right-[calc(28rem)] ">
+            <animated.div
+              ref={leftRef}
+              style={leftSprings}
+              // className="absolute top-20 right-[calc(32rem)] "
+              className="absolute top-20 right-[50%]"
+            >
               <Image
                 priority
                 src={bracketLeft}
                 height={90}
-                width={200}
-                alt="Follow us on Twitter"
+                width={220}
+                alt="right"
               />
-            </div>
+            </animated.div>
           </ParallaxLayer>
           <ParallaxLayer offset={0} speed={1}>
-            <div className="absolute top-52 right-52">
+            <animated.div
+              ref={rightRef}
+              style={rightSprings}
+              // className="absolute top-36"
+              className="absolute top-20 right-[50%]"
+            >
               <Image
                 priority
                 src={bracketRight}
                 height={90}
-                width={200}
-                alt="Follow us on Twitter"
+                width={220}
+                alt="left"
               />
-            </div>
+            </animated.div>
           </ParallaxLayer>
         </div>
       </div>
@@ -76,7 +119,7 @@ const Hero = ({ data = [1] }) => {
         />
       </div>
     </Container>
-  ));
+  );
 };
 
 export default Hero;
