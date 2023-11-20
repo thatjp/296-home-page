@@ -38,7 +38,7 @@ const CaseStudies = ({ offset, gradient, onClick, data }) => (
             {data.technologies.map((tech, idx) => {
               return (
                 <div key={idx} className="w-1/3 p-2">
-                  <p className="test text-slate-200">{tech}</p>
+                  <p className="text-slate-200">{tech}</p>
                 </div>
               );
             })}

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { ParallaxLayer } from "@react-spring/parallax";
-import Trail from "../trail/Trail";
-import { useInView, animated } from "@react-spring/web";
+import { useInView, animated, SpringValue } from "@react-spring/web";
 
 const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
+
+  const [isPaused, setIsPaused] = useState(false)
+
   const [ref, springs] = useInView(
     () => ({
       from: {
@@ -16,17 +18,20 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
         y: 0,
       },
       onStart: {
-        // onStart is called for each key when the animation starts
-        y: () => console.log("y key has started"),
-      },
-      onPause: {
-        y: () => console.log("y key has paused"),
+        y: () => console.log("y key has started", ref.current, springs),
       },
     }),
     {
       rootMargin: "10% 0%",
     }
   );
+
+  /*--------------------------------------------------
+  hasStopped = true if y === 0
+
+  on anim start -> go down y axis and change opacity
+
+  --------------------------------------------------*/
 
   const [imgRef, imgSprings] = useInView(
     () => ({
@@ -48,7 +53,7 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
     <ParallaxLayer
       offset={offset}
       speed={1.5}
-      className="place-content-start flex flex-col lg:px-30 mt-auto sm:px-40 max-sm:px-10 lg:py-[23rem] max-sm:py-40"
+      className="z-[-10] place-content-start flex flex-col lg:px-30 mt-auto sm:px-40 max-sm:px-10 lg:py-[23rem] max-sm:py-40"
       sticky={sticky}
     >
       <div className="flex flex-row">

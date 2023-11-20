@@ -12,6 +12,7 @@ const HalfImage = ({
   title = "",
   isMobile = false,
 }) => {
+  
   const [ref, springs] = useInView(
     () => ({
       from: {

@@ -1,10 +1,8 @@
-import { useRef, useEffect, useState, createContext, useContext } from "react";
-import Image from "next/image";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { useRef, useEffect, useState } from "react";
+import { Parallax } from "@react-spring/parallax";
 import { useSpringRef } from "@react-spring/web";
 import { isMobile } from "react-device-detect";
 
-import Hero from "@/components/hero/Hero";
 import Scroll from "@/components/scroll/Scroll";
 import Navigation from "../src/components/navigation/Navigation";
 import Container from "../src/components/container/Container";
@@ -12,7 +10,6 @@ import Slider from "../src/components/slider/Slider";
 import ContactForm from "../src/components/contactForm/ContactForm";
 
 // Site Images
-import handShake from "../public/handshake-white.svg";
 import jeffPhoto from "../public/jeff.jpeg";
 import bharatPhoto from "../public/bharat.jpg";
 import noprofile from "../public/noprofile.png";
@@ -75,6 +72,7 @@ export default function Home() {
       <FirstSessionContext.Provider value={isFirstSession}>
         <Navigation />
         <Scroll>
+          </Scroll>
           <div
             className="h-screen"
             style={{
@@ -102,6 +100,7 @@ export default function Home() {
             title={"Industry Experience"}
             isMobile={isMobile}
           />
+          
           <Container>
             <div id="our_team" className="anchor"></div>
             <div className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative my-24">
@@ -185,7 +184,6 @@ export default function Home() {
           <footer className="w-full h-12 bg-slate-50 flex justify-center place-items-center">
             <p>Copyright © 296 Group Inc. 2023</p>
           </footer>
-        </Scroll>
       </FirstSessionContext.Provider>
     </main>
   );
