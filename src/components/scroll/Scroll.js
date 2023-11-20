@@ -19,7 +19,7 @@ const Scroll = ({ children }) => {
           sticky={{ start: 1, end: 5 }}
           className="lg:px-40 md:px-32 sm:py-20 max-sm:py-10 max-sm:px-10 flex flex-col justify-start"
         >
-          <div>
+          <div id="our_difference">
             <h2 className="text-white font-semibold lg:text-8xl md:text-7xl max-sm:text-4xl mb-10 mx-sm:m-4">
               Why is 296 Group Different?
             </h2>

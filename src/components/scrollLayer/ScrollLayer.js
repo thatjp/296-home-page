@@ -4,8 +4,6 @@ import { ParallaxLayer } from "@react-spring/parallax";
 import Trail from "../trail/Trail";
 import { useInView, animated } from "@react-spring/web";
 
-import squaresPattern from "../../../public/squares-pattern-1.svg";
-
 const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
   const [ref, springs] = useInView(
     () => ({

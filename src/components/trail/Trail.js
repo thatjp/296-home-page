@@ -19,9 +19,13 @@ const Trail = ({ open, children, size }) => {
   return (
     <div>
       {trail.map(({ height, width, ...style }, index) => (
-        <a.div key={index} className={styles.trailsText + " max-sm:h-[100px]"} style={style}>
+        <a.div
+          key={index}
+          className={styles.trailsText + " max-sm:h-[100px]"}
+          style={style}
+        >
           <a.div style={{ width }}>
-            <h1 className="font-heading font-semibold sm:text-9xl max-sm:text-8xl max-sm:text-left max-sm:absolute max-sm:bottom-0">
+            <h1 className="font-heading font-semibold xl:text-7xl 2xl:text-9xl sm:text-8xl max-sm:text-8xl max-sm:text-left max-sm:absolute max-sm:bottom-0">
               {items[index]}
             </h1>
           </a.div>
