@@ -28,12 +28,18 @@ const HalfImage = ({
     }
   );
 
-  const createHighlightedTitle = (title) => {
+  const createHighlightedTitle = (title, isAlignedRight) => {
     const plainWords = title.split(" ").slice(0, -1).join(" ");
     const blueWord = title.split(" ").slice(-1)[0];
 
     return (
-      <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl">
+      <h2
+        className={
+          isAlignedRight
+            ? "text-right text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
+            : "text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
+        }
+      >
         {plainWords} <span className="text-groupBlue">{blueWord}</span>
       </h2>
     );
@@ -115,7 +121,11 @@ const HalfImage = ({
           className="flex flex-row max-sm:flex-col h-[calc(100vh/1.6)] max-sm:h-screen relative my-24"
         >
           <div className="w-1/2"></div>
-          {!isMobile ? handleMobileImage(anchorId) :  <div className="hidden"></div>}
+          {!isMobile ? (
+            handleMobileImage(anchorId)
+          ) : (
+            <div className="hidden"></div>
+          )}
           <div className="flex flex-col max-sm:relative absolute top-10">
             {createHighlightedTitle(title)}
             <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
@@ -133,7 +143,11 @@ const HalfImage = ({
               </ul>
             </ul>
           </div>
-          {isMobile ? handleMobileImage(anchorId) : <div className="hidden"></div>}
+          {isMobile ? (
+            handleMobileImage(anchorId)
+          ) : (
+            <div className="hidden"></div>
+          )}
         </animated.div>
       )}
     </Container>

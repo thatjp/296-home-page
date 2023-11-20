@@ -18,12 +18,12 @@
 }
 
 .number span {
-  display: inline-block;
+  display: none;
   position: relative;
 }
 
 .slopeBegin {
-  background-color: #20232f;
+  background-color: #398BF9;
   clip-path: polygon(20% 0, 70% 0, 50% 100%, 0% 100%);
 }
 
@@ -40,6 +40,6 @@
 }
 
 .teal {
-  background: linear-gradient(to bottom, #fafafa, #398BF9 100%);
+  background: linear-gradient(to right, #fafafa, #398BF9 100%);
 }
 

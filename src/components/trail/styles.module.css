@@ -1,6 +1,6 @@
 .trailsText {
   position: relative;
-  /* width: 100%; */
+  width: 100%;
   color: black;
   will-change: transform, opacity;
   overflow: hidden;

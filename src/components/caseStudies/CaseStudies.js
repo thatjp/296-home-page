@@ -1,6 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import { ParallaxLayer } from "@react-spring/parallax";
 import styles from "./styles.module.css";
+import bracketLeft from "../../../public/bracket-left.svg";
 
 const CaseStudies = ({ offset, gradient, onClick, data }) => (
   <>
@@ -17,7 +19,10 @@ const CaseStudies = ({ offset, gradient, onClick, data }) => (
       offset={offset}
       speed={0.3}
     >
-      <span>0{offset + 1}</span>
+      {/* <span>0{offset + 1}</span> */}
+      <h2 className="text-groupWhite mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
+        Case Study {offset + 1}
+      </h2>
     </ParallaxLayer>
     <ParallaxLayer offset={offset} speed={0.3} onClick={() => onClick()}>
       <div className="w-1/2 max-sm:w-screen">
@@ -33,9 +38,7 @@ const CaseStudies = ({ offset, gradient, onClick, data }) => (
             {data.technologies.map((tech, idx) => {
               return (
                 <div key={idx} className="w-1/3 p-2">
-                  <p className="test text-slate-200">
-                    {tech}
-                  </p>
+                  <p className="test text-slate-200">{tech}</p>
                 </div>
               );
             })}

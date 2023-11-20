@@ -49,7 +49,7 @@ const Hero = () => {
   return (
     <Container type="full">
       <div className="flex-col justify-center md:items-center flex max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)] lg:flex-row">
-        <div className="lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
+        <div className="test lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
           <Trail open={true}>
             <span>Launch</span>
             <span>Scale</span>
