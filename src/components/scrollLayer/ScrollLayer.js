@@ -26,13 +26,6 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
     }
   );
 
-  /*--------------------------------------------------
-  hasStopped = true if y === 0
-
-  on anim start -> go down y axis and change opacity
-
-  --------------------------------------------------*/
-
   const [imgRef, imgSprings] = useInView(
     () => ({
       from: {
@@ -56,18 +49,18 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
       className="z-[-10] place-content-start flex flex-col lg:px-30 mt-auto sm:px-40 max-sm:px-10 lg:py-[23rem] max-sm:py-40"
       sticky={sticky}
     >
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center items-center">
         <animated.div
           ref={imgRef}
           style={imgSprings}
-          className="pr-10 py-10 max-sm:hidden"
+          className="pr-10 max-sm:hidden"
         >
           <Image
             priority
             src={imageSrc}
             height={400}
             width={200}
-            alt="Follow us on Twitter"
+            alt={imageSrc}
             color="white"
           />
         </animated.div>

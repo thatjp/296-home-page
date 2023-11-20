@@ -37,7 +37,7 @@ const Scroll = ({ children }) => {
               key={idx}
               heading={difference.heading}
               body={difference.body}
-              imageSrc={handShake}
+              imageSrc={difference.icon}
               sticky={difference.sticky}
             />
           );
