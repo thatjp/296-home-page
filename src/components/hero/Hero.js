@@ -13,7 +13,7 @@ import squares from "../../../public/296-squares.svg";
 
 import FirstSessionContext from "../context/FirstSessionContext";
 
-import logo from "../../../public/296-group-logo.png";
+import logo from "../../../public/296-small-logo.png";
 
 const Hero = () => {
   let isFirstSession = useContext(FirstSessionContext);
@@ -42,7 +42,7 @@ const Hero = () => {
       y: 60,
     },
     to: {
-      x: "70%",
+      x: "73%",
     },
     config: {
       mass: 20,
@@ -58,8 +58,8 @@ const Hero = () => {
       y: -500,
     },
     to: {
-      x: "74%",
-      opacity: "100%"
+      x: "77%",
+      opacity: "100%",
     },
     config: {
       mass: 20,
@@ -70,11 +70,14 @@ const Hero = () => {
 
   return (
     <Container type="full">
-      <div className="flex flex-row justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)]">
+      <div
+        id="home"
+        className="flex flex-row justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)]"
+      >
         <div className="lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
           <Image
             priority
-            src={logo}
+            src={logo.src}
             height={100}
             width={200}
             alt="right"
@@ -99,7 +102,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="lg:w-1/2 max-lg:hidden">
-        <ParallaxLayer offset={0} speed={1.3}>
+        <ParallaxLayer offset={0} speed={1.3} className="absolute -z-10">
           <animated.div ref={leftRef} style={leftSprings}>
             <Image
               priority
@@ -110,7 +113,7 @@ const Hero = () => {
             />
           </animated.div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={1}>
+        <ParallaxLayer offset={0} speed={1} className="absolute -z-10">
           <animated.div ref={rightRef} style={rightSprings}>
             <Image
               priority
@@ -120,15 +123,13 @@ const Hero = () => {
               alt="left"
             />
           </animated.div>
-          <animated.div ref={squaresRef} style={squaresSprings} className="z-10">
-            <Image
-              priority
-              src={squares}
-              height={90}
-              width={180}
-              alt="left"
-            />
-            </animated.div>
+          <animated.div
+            ref={squaresRef}
+            style={squaresSprings}
+            className="z-10"
+          >
+            <Image priority src={squares} height={90} width={180} alt="left" />
+          </animated.div>
         </ParallaxLayer>
       </div>
       <div className="flex justify-center items-center">

@@ -10,13 +10,13 @@ import handShake from "../../../public/handshake-white.svg";
 const Scroll = ({ children }) => {
   return (
     <div className="h-screen bg-groupBlue">
-      <Parallax pages={6} enabled={true}>
+      <Parallax pages={8} enabled={true}>
         <ParallaxLayer className="bg-groupWhite">
           <Hero />
         </ParallaxLayer>
 
         <ParallaxLayer
-          sticky={{ start: 1, end: 5 }}
+          sticky={{ start: 1, end: 3.5 }}
           className="max-sm:py-10 max-sm:px-10 flex flex-col justify-start"
         >
           <div
@@ -42,8 +42,8 @@ const Scroll = ({ children }) => {
             />
           );
         })}
-      </Parallax>
       {children}
+      </Parallax>
     </div>
   );
 };

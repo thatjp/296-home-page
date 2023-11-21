@@ -12,16 +12,15 @@ const HalfImage = ({
   title = "",
   isMobile = false,
 }) => {
-  
   const [ref, springs] = useInView(
     () => ({
       from: {
-        opacity: 0,
-        y: 100,
+        // opacity: 0,
+        // y: 100,
       },
       to: {
-        opacity: 1,
-        y: 0,
+        // opacity: 1,
+        // y: 0,
       },
     }),
     {
@@ -51,19 +50,19 @@ const HalfImage = ({
       case "what_we_do":
         return (
           <div
-            className={`w-[calc(60%)] h-full max-sm:w-full max-sm:bg-team-meeting-mobile sm:bg-team-meeting max-sm:relative rounded-xl`}
+            className={`w-[calc(50%)] h-full max-sm:w-full max-sm:bg-team-meeting-mobile sm:bg-team-meeting max-sm:relative rounded-xl`}
             style={{
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPositionX: "30%",
-              height: "100%",
+              height: "100%"
             }}
           ></div>
         );
       case "our_focus":
         return (
           <div
-            className={`w-[calc(60%)] h-full max-sm:w-full max-sm:bg-focus-mobile sm:bg-focus max-sm:relative rounded-xl`}
+            className={`w-[calc(50%)] h-full max-sm:w-full max-sm:bg-focus-mobile sm:bg-focus max-sm:relative rounded-xl`}
             style={{
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
@@ -75,7 +74,7 @@ const HalfImage = ({
       case "industry_experience":
         return (
           <div
-            className={`w-[calc(60%)] h-full max-sm:w-full max-sm:bg-team-top-down-mobile sm:bg-team-top-down max-sm:relative rounded-xl`}
+            className={`w-[calc(50%)] h-full max-sm:w-full max-sm:bg-team-top-down-mobile sm:bg-team-top-down max-sm:relative rounded-xl`}
             style={{
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
@@ -96,17 +95,17 @@ const HalfImage = ({
         <animated.div
           ref={ref}
           style={springs}
-          className="flex flex-row max-sm:flex-col h-[calc(100vh/1.6)] max-sm:h-screen relative my-24"
+          className="flex flex-row max-sm:flex-col h-[calc(50vh)] max-sm:h-screen relative bg-groupWhite"
         >
           {handleMobileImage(anchorId)}
-          <div className="flex flex-col max-sm:relative absolute right-0 top-2 max-sm:top-10 max-sm:items-end md:items-end">
+          <div className="flex flex-col max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full w-1/2">
             {createHighlightedTitle(title)}
             <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
             <ul>
               {data.map((focus, idx) => {
                 return (
                   <li key={idx} className="py-1">
-                    <p className="text-3xl max-sm:text-2xl font-body text-groupBlack max-sm:text-end md:text-end">
+                    <p className="text-2xl max-sm:text-2xl font-body text-groupBlack max-sm:text-end md:text-end">
                       {focus}
                     </p>
                   </li>
@@ -119,7 +118,7 @@ const HalfImage = ({
         <animated.div
           ref={ref}
           style={springs}
-          className="flex flex-row max-sm:flex-col h-[calc(100vh/1.6)] max-sm:h-screen relative my-24"
+          className="flex flex-row max-sm:flex-col h-[calc(50vh)] max-sm:h-screen relative bg-groupWhite"
         >
           <div className="w-1/2"></div>
           {!isMobile ? (

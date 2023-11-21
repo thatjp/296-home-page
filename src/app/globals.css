@@ -35,7 +35,7 @@ body {
 
 .anchor{
   display: block;
-  height: 115px; /*same height as header*/
-  margin-top: -115px; /*same height as header*/
+  height: 115px;
+  /* margin-top: -115px; same height as header */
   visibility: hidden;
 }
