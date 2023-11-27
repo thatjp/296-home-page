@@ -1,5 +1,5 @@
 import React from "react";
-import { useInView, animated } from "@react-spring/web";
+import { useInView, animated, useSpring } from "@react-spring/web";
 
 import Container from "../container/Container";
 
@@ -10,22 +10,28 @@ const HalfImage = ({
   mobileImageSrc,
   data,
   title = "",
-  isMobile = false,
+  isMobile,
 }) => {
   const [ref, springs] = useInView(
     () => ({
       from: {
-        // opacity: 0,
-        // y: 100,
+        y: 100,
       },
       to: {
-        // opacity: 1,
-        // y: 0,
+        y: 0,
       },
     }),
-    {
-      rootMargin: "-40% 0%",
-    }
+  );
+
+  const [bodyTextRef, api] = useSpring(
+    () => ({
+      from: {
+        y: 100,
+      },
+      to: {
+        y: 0,
+      },
+    }),
   );
 
   const createHighlightedTitle = (title, isAlignedRight) => {
@@ -45,6 +51,8 @@ const HalfImage = ({
     );
   };
 
+  
+
   const handleMobileImage = (id) => {
     switch (id) {
       case "what_we_do":
@@ -55,7 +63,7 @@ const HalfImage = ({
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPositionX: "30%",
-              height: "100%"
+              height: isMobile === true ? "30%" : "100%",
             }}
           ></div>
         );
@@ -67,7 +75,7 @@ const HalfImage = ({
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPositionX: "30%",
-              height: "100%",
+              height: isMobile ? "30%" : "100%",
             }}
           ></div>
         );
@@ -79,7 +87,7 @@ const HalfImage = ({
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPositionX: "30%",
-              height: "100%",
+              height: isMobile ? "30%" : "100%",
             }}
           ></div>
         );
@@ -90,15 +98,15 @@ const HalfImage = ({
 
   return (
     <Container>
-      <div id={anchorId} className="anchor"></div>
+      <div id={anchorId} className="anchor" style={{height: isMobile ? "30px" : "60px"}}></div>
       {imageSide === "left" ? (
         <animated.div
           ref={ref}
           style={springs}
-          className="flex flex-row max-sm:flex-col h-[calc(50vh)] max-sm:h-screen relative bg-groupWhite"
+          className="flex flex-row max-sm:flex-col h-[calc(65vh)] max-sm:h-screen relative bg-groupWhite"
         >
           {handleMobileImage(anchorId)}
-          <div className="flex flex-col max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full w-1/2">
+          <div className="justify-center flex flex-col max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full lg:w-1/2" style={{top: isMobile ? "-150px" : "none"}}>
             {createHighlightedTitle(title)}
             <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
             <ul>
@@ -118,7 +126,7 @@ const HalfImage = ({
         <animated.div
           ref={ref}
           style={springs}
-          className="flex flex-row max-sm:flex-col h-[calc(50vh)] max-sm:h-screen relative bg-groupWhite"
+          className="flex flex-row max-sm:flex-col h-[calc(65vh)] max-sm:h-screen relative bg-groupWhite"
         >
           <div className="w-1/2"></div>
           {!isMobile ? (
@@ -126,8 +134,8 @@ const HalfImage = ({
           ) : (
             <div className="hidden"></div>
           )}
-          <div className="flex flex-col max-sm:relative absolute top-10">
-            {createHighlightedTitle(title)}
+          <div className="justify-center flex flex-col max-sm:relative absolute top-10">
+            {createHighlightedTitle(title, imageSide)}
             <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
             <ul>
               <ul>

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { useInView, animated, SpringValue } from "@react-spring/web";
+import { useInView, animated } from "@react-spring/web";
 
 const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
-
-  const [isPaused, setIsPaused] = useState(false)
 
   const [ref, springs] = useInView(
     () => ({
@@ -16,9 +14,6 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
       to: {
         opacity: 1,
         y: 0,
-      },
-      onStart: {
-        y: () => console.log("y key has started", ref.current, springs),
       },
     }),
     {
@@ -46,10 +41,10 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
     <ParallaxLayer
       offset={offset}
       speed={1.5}
-      className="z-[-10] place-content-start flex flex-col lg:px-30 mt-auto sm:px-40 max-sm:px-10 lg:py-[20rem] max-sm:py-40"
+      className="z-[-10] place-content-start flex flex-col lg:px-30 mt-auto sm:px-40 max-sm:px-10 lg:py-[20rem] max-sm:py-60"
       sticky={sticky}
     >
-      <div className="flex flex-row justify-center items-center">
+      <div className="flex flex-row justify-between items-start w-[80%] max-md:w-full">
         <animated.div
           ref={imgRef}
           style={imgSprings}
@@ -58,10 +53,10 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
           <Image
             priority
             src={imageSrc}
-            height={400}
-            width={200}
+            height={150}
+            width={150}
             alt={imageSrc}
-            color="white"
+            className="p-2"
           />
         </animated.div>
         <div className="flex flex-col max-sm:mt-20 text-left md:w-[75%]">

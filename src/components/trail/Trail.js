@@ -3,17 +3,15 @@ import { useTrail, a, config } from "@react-spring/web";
 
 import styles from "./styles.module.css";
 
-const Trail = ({ open, children, size }) => {
-  console.log('open', open);
+const Trail = ({ open, children }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
     config: { mass: 5, tension: 400, friction:400 },
     opacity: open ? 1 : 0,
     y: 0,
-    x: 0,
-    width:  500,
-    delay: 250,
-    from: { opacity: 0, x: 0, height: 0, width: 0 },
+    // width:  500,
+    delay: 500,
+    from: { opacity: 0, x: 0, height: 0 },
   });
 
   return (
@@ -25,7 +23,7 @@ const Trail = ({ open, children, size }) => {
           style={style}
         >
           <a.div style={{ width }}>
-            <h1 className="font-heading font-semibold xl:text-7xl 2xl:text-9xl sm:text-8xl max-sm:text-8xl max-sm:text-left max-sm:absolute max-sm:bottom-0">
+            <h1 className="font-semibold xl:text-6xl sm:text-8xl max-sm:text-8xl max-sm:text-left max-sm:absolute max-sm:bottom-0">
               {items[index]}
             </h1>
           </a.div>

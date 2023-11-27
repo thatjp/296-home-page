@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Image from "next/image";
-import { useTransition, animated, useInView } from "@react-spring/web";
+import { useSpring, animated, useInView } from "@react-spring/web";
 import { ParallaxLayer } from "@react-spring/parallax";
 
 import Trail from "../trail/Trail";
@@ -13,7 +13,8 @@ import squares from "../../../public/296-squares.svg";
 
 import FirstSessionContext from "../context/FirstSessionContext";
 
-import logo from "../../../public/296-small-logo.png";
+import logo from "../../../public/296-small-logo.svg";
+import { isMobile } from "react-device-detect";
 
 const Hero = () => {
   let isFirstSession = useContext(FirstSessionContext);
@@ -30,7 +31,7 @@ const Hero = () => {
       config: {
         mass: 20,
         friction: 250,
-        tension: 400,
+        tension: 600,
       },
     }),
     { once: true, loop: true }
@@ -47,7 +48,7 @@ const Hero = () => {
     config: {
       mass: 20,
       friction: 250,
-      tension: 400,
+      tension: 600,
     },
   }));
 
@@ -64,9 +65,37 @@ const Hero = () => {
     config: {
       mass: 20,
       friction: 250,
-      tension: 400,
+      tension: 600,
     },
   }));
+
+  const [props, api] = useSpring(
+    () => ({
+      from: { opacity: 0, y: 100 },
+      delay: 1000,
+      to: { opacity: 1, y: 0 },
+      config: {
+        mass: 5,
+        friction: 150,
+        tension: 800,
+      },
+    }),
+    []
+  );
+
+  const [logoProps, logoApi] = useSpring(
+    () => ({
+      from: { opacity: 0},
+      delay: 1500,
+      to: { opacity: 1 },
+      config: {
+        mass: 5,
+        friction: 150,
+        tension: 800,
+      },
+    }),
+    []
+  );
 
   return (
     <Container type="full">
@@ -75,29 +104,42 @@ const Hero = () => {
         className="flex flex-row justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)]"
       >
         <div className="lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
-          <Image
-            priority
-            src={logo.src}
-            height={100}
-            width={200}
-            alt="right"
-            className="max-sm:hidden"
-          />
-          <Trail open={true}>
-            <span>Launch</span>
-            <span>Scale</span>
-            <span>Grow</span>
-          </Trail>
+          <animated.div style={logoProps}>
+            <Image
+              priority
+              src={logo.src}
+              height={100}
+              width={300}
+              alt="right"
+              className="max-sm:hidden"
+            />
+          </animated.div>
+          {isMobile ? (
+            <Trail open={true}>
+              <span>Launch</span>
+              <span>Scale</span>
+              <span>Grow</span>
+            </Trail>
+          ) : (
+            <Trail open={true}>Launch Scale Grow</Trail>
+          )}
+
           <div className="max-sm:top-10">
-            <p className="font-body max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16">
+            <animated.p
+              style={props}
+              className="font-body max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16"
+            >
               A boutique technology consulting and development firm that
               specializes in helping start-ups and emerging business ventures
               launch, scale and grow rapidly.
-            </p>
-            <div className="flex flex-row justify-around max-sm:w-full max-sm:justify-between">
+            </animated.p>
+            <animated.div
+              style={props}
+              className="flex flex-row justify-around max-sm:w-full max-sm:justify-between"
+            >
               <Button text="Our Work" type="primary" link="#case-studies" />
               <Button text="Contact Us" type="secondary" link="#contact" />
-            </div>
+            </animated.div>
           </div>
         </div>
       </div>
