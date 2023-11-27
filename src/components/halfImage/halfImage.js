@@ -37,7 +37,7 @@ const HalfImage = ({
   const createHighlightedTitle = (title, isAlignedRight) => {
     const plainWords = title.split(" ").slice(0, -1).join(" ");
     const blueWord = title.split(" ").slice(-1)[0];
-
+    console.log('isAlignedRight', isAlignedRight);
     return (
       <h2
         className={
@@ -75,7 +75,7 @@ const HalfImage = ({
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPositionX: "30%",
-              height: isMobile ? "30%" : "100%",
+              height: isMobile ? "23%" : "100%",
             }}
           ></div>
         );
@@ -107,8 +107,8 @@ const HalfImage = ({
         >
           {handleMobileImage(anchorId)}
           <div className="justify-center flex flex-col max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full lg:w-1/2" style={{top: isMobile ? "-150px" : "none"}}>
-            {createHighlightedTitle(title)}
-            <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
+            {createHighlightedTitle(title, true)}
+            <span className="block w-1/2 border-y-[1px] border-gray-800 my-6"></span>
             <ul>
               {data.map((focus, idx) => {
                 return (
@@ -125,8 +125,8 @@ const HalfImage = ({
       ) : (
         <animated.div
           ref={ref}
-          style={springs}
-          className="flex flex-row max-sm:flex-col h-[calc(65vh)] max-sm:h-screen relative bg-groupWhite"
+          style={{...springs, scrollBehavior: "smooth;"}}
+          className="flex flex-row max-sm:flex-col-reverse max-sm:justify-end h-[calc(65vh)] max-sm:h-screen relative bg-groupWhite"
         >
           <div className="w-1/2"></div>
           {!isMobile ? (
@@ -134,9 +134,9 @@ const HalfImage = ({
           ) : (
             <div className="hidden"></div>
           )}
-          <div className="justify-center flex flex-col max-sm:relative absolute top-10">
-            {createHighlightedTitle(title, imageSide)}
-            <span className="block w-1/2 border-y-2 border-gray-800 my-6"></span>
+          <div className="justify-center max-sm:z-10 max-sm:items-start flex flex-col max-sm:relative absolute max-sm:top-[-50px]">
+            {createHighlightedTitle(title, true)}
+            <span className="block w-1/2 border-y-[1px] border-gray-800 my-6"></span>
             <ul>
               <ul>
                 {data.map((service, idx) => {

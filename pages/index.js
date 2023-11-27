@@ -36,14 +36,6 @@ import styles from "./styles.module.css";
 export default function Home() {
   const [clicked, setClicked] = useState(false);
   const [isFirstSession, setFirstSession] = useState(true);
-
-  const parallax = useRef();
-
-  const scroll = (to) => {
-    if (parallax.current) {
-      parallax.current.scrollTo(to);
-    }
-  };
   const transRef = useSpringRef();
 
   useEffect(() => {
@@ -186,6 +178,48 @@ export default function Home() {
               </div>
             </Container>
           </ParallaxLayer>
+          <ParallaxLayer offset={9} className="bg-groupWhite">
+            <Container>
+              <div id="our_team" className="anchor"></div>
+              <div className="test flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative max-sm:my-24">
+                <div className="my-10">
+                  <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
+                    Our <span className="text-groupBlue">Team</span>
+                  </h2>
+                  <span className="block w-40 max-sm:w-52 border-y-2 border-groupBlack my-61"></span>
+                </div>
+                <div className="md:hidden">
+                  <Slider data={team.team} />
+                </div>
+                <ul className="flex flex-row space-x-5 max-sm:hidden">
+                  {team.team.map((member, idx) => {
+                    return (
+                      <li key={idx} className="w-1/3">
+                        <div
+                          className="rounded-xl"
+                          style={{
+                            backgroundImage: `url(${selectProfilePicture(
+                              member
+                            )})`,
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "100%",
+                            width: "100%",
+                            height: "400px",
+                          }}
+                        ></div>
+                        <div className="my-3">
+                          <h2 className="text-groupBlue text-2xl">
+                            {member.name}
+                          </h2>
+                          <p className="text-xl">{member.position}</p>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </Container>
+          </ParallaxLayer>
           {/* <ParallaxLayer offset={8}>
             <section
               id="case-studies"
@@ -213,10 +247,10 @@ export default function Home() {
             </section>
           </ParallaxLayer> */}
           <ParallaxLayer offset={9}>
+            <div id="contact" className="anchor h-[100px]"></div>
             <section className="h-full contact flex bg-groupBlue w-full lg:px-40 py-28 max-md:py-10 max-sm:py-16 max-sm:px-4">
-              <div id="contact" className="anchor"></div>
               <div className="flex flex-row max-sm:flex-col max-sm:place-content-center h-[calc(100vh/1.6)] relative my-7 justify-evenly">
-                <div className="w-1/2 max-sm:w-full m-auto max-sm:px-10">
+                <div className="w-1/2 max-sm:w-full m-auto sm:px-10">
                   <h1 className="font-semibold lg:text-8xl md:text-7xl max-sm:text-5xl text-white">
                     Contact Us!
                   </h1>
@@ -224,7 +258,7 @@ export default function Home() {
                     We’re here to help you reach all of your technical goals!
                   </h2>
                 </div>
-                <div className="w-1/2 max-sm:w-full px-10 m-auto">
+                <div className="w-1/2 max-sm:w-full sm:px-10 m-auto">
                   <ContactForm />
                 </div>
               </div>
