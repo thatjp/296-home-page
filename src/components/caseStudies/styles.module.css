@@ -1,45 +1,4 @@
-.container > div > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.text {
-  pointer-events: none;
-  justify-content: start !important;
-  font-family: 'Kanit', sans-serif;
-  line-height: 0px;
-  text-transform: uppercase;
-}
-
-.number {
-  font-size: 300px;
-  color: #545864;
-}
-
-.number span {
-  display: none;
-  position: relative;
-}
-
-.slopeBegin {
-  background-color: #398BF9;
-  clip-path: polygon(20% 0, 70% 0, 50% 100%, 0% 100%);
-}
-
-.slopeEnd {
-  clip-path: polygon(70% 0, 100% 0, 80% 100%, 50% 100%);
-}
-
-.slopeBegin,
-.slopeEnd {
+.c {
   position: absolute;
-  width: 170%;
-  height: 100%;
-  cursor: pointer;
+  will-change: transform, opacity;
 }
-
-.teal {
-  background: linear-gradient(to right, #fafafa, #398BF9 100%);
-}
-

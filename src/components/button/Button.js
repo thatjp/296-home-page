@@ -1,11 +1,51 @@
 import React from "react";
 
-const Button = ({ text, type = "primary", link = "" }) => {
+const Button = ({
+  text,
+  type = "primary",
+  purpose,
+  link = "",
+  styles,
+  colors,
+  onClick,
+}) => {
+  console.log('text', text);
   return (
-    <a href={link} className="z-30 w-1/3 max-sm:w-1/2">
-      <div className="
-      active:bg-groupBlue 
-      hover:shadow-lg 
+    <>
+      {purpose === "button" ? (
+        <div className={`${styles} max-sm:w-1/2`} onClick={onClick}>
+          <button
+            className={`
+          active:bg-groupBlue
+          hover:shadow-xl
+          focus:outline-none 
+          px-4 
+          max-sm:px-1 
+          py-4 
+          mb-1 
+          mr-1
+          w-full
+          text-sm 
+          font-bold 
+          text-${colors?.textColor} 
+          uppercase 
+          transition-all 
+          duration-150 
+          ease-linear 
+          bg-${colors?.bgColor}
+          rounded 
+          shadow 
+          outline-none`}
+          >
+            {text}
+          </button>
+        </div>
+      ) : (
+        <a href={link} className={`${styles} max-sm:w-1/2`}>
+          <div
+            className={`
+      active:bg-groupBlue
+      hover:shadow-xl
       focus:outline-none 
       px-4 
       max-sm:px-1 
@@ -14,18 +54,21 @@ const Button = ({ text, type = "primary", link = "" }) => {
       mr-1 
       text-sm 
       font-bold 
-      text-white 
+      text-${colors?.textColor} 
       uppercase 
       transition-all 
       duration-150 
       ease-linear 
-      bg-groupBlue 
+      bg-${colors?.bgColor}
       rounded 
       shadow 
-      outline-none">
-        <p className="text-center">{text}</p>
-      </div>
-    </a>
+      outline-none`}
+          >
+            <p className="text-center">{text}</p>
+          </div>
+        </a>
+      )}
+    </>
   );
 };
 

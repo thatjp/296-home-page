@@ -1,9 +1,6 @@
 import React from "react";
 import {
-  useTransition,
   animated,
-  AnimatedProps,
-  useSpringRef,
 } from "@react-spring/web";
 
 const Heading = ({ data, style }) => {

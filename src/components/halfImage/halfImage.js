@@ -12,37 +12,54 @@ const HalfImage = ({
   title = "",
   isMobile,
 }) => {
-  const [ref, springs] = useInView(
-    () => ({
-      from: {
-        y: 100,
-      },
-      to: {
-        y: 0,
-      },
-    }),
-  );
+  const [ref, springs] = useInView(() => ({
+    from: {
+      y: 100,
+    },
+    to: {
+      y: 0,
+    },
+  }));
 
-  const [bodyTextRef, api] = useSpring(
-    () => ({
-      from: {
-        y: 100,
-      },
-      to: {
-        y: 0,
-      },
-    }),
-  );
+  const [titleRightRef, titleRightSprings] = useInView(() => ({
+    from: {
+      x: 100,
+    },
+    to: {
+      x: 0,
+      delay: 200,
+    },
+    config: {
+      mass: 5,
+      friction: 150,
+      tension: 600,
+    },
+  }));
+
+  const [titleLeftRef, titleLeftSprings] = useInView(() => ({
+    from: {
+      x: 100,
+    },
+    to: {
+      x: 0,
+      delay: 200,
+    },
+    config: {
+      mass: 5,
+      friction: 150,
+      tension: 600,
+    },
+  }));
 
   const createHighlightedTitle = (title, isAlignedRight) => {
     const plainWords = title.split(" ").slice(0, -1).join(" ");
     const blueWord = title.split(" ").slice(-1)[0];
-    console.log('isAlignedRight', isAlignedRight);
+
     return (
       <h2
         className={
           isAlignedRight
-            ? "text-right text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
+            ? "text-left text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
             : "text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
         }
       >
@@ -50,8 +67,6 @@ const HalfImage = ({
       </h2>
     );
   };
-
-  
 
   const handleMobileImage = (id) => {
     switch (id) {
@@ -98,7 +113,11 @@ const HalfImage = ({
 
   return (
     <Container>
-      <div id={anchorId} className="anchor" style={{height: isMobile ? "30px" : "60px"}}></div>
+      <div
+        id={anchorId}
+        className="anchor"
+        style={{ height: isMobile ? "30px" : "60px" }}
+      ></div>
       {imageSide === "left" ? (
         <animated.div
           ref={ref}
@@ -106,9 +125,14 @@ const HalfImage = ({
           className="flex flex-row max-sm:flex-col h-[calc(65vh)] max-sm:h-screen relative bg-groupWhite"
         >
           {handleMobileImage(anchorId)}
-          <div className="justify-center flex flex-col max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full lg:w-1/2" style={{top: isMobile ? "-150px" : "none"}}>
-            {createHighlightedTitle(title, true)}
-            <span className="block w-1/2 border-y-[1px] border-gray-800 my-6"></span>
+          <div
+            className="justify-center flex flex-col max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full lg:w-1/2"
+            style={{ top: isMobile ? "-150px" : "none" }}
+          >
+            <animated.div ref={titleRightRef} style={titleRightSprings} className="w-fit">
+              {createHighlightedTitle(title, true)}
+              <span className="block border-y-[1px] border-gray-800 my-6"></span>
+            </animated.div>
             <ul>
               {data.map((focus, idx) => {
                 return (
@@ -125,7 +149,7 @@ const HalfImage = ({
       ) : (
         <animated.div
           ref={ref}
-          style={{...springs, scrollBehavior: "smooth;"}}
+          style={{ ...springs, scrollBehavior: "smooth;" }}
           className="flex flex-row max-sm:flex-col-reverse max-sm:justify-end h-[calc(65vh)] max-sm:h-screen relative bg-groupWhite"
         >
           <div className="w-1/2"></div>
@@ -135,8 +159,10 @@ const HalfImage = ({
             <div className="hidden"></div>
           )}
           <div className="justify-center max-sm:z-10 max-sm:items-start flex flex-col max-sm:relative absolute max-sm:top-[-50px]">
-            {createHighlightedTitle(title, true)}
-            <span className="block w-1/2 border-y-[1px] border-gray-800 my-6"></span>
+            <animated.div ref={titleRightRef} style={titleRightSprings} className="w-fit">
+              {createHighlightedTitle(title, true)}
+              <span className="block border-y-[1px] border-gray-800 my-6"></span>
+            </animated.div>
             <ul>
               <ul>
                 {data.map((service, idx) => {

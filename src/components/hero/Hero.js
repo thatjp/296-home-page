@@ -23,7 +23,7 @@ const Hero = () => {
     () => ({
       from: {
         x: "50%",
-        y: 60,
+        y: 120,
       },
       to: {
         x: "15%",
@@ -40,7 +40,7 @@ const Hero = () => {
   const [rightRef, rightSprings] = useInView(() => ({
     from: {
       x: "50%",
-      y: 60,
+      y: 120,
     },
     to: {
       x: "73%",
@@ -56,7 +56,7 @@ const Hero = () => {
     from: {
       x: "50%",
       opacity: "0",
-      y: -500,
+      y: -440,
     },
     to: {
       x: "77%",
@@ -85,7 +85,7 @@ const Hero = () => {
 
   const [logoProps, logoApi] = useSpring(
     () => ({
-      from: { opacity: 0},
+      from: { opacity: 0 },
       delay: 1500,
       to: { opacity: 1 },
       config: {
@@ -137,8 +137,28 @@ const Hero = () => {
               style={props}
               className="flex flex-row justify-around max-sm:w-full max-sm:justify-between"
             >
-              <Button text="Our Work" type="primary" link="#case-studies" />
-              <Button text="Contact Us" type="secondary" link="#contact" />
+              <Button
+                text="Our Work"
+                type="primary"
+                link="#case-studies"
+                styles="w-1/3"
+                colors={{
+                  bgColor: "groupBlue",
+                  textColor: "groupWhite",
+                  activeColor: "groupBlue",
+                }}
+              />
+              <Button
+                text="Contact Us"
+                type="secondary"
+                link="#contact"
+                styles="w-1/3"
+                colors={{
+                  bgColor: "groupBlue",
+                  textColor: "groupWhite",
+                  activeColor: "groupBlue",
+                }}
+              />
             </animated.div>
           </div>
         </div>

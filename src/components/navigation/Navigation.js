@@ -38,7 +38,7 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`${styles.slide__top_medium} sticky top-0 bg-groupWhite z-50`}>
+      <nav className={`${styles.slide__top_medium} sticky top-0 bg-groupWhite z-10`}>
         <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#home" className="flex items-center">
             <Image

@@ -41,7 +41,7 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
     <ParallaxLayer
       offset={offset}
       speed={1.5}
-      className="z-[-10] place-content-start flex flex-col lg:px-30 mt-auto sm:px-40 max-sm:px-10 lg:py-[20rem] max-sm:py-60"
+      className="z-[-10] place-content-start flex flex-col lg:px-30 mt-auto sm:px-40 max-sm:px-10 lg:py-[22rem] max-sm:py-60"
       sticky={sticky}
     >
       <div className="flex flex-row justify-between items-start w-[80%] max-md:w-full">
