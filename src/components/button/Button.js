@@ -12,7 +12,7 @@ const Button = ({
   return (
     <>
       {purpose === "button" ? (
-        <div className={`${styles} max-sm:w-1/2`} onClick={onClick}>
+        <div className={`${styles}`} onClick={onClick}>
           <button
             className={`
           active:bg-groupBlue

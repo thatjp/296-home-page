@@ -45,16 +45,15 @@ const CaseStudies = ({ isMobile, data }) => {
           </h2>
           <span className="block w-full max-sm:w-52 border-y-[1px] border-groupBlack my-61"></span>
         </div>
-        {isMobile ? <Slider data={data} type="caseStudy" /> : <></>}
         <animated.div ref={ref} style={springs}>
           {
-            <ul className="flex flex-row justify-between w-full">
+            <ul className="flex flex-row justify-between w-full overflow-y-hidden max-sm:mt-10">
               {data.map((study, idx) => {
                 return (
-                  <li key={idx} className="w-1/4">
+                  <li key={idx} className="w-1/4 max-sm:w-full max-sm:mx-4">
                     {!flipped ? (
                       <animated.div
-                        className={`${styles.c} bg-groupBlue p-10 rounded-xl h-[60vh] w-1/5`}
+                        className={`${styles.c} bg-groupBlue p-10 rounded-xl h-[60vh] w-1/5 max-sm:w-full max-sm:relative`}
                         style={
                           flipped === idx
                             ? {
@@ -68,14 +67,14 @@ const CaseStudies = ({ isMobile, data }) => {
                           <h3 className="text-groupWhite mb-3 font-semibold lg:text-3xl md:text-5xl max-sm:text-5xl">
                             {study.industry}
                           </h3>
-                          <div className="py-10 h-[100px] w-[100px]">
-                            <p className="text-groupWhite absolute top-[35%] m-3 right-0 left-0 text-center">
+                          <div className="py-10 h-[100px] w-[100px] max-sm:w-full">
+                            <p className="text-groupWhite absolute max-sm:relative top-[35%] m-3 right-0 left-0 text-center">
                               {study.snippet}
                             </p>
                           </div>
                         </div>
 
-                        <div className="relative md:h-[100%]">
+                        <div className="relative h-[100%]">
                           <Button
                             text="Read More"
                             styles="absolute bottom-0 right-0 w-full"
@@ -94,7 +93,7 @@ const CaseStudies = ({ isMobile, data }) => {
                     )}
                     {flipped === idx ? (
                       <animated.div
-                        className={`${styles.c} z-10 absolute left-0 overflow-auto bg-groupBlue p-10 rounded-xl h-[60vh]`}
+                        className={`${styles.c} z-10 max-sm:bottom-[50%] absolute max-sm:relative left-0 overflow-auto bg-groupBlue p-10 rounded-xl h-[60vh]`}
                         style={{
                           opacity,
                           transform,
@@ -104,10 +103,10 @@ const CaseStudies = ({ isMobile, data }) => {
                         <h3 className="text-groupWhite mb-3 font-semibold lg:text-3xl md:text-5xl max-sm:text-5xl">
                           {study.company}
                         </h3>
-                        <h3 className="text-groupWhite">{study.content}</h3>
-                        <div className="relative md:h-[65%] w-[50%] m-auto">
+                        <p className="text-groupWhite">{study.content}</p>
+                        <div className="relative md:h-[65%] md:w-[50%] m-auto">
                           <Button
-                            text="Read More"
+                            text="Close"
                             styles="absolute bottom-0 right-0 w-full"
                             onClick={() => set(null)}
                             purpose="button"
