@@ -115,8 +115,8 @@ const HalfImage = ({
             style={{ top: isMobile ? "-150px" : "none" }}
           >
             <animated.div
-              // ref={titleRightRef}
-              // style={titleRightSprings}
+              ref={titleRightRef}
+              style={titleRightSprings}
               className="w-fit"
             >
               {createHighlightedTitle(title, true)}
@@ -137,8 +137,8 @@ const HalfImage = ({
         </animated.div>
       ) : (
         <animated.div
-          // ref={ref}
-          // style={{ ...springs, scrollBehavior: "smooth;" }}
+          ref={ref}
+          style={{ ...springs, scrollBehavior: "smooth;" }}
           className="flex flex-row max-sm:flex-col-reverse max-sm:justify-end h-[calc(65vh)] max-sm:h-screen relative bg-groupWhite"
         >
           <div className="w-1/2"></div>
@@ -149,8 +149,8 @@ const HalfImage = ({
           )}
           <div className="justify-center max-sm:z-10 max-sm:items-start flex flex-col max-sm:relative absolute max-sm:top-[-50px]">
             <animated.div
-              // ref={titleRightRef}
-              // style={titleRightSprings}
+              ref={titleRightRef}
+              style={titleRightSprings}
               className="w-fit"
             >
               {createHighlightedTitle(title, true)}
