@@ -21,23 +21,20 @@ import styles from "./styles.module.css";
 const Hero = () => {
   let isFirstSession = useContext(FirstSessionContext);
 
-  const [leftRef, leftSprings] = useInView(
-    () => ({
-      from: {
-        x: "42.5%",
-        // y: 0,
-      },
-      to: {
-        x: "5%",
-      },
-      config: {
-        mass: 20,
-        friction: 250,
-        tension: 400,
-      },
-    }),
-    { once: true, loop: true }
-  );
+  const [leftRef, leftSprings] = useInView(() => ({
+    from: {
+      x: "42.5%",
+      // y: 0,
+    },
+    to: {
+      x: "5%",
+    },
+    config: {
+      mass: 20,
+      friction: 250,
+      tension: 400,
+    },
+  }));
 
   const [rightRef, rightSprings] = useInView(() => ({
     from: {
@@ -105,7 +102,6 @@ const Hero = () => {
         width: "50%",
       },
       to: { width: "0%" },
-      // loop: true,
       config: {
         mass: 15,
         friction: 100,
@@ -122,7 +118,6 @@ const Hero = () => {
         right: "0%",
       },
       to: { width: "0%" },
-      // loop: true,
       config: {
         mass: 15,
         friction: 100,
