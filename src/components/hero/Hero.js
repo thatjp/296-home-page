@@ -23,7 +23,7 @@ const Hero = () => {
     () => ({
       from: {
         x: "50%",
-        y: 120,
+        y: 80,
       },
       to: {
         x: "15%",
@@ -40,7 +40,7 @@ const Hero = () => {
   const [rightRef, rightSprings] = useInView(() => ({
     from: {
       x: "50%",
-      y: 120,
+      y: 80,
     },
     to: {
       x: "73%",
@@ -56,7 +56,7 @@ const Hero = () => {
     from: {
       x: "75%",
       opacity: "0",
-      y: -440,
+      y: -500,
     },
     to: {
       x: "77%",
@@ -104,15 +104,15 @@ const Hero = () => {
         id="home"
         className="flex flex-row justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[90%] max-sm:h-[calc(100vh-170px)]"
       >
-        <div className="lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
+        <div className="lg:w-1/2 max-sm:h-100% items-center relative">
           <animated.div style={logoProps}>
             <Image
               priority
               src={logo.src}
               height={100}
-              width={300}
+              width={600}
               alt="right"
-              className="max-sm:hidden"
+              className="m-auto"
             />
           </animated.div>
           {isMobile ? (
@@ -122,13 +122,13 @@ const Hero = () => {
               <span>Grow</span>
             </Trail>
           ) : (
-            <Trail open={true}>Launch Scale Grow</Trail>
+            <></>
           )}
 
           <div className="max-sm:top-10">
             <animated.p
               style={props}
-              className="font-body max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16"
+              className="font-body text-center max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16"
             >
               A boutique technology consulting and development firm that
               specializes in helping start-ups and emerging business ventures
@@ -197,14 +197,15 @@ const Hero = () => {
           </animated.div>
         </ParallaxLayer>
       </div>
-      <div className="flex justify-center items-center absolute bottom-0 left-0 w-full m-auto">
-        <a className="z-20" href="#our_difference">
+      <div className="flex justify-center items-center absolute bottom-[10%] left-0 w-full m-auto">
+        <a className="z-20 hover:h-24" href="#our_difference">
           <Image
             priority
             src={chevron}
             height={90}
             width={90}
             alt="Chevron Down"
+            className="shadow"
           />
         </a>
       </div>
