@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classnames from "tailwindcss-classnames";
 
+import Button from "../button/Button";
 import SliderButton from "../button/SldierButton";
 import jeffPhoto from "../../../public/jeff.jpeg";
 import bharatPhoto from "../../../public/bharat.jpg";
@@ -37,6 +38,9 @@ export const Slider = ({ data, children, type }) => {
         break;
     }
   };
+
+  const [flipped, set] = useState(false);
+
   return (
     <>
       {type === "caseStudy" ? (
@@ -101,11 +105,37 @@ export const Slider = ({ data, children, type }) => {
                         width: "100%",
                         height: "70%",
                       }}
+                      onClick={() => set(idx)}
                     ></div>
                     <div className="my-3">
                       <h2 className="text-groupBlue text-2xl">{member.name}</h2>
                       <p className="text-xl">{member.position}</p>
                     </div>
+                    {flipped === idx ? (
+                      <div
+                        className={`z-10 absolute top-20 left-0 overflow-auto bg-groupBlue p-10 max-sm:p-2 rounded-xl h-fit`}
+                      >
+                        <h3 className="text-groupWhite mb-3 font-semibold lg:text-3xl md:text-5xl max-sm:text-2xl">
+                          {member.name}
+                        </h3>
+                        <p className="text-groupWhite">{member.bio}</p>
+                        <div className="relative md:h-[65%] w-[50%] max-sm:w-full m-auto">
+                          <Button
+                            text="Close"
+                            styles="bottom-0 right-0 w-full pt-10 max-sm:m-auto"
+                            onClick={() => set(null)}
+                            purpose="button"
+                            colors={{
+                              bgColor: "groupWhite",
+                              textColor: "groupBlue",
+                              activeColor: "groupWhite",
+                            }}
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                 );
               })}

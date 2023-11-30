@@ -29,8 +29,6 @@ const CaseStudies = ({ isMobile, data }) => {
   const [flipped, set] = useState(null);
 
   const { transform, opacity } = useSpring({
-    // from: { transform: `translateX(${flipped ? -180 : 0}px)` },
-    // to: { transform: `translateX(${flipped ? 0 : 0}px)` },
     // opacity: flipped ? 1 : 0,
     // transform: `perspective(600px) rotateY(${flipped ? 180 : 0}deg)`,
     // transform: `translateX(${flipped ? 180 : 0}px)`,
@@ -40,7 +38,7 @@ const CaseStudies = ({ isMobile, data }) => {
   return (
     <Container>
       <div id="case_studies" className="anchor"></div>
-      <div className="test flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative max-sm:my-24">
+      <div className="test flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative max-sm:my-10">
         <div className="md:my-10 max-sm:mb-3 md:w-fit max-sm:w-full">
           <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
             Case <span className="text-groupBlue">Studies</span>
@@ -52,7 +50,6 @@ const CaseStudies = ({ isMobile, data }) => {
           {
             <ul className="flex flex-row justify-between w-full">
               {data.map((study, idx) => {
-                console.log('flipped vs idx', flipped, idx);
                 return (
                   <li key={idx} className="w-1/4">
                     {!flipped ? (
@@ -71,8 +68,8 @@ const CaseStudies = ({ isMobile, data }) => {
                           <h3 className="text-groupWhite mb-3 font-semibold lg:text-3xl md:text-5xl max-sm:text-5xl">
                             {study.industry}
                           </h3>
-                          <div className="py-10 h-full">
-                            <p className="text-groupWhite absolute top-[60%]">
+                          <div className="py-10 h-[100px] w-[100px]">
+                            <p className="text-groupWhite absolute top-[35%] m-3 right-0 left-0 text-center">
                               {study.snippet}
                             </p>
                           </div>

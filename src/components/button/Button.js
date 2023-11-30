@@ -9,7 +9,6 @@ const Button = ({
   colors,
   onClick,
 }) => {
-  console.log('text', text);
   return (
     <>
       {purpose === "button" ? (

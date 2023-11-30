@@ -3,7 +3,7 @@
     {
       "company": "Rx Sense",
       "industry": "Healthcare",
-      "snippet": "snippet",
+      "snippet": "Our team  was responsible for all technical decisions from Prototype to Beta to MVP to the final product.",
       "content": "RxSense is a modern prescription drugs and pharmacy benefits platform solution.  Our team  was responsible for all technical decisions from Prototype to Beta to MVP to the final product. The IT Team quickly grew to over 30 people, during which iOS and Android mobile applications were built and all applications were created in a scalable AWS environment. In the end we helped RxSense scale revenue to over  $200M, and delivered a fully functioning PBM system that processes hundreds of thousands of transactions daily with an average response time < 2 seconds and an SLA of 99.999%. RxSense recently completed a PE transaction with a valuation of over $800M.",
       "technologies": [
         ".NET", "SQL Server", "Informatica", "Tableau", "AWS", "Octopus Depoly", "Auto Scaling", "HIPAA Compliant", "Solarwinds"
@@ -12,7 +12,7 @@
     {
       "company": "Pangea Health",
       "industry": "Healthcare Sales",
-      "snippet": "snippet",
+      "snippet": "296 Group provided production infrastructure setup, monitoring and support.",
       "content": "Health is a mobile app that connects healthcare brands with independent sales representatives. Our team was contracted to build an MVP app for Android and iOS. The app allowed sales representatives to receive brand training and locate doctors’ offices to promote services. Additionally the app integrated with multiple third party platforms, including Checkr for background checks and Stripe for user payouts. 296 Group provided production infrastructure setup, monitoring and support, as well as configured Tableau Cloud and Mixpanel for Pangea’s KPI reporting. Following a collection of user feedback and adjusted business goals we  continued to iterate on the app following its launch and provide technology experience for strategic business planning.",
       "technologies": [
         "React Native", "Firebase", "Node Js", "Docker", "AWS ECS", "MySQL", "AWS Aurora", "Jenkins", "Tableau", "Mixpanel"
@@ -21,8 +21,8 @@
     {
       "company": "Confidential",
       "industry": "Ecommerce - Luxury Fashion",
-      "snippet": "snippet",
-      "content": "Our client wanted to crate a marketplace that connects luxury fashion brands, personal shoppers and consumers to an interactive online shopping experience, Our team built a highly functioning v1.0 product from concept to launch. The company was responsible for sourcing, contracting and integrating the third party marketplace software, Mirakl, that was integrated with over 15 luxury brands encompassing  over 100,000 SKUs. We also developed an innovative texting mechanism that pushed multiple product pictures and detailed information to end consumers, as well as alerted reps of the end user’s activity and allowed both parties to chat in real time.  Last but not least a custom front end shopping experience was developed that allowed personal shoppers to quickly curate a selection of items for specific customers.",
+      "snippet": "Our team built a highly functioning v1.0 product from concept to launch.",
+      "content": "Our client wanted to crate a marketplace that connects luxury fashion brands, personal shoppers and consumers to an interactive online shopping experience. Our team built a highly functioning v1.0 product from concept to launch. The company was responsible for sourcing, contracting and integrating the third party marketplace software, Mirakl, that was integrated with over 15 luxury brands encompassing  over 100,000 SKUs. We also developed an innovative texting mechanism that pushed multiple product pictures and detailed information to end consumers, as well as alerted reps of the end user’s activity and allowed both parties to chat in real time.  Last but not least a custom front end shopping experience was developed that allowed personal shoppers to quickly curate a selection of items for specific customers.",
       "technologies": [
         "React Native", "Firebase", "Node Js", "Docker", "AWS ECS", "MySQL", "AWS Aurora", "Jenkins", "Tableau", "Mixpanel"
       ]
@@ -30,7 +30,7 @@
     {
       "company": "Steady",
       "industry": "Gig Economy ",
-      "snippet": "snippet",
+      "snippet": "Our team was engaged by founders from day one of Steady, a financial empowerment platform for the gig economy workforce",
       "content": "Our team was engaged by founders from day one of Steady, a financial empowerment platform for the gig economy workforce. We were responsible for assisting with the overall technical and business strategy, for all decisions from prototype to Beta to MVP. We developed both iOS and Android mobile applications, and all developments were created in a scalable AWS environment. At launch the business grew very quickly adding over 500,000 member which lead to a 9.5M series A investment.  As the business continued to grow we assisted Steady’s CEO with recruiting and hiring the CTO, and transitioned the work to a new, internal IT team. ",
       "technologies": [
         ".NET Framework", "SQL Server", "Oracle Datawarehouse", "Tableau", "AWS", "Octopus Deploy"

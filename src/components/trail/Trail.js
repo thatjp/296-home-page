@@ -6,10 +6,10 @@ import styles from "./styles.module.css";
 const Trail = ({ open, children }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 400, friction:600 },
+    config: { mass: 5, tension: 600, friction: 150 },
     opacity: 1,
     y: 0,
-    delay: 500,
+    delay: 1500,
     from: { opacity: 0, x: 0, height: 0 },
   });
 
@@ -22,7 +22,7 @@ const Trail = ({ open, children }) => {
           style={style}
         >
           <a.div style={{ width }}>
-            <h1 className="font-semibold xl:text-6xl sm:text-8xl max-sm:text-8xl max-sm:text-left max-sm:absolute max-sm:bottom-0 lg:my-5">
+            <h1 className="font-bold text-groupBlack xl:text-6xl sm:text-8xl max-sm:text-8xl max-sm:text-left max-sm:absolute max-sm:bottom-0 lg:my-5">
               {items[index]}
             </h1>
           </a.div>

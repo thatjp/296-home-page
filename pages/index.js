@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { useSpringRef, useInView, animated } from "@react-spring/web";
+import { useSpringRef, animated } from "@react-spring/web";
 import { isMobile } from "react-device-detect";
 
+import Button from "@/components/button/Button";
 import Scroll from "@/components/scroll/Scroll";
 import Navigation from "../src/components/navigation/Navigation";
 import Container from "../src/components/container/Container";
@@ -16,9 +16,6 @@ import ScrollLayer from "@/components/scrollLayer/ScrollLayer";
 import jeffPhoto from "../public/jeff.jpeg";
 import bharatPhoto from "../public/bharat.jpg";
 import noprofile from "../public/noprofile.png";
-import bracketLeft from "../public/bracket-left.svg";
-import bracketRight from "../public/bracket-right.svg";
-import squares from "../public/296-squares.svg";
 
 // Site Copy
 import focusContent from "../public/focuses.json";
@@ -64,19 +61,21 @@ export default function Home() {
     }
   }, [isFirstSession]);
 
+  const [flipped, set] = useState(false);
+
   return (
     <main>
       <FirstSessionContext.Provider value={isFirstSession}>
-          <Navigation />
+        <Navigation />
         <Scroll>
-          <ParallaxLayer offset={0} className="bg-groupWhite py-20">
+          <ParallaxLayer offset={0} className="bg-groupWhite">
             <Hero />
           </ParallaxLayer>
 
           <ParallaxLayer
             offset={1}
             sticky={{ start: 1, end: 3.5 }}
-            className="max-sm:px-10 max-sm:pt-20 flex flex-col justify-start pt-20"
+            className="max-sm:px-10 flex flex-col justify-start"
           >
             <div
               id="our_difference"
@@ -167,15 +166,41 @@ export default function Home() {
                               backgroundRepeat: "no-repeat",
                               backgroundSize: "100%",
                               width: "100%",
-                              height: "400px",
+                              height: "350px",
                             }}
+                            onClick={() => set(idx)}
                           ></div>
-                          <div className="my-3">
+                          <div className="my-3" onClick={() => set(idx)}>
                             <h2 className="text-groupBlue text-2xl">
                               {member.name}
                             </h2>
                             <p className="text-xl">{member.position}</p>
                           </div>
+                          {flipped === idx ? (
+                            <animated.div
+                              className={`z-10 absolute top-20 left-0 overflow-auto bg-groupBlue p-10 rounded-xl h-fit`}
+                            >
+                              <h3 className="text-groupWhite mb-3 font-semibold lg:text-3xl md:text-5xl max-sm:text-5xl">
+                                {member.name}
+                              </h3>
+                              <h3 className="text-groupWhite">{member.bio}</h3>
+                              <div className="relative md:h-[65%] w-[50%] m-auto">
+                                <Button
+                                  text="Close"
+                                  styles="bottom-0 right-0 w-full pt-10"
+                                  onClick={() => set(null)}
+                                  purpose="button"
+                                  colors={{
+                                    bgColor: "groupWhite",
+                                    textColor: "groupBlue",
+                                    activeColor: "groupWhite",
+                                  }}
+                                />
+                              </div>
+                            </animated.div>
+                          ) : (
+                            <></>
+                          )}
                         </li>
                       );
                     })}

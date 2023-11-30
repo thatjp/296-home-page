@@ -54,13 +54,14 @@ const Hero = () => {
 
   const [squaresRef, squaresSprings] = useInView(() => ({
     from: {
-      x: "50%",
+      x: "75%",
       opacity: "0",
       y: -440,
     },
     to: {
       x: "77%",
       opacity: "100%",
+      delay: 2000
     },
     config: {
       mass: 20,
@@ -72,7 +73,7 @@ const Hero = () => {
   const [props, api] = useSpring(
     () => ({
       from: { opacity: 0, y: 100 },
-      delay: 1000,
+      delay: 2000,
       to: { opacity: 1, y: 0 },
       config: {
         mass: 5,
@@ -86,12 +87,12 @@ const Hero = () => {
   const [logoProps, logoApi] = useSpring(
     () => ({
       from: { opacity: 0 },
-      delay: 1500,
+      delay: 800,
       to: { opacity: 1 },
       config: {
         mass: 5,
         friction: 150,
-        tension: 800,
+        tension: 1000,
       },
     }),
     []
@@ -101,7 +102,7 @@ const Hero = () => {
     <Container type="full">
       <div
         id="home"
-        className="flex flex-row justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[calc(100vh-170px)] max-sm:h-[calc(100vh-170px)]"
+        className="flex flex-row justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[90%] max-sm:h-[calc(100vh-170px)]"
       >
         <div className="lg:w-1/2 max-sm:h-100% max-sm:items-center relative">
           <animated.div style={logoProps}>
@@ -172,6 +173,7 @@ const Hero = () => {
               height={90}
               width={180}
               alt="right"
+              className="shadow"
             />
           </animated.div>
         </ParallaxLayer>
@@ -183,6 +185,7 @@ const Hero = () => {
               height={90}
               width={180}
               alt="left"
+              className="shadow"
             />
           </animated.div>
           <animated.div
@@ -190,11 +193,11 @@ const Hero = () => {
             style={squaresSprings}
             className="z-10"
           >
-            <Image priority src={squares} height={90} width={180} alt="left" />
+            <Image priority src={squares} height={90} width={180} alt="left" className="shadow"/>
           </animated.div>
         </ParallaxLayer>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center absolute bottom-0 left-0 w-full m-auto">
         <a className="z-20" href="#our_difference">
           <Image
             priority
