@@ -16,22 +16,24 @@ import FirstSessionContext from "../context/FirstSessionContext";
 import logo from "../../../public/296-small-logo.svg";
 import { isMobile } from "react-device-detect";
 
+import styles from "./styles.module.css";
+
 const Hero = () => {
   let isFirstSession = useContext(FirstSessionContext);
 
   const [leftRef, leftSprings] = useInView(
     () => ({
       from: {
-        x: "50%",
-        y: 80,
+        x: "42.5%",
+        // y: 0,
       },
       to: {
-        x: "15%",
+        x: "5%",
       },
       config: {
         mass: 20,
         friction: 250,
-        tension: 600,
+        tension: 400,
       },
     }),
     { once: true, loop: true }
@@ -39,16 +41,16 @@ const Hero = () => {
 
   const [rightRef, rightSprings] = useInView(() => ({
     from: {
-      x: "50%",
-      y: 80,
+      x: "42.5%",
+      // y: 0,
     },
     to: {
-      x: "73%",
+      x: "80%",
     },
     config: {
       mass: 20,
       friction: 250,
-      tension: 600,
+      tension: 400,
     },
   }));
 
@@ -56,12 +58,12 @@ const Hero = () => {
     from: {
       x: "75%",
       opacity: "0",
-      y: -500,
+      y: "-315%",
     },
     to: {
-      x: "77%",
+      x: "85%",
       opacity: "100%",
-      delay: 2000
+      delay: 1300,
     },
     config: {
       mass: 20,
@@ -73,12 +75,12 @@ const Hero = () => {
   const [props, api] = useSpring(
     () => ({
       from: { opacity: 0, y: 100 },
-      delay: 2000,
+      delay: 1300,
       to: { opacity: 1, y: 0 },
       config: {
         mass: 5,
         friction: 150,
-        tension: 800,
+        tension: 400,
       },
     }),
     []
@@ -87,7 +89,6 @@ const Hero = () => {
   const [logoProps, logoApi] = useSpring(
     () => ({
       from: { opacity: 0 },
-      delay: 800,
       to: { opacity: 1 },
       config: {
         mass: 5,
@@ -98,21 +99,74 @@ const Hero = () => {
     []
   );
 
+  const [doorsProps, doorApi] = useSpring(
+    () => ({
+      from: {
+        width: "50%",
+      },
+      to: { width: "0%" },
+      // loop: true,
+      config: {
+        mass: 15,
+        friction: 100,
+        tension: 300,
+      },
+    }),
+    []
+  );
+
+  const [rightDoorsProps, rightDoorApi] = useSpring(
+    () => ({
+      from: {
+        width: "50%",
+        right: "0%",
+      },
+      to: { width: "0%" },
+      // loop: true,
+      config: {
+        mass: 15,
+        friction: 100,
+        tension: 300,
+      },
+    }),
+    []
+  );
+
   return (
     <Container type="full">
       <div
         id="home"
-        className="flex flex-row justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[90%] max-sm:h-[calc(100vh-170px)]"
+        className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[90%] max-sm:h-[calc(100vh-170px)]"
       >
-        <div className="lg:w-1/2 max-sm:h-100% items-center relative">
+        <div className="lg:w-1/2 items-center relative -z-20">
           <animated.div style={logoProps}>
             <Image
               priority
               src={logo.src}
-              height={100}
-              width={600}
+              height={30}
+              width={900}
               alt="right"
               className="m-auto"
+            />
+            <animated.div
+              className="bg-groupWhite"
+              style={{
+                ...doorsProps,
+                height: "40%",
+                position: "absolute",
+                bottom: "65%",
+                // border: "2px solid red"
+              }}
+            />
+            <animated.div
+              className={`bg-groupWhite ${styles.door}`}
+              style={{
+                ...rightDoorsProps,
+                height: "40%",
+                position: "absolute",
+                bottom: "65%",
+                // border: "2px solid red"
+              }}
             />
           </animated.div>
           {isMobile ? (
@@ -137,35 +191,36 @@ const Hero = () => {
             <animated.div
               style={props}
               className="flex flex-row justify-around max-sm:w-full max-sm:justify-between"
-            >
-              <Button
-                text="Our Work"
-                type="primary"
-                link="#case-studies"
-                styles="w-1/3"
-                colors={{
-                  bgColor: "groupBlue",
-                  textColor: "groupWhite",
-                  activeColor: "groupBlue",
-                }}
-              />
-              <Button
-                text="Contact Us"
-                type="secondary"
-                link="#contact"
-                styles="w-1/3"
-                colors={{
-                  bgColor: "groupBlue",
-                  textColor: "groupWhite",
-                  activeColor: "groupBlue",
-                }}
-              />
-            </animated.div>
+            ></animated.div>
           </div>
         </div>
+        <animated.div style={props} className="flex w-1/2 justify-around">
+          <Button
+            text="Our Work"
+            type="primary"
+            link="#case-studies"
+            styles="w-1/3"
+            colors={{
+              bgColor: "groupBlue",
+              textColor: "groupWhite",
+              activeColor: "groupBlue",
+            }}
+          />
+          <Button
+            text="Contact Us"
+            type="secondary"
+            link="#contact"
+            styles="w-1/3"
+            colors={{
+              bgColor: "groupBlue",
+              textColor: "groupWhite",
+              activeColor: "groupBlue",
+            }}
+          />
+        </animated.div>
       </div>
-      <div className="lg:w-1/2 max-lg:hidden">
-        <ParallaxLayer offset={0} speed={1.3} className="absolute -z-10">
+      <div className="lg:w-full h-full relative max-lg:hidden top-[-75%] -z-10">
+        <ParallaxLayer offset={0} speed={1.3} className="absolute">
           <animated.div ref={leftRef} style={leftSprings}>
             <Image
               priority
@@ -177,7 +232,7 @@ const Hero = () => {
             />
           </animated.div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={1} className="absolute -z-10">
+        <ParallaxLayer offset={0} speed={1} className="absolute">
           <animated.div ref={rightRef} style={rightSprings}>
             <Image
               priority
@@ -193,7 +248,14 @@ const Hero = () => {
             style={squaresSprings}
             className="z-10"
           >
-            <Image priority src={squares} height={90} width={180} alt="left" className="shadow"/>
+            <Image
+              priority
+              src={squares}
+              height={90}
+              width={180}
+              alt="left"
+              className="shadow"
+            />
           </animated.div>
         </ParallaxLayer>
       </div>
