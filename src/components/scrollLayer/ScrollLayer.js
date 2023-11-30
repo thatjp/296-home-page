@@ -48,7 +48,7 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
         <animated.div
           ref={imgRef}
           style={imgSprings}
-          className="pr-10 max-sm:hidden"
+          className="pr-10"
         >
           <Image
             priority
@@ -56,7 +56,7 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
             height={150}
             width={150}
             alt={imageSrc}
-            className="p-2"
+            className="p-2 shadow"
           />
         </animated.div>
         <div className="flex flex-col max-sm:mt-20 text-left md:w-[75%]">
