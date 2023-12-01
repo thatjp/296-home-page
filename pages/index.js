@@ -66,7 +66,11 @@ export default function Home() {
   return (
     <main>
       <FirstSessionContext.Provider value={isFirstSession}>
-        <Navigation />
+        <div
+          className="fixed top-0 w-full z-10"
+        >
+          <Navigation />
+        </div>
         <Scroll>
           <ParallaxLayer offset={0} className="bg-groupWhite">
             <Hero />
@@ -75,7 +79,7 @@ export default function Home() {
           <ParallaxLayer
             offset={1}
             sticky={{ start: 1, end: 3.5 }}
-            className="max-sm:px-10 flex flex-col justify-start"
+            className="max-sm:px-10 flex flex-col justify-start pt-[80px]"
           >
             <div
               id="our_difference"

@@ -118,7 +118,7 @@ const Hero = () => {
     <Container type="full">
       <div
         id="home"
-        className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[90%] max-sm:h-[calc(100vh-170px)]"
+        className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full max-sm:h-[calc(100vh-170px)]"
       >
         <div className="lg:w-1/2 items-center relative -z-20">
           <div>
@@ -137,7 +137,6 @@ const Hero = () => {
                 height: "100%",
                 position: "absolute",
                 bottom: "10%",
-                // border: "2px solid red"
               }}
             />
             <animated.div
@@ -147,7 +146,6 @@ const Hero = () => {
                 height: "100%",
                 position: "absolute",
                 bottom: "10%",
-                // border: "2px solid red"
               }}
             />
           </div>
@@ -241,7 +239,7 @@ const Hero = () => {
           </animated.div>
         </ParallaxLayer>
       </div>
-      <div className="flex justify-center items-center absolute bottom-[10%] left-0 w-full m-auto">
+      <div className="flex justify-center items-center absolute bottom-0 left-0 w-full m-auto">
         <a className="z-20 hover:h-24" href="#our_difference">
           <Image
             priority
