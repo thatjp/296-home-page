@@ -39,11 +39,11 @@ const CaseStudies = ({ isMobile, data }) => {
     <Container>
       <div id="case_studies" className="anchor"></div>
       <div className="test flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative max-sm:my-10">
-        <div className="md:my-10 max-sm:mb-3 md:w-fit max-sm:w-full">
+        <div className="md:my-10 max-sm:mb-3 w-fit">
           <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
             Case <span className="text-groupBlue">Studies</span>
           </h2>
-          <span className="block w-full max-sm:w-52 border-y-[1px] border-groupBlack my-61"></span>
+          <span className="block border-y-[1px] border-groupBlack my-61"></span>
         </div>
         <animated.div ref={ref} style={springs}>
           {

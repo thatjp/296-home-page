@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { ParallaxLayer } from "@react-spring/parallax";
 import { useSpringRef, animated } from "@react-spring/web";
 import { isMobile } from "react-device-detect";
@@ -16,6 +17,7 @@ import ScrollLayer from "@/components/scrollLayer/ScrollLayer";
 import jeffPhoto from "../public/jeff.jpeg";
 import bharatPhoto from "../public/bharat.jpg";
 import noprofile from "../public/noprofile.png";
+import chevron from "../public/296-Chevron.svg";
 
 // Site Copy
 import focusContent from "../public/focuses.json";
@@ -66,9 +68,7 @@ export default function Home() {
   return (
     <main>
       <FirstSessionContext.Provider value={isFirstSession}>
-        <div
-          className="fixed top-0 w-full z-10"
-        >
+        <div className="fixed top-0 w-full z-10">
           <Navigation />
         </div>
         <Scroll>
@@ -104,6 +104,21 @@ export default function Home() {
               />
             );
           })}
+          <ParallaxLayer
+            className="flex justify-center absolute bottom-0 left-0 w-full m-auto items-end"
+            sticky={{ start: 1, end: 7 }}
+          >
+            <a className="z-20 hover:h-24" href="#our_difference">
+              <Image
+                priority
+                src={chevron}
+                height={90}
+                width={90}
+                alt="Chevron Down"
+                className="shadow"
+              />
+            </a>
+          </ParallaxLayer>
           <ParallaxLayer
             offset={6}
             sticky={{ start: 4.5, end: 7 }}

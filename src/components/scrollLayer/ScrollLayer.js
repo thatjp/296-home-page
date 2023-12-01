@@ -4,7 +4,6 @@ import { ParallaxLayer } from "@react-spring/parallax";
 import { useInView, animated } from "@react-spring/web";
 
 const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
-
   const [ref, springs] = useInView(
     () => ({
       from: {
@@ -45,11 +44,7 @@ const ScrollLayer = ({ imageSrc, heading, body, offset, sticky }) => {
       sticky={sticky}
     >
       <div className="flex flex-row justify-between items-start w-[80%] max-md:w-full">
-        <animated.div
-          ref={imgRef}
-          style={imgSprings}
-          className="pr-10"
-        >
+        <animated.div ref={imgRef} style={imgSprings} className="pr-10">
           <Image
             priority
             src={imageSrc}

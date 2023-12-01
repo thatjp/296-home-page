@@ -6,14 +6,15 @@ import { ParallaxLayer } from "@react-spring/parallax";
 import Trail from "../trail/Trail";
 import Container from "../container/Container";
 import Button from "../button/Button";
+
 import chevron from "../../../public/296-Chevron.svg";
 import bracketLeft from "../../../public/bracket-left.svg";
 import bracketRight from "../../../public/bracket-right.svg";
 import squares from "../../../public/296-squares.svg";
+import logo from "../../../public/296-small-logo.svg";
 
 import FirstSessionContext from "../context/FirstSessionContext";
 
-import logo from "../../../public/296-small-logo.svg";
 import { isMobile } from "react-device-detect";
 
 import styles from "./styles.module.css";
@@ -131,7 +132,7 @@ const Hero = () => {
               className="m-auto"
             />
             <animated.div
-              className="bg-groupWhite"
+              className="bg-groupWhite max-sm:hidden"
               style={{
                 ...doorsProps,
                 height: "100%",
@@ -140,7 +141,7 @@ const Hero = () => {
               }}
             />
             <animated.div
-              className={`bg-groupWhite ${styles.door}`}
+              className={`bg-groupWhite max-sm:hidden`}
               style={{
                 ...rightDoorsProps,
                 height: "100%",
@@ -174,7 +175,7 @@ const Hero = () => {
             className="flex flex-row justify-around max-sm:w-full max-sm:justify-between"
           ></animated.div>
         </div>
-        <animated.div style={props} className="flex w-1/2 justify-around">
+        <animated.div style={props} className="flex w-1/2 max-sm:w-full justify-around">
           <Button
             text="Our Work"
             type="primary"
