@@ -141,11 +141,11 @@ export default function Home() {
           </ParallaxLayer>
           <ParallaxLayer offset={8} className="bg-groupWhite">
             <Container>
-              <div id="our_team" className="anchor"></div>
+              <div id="leadership" className="anchor"></div>
               <div className="test flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative max-sm:my-24">
                 <div className="my-10 w-fit">
                   <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
-                    Our <span className="text-groupBlue">Team</span>
+                    Leadership
                   </h2>
                   <span className="block w-full max-sm:w-52 border-y-[1px] border-groupBlack my-61"></span>
                 </div>

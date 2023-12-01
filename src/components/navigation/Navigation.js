@@ -82,11 +82,11 @@ const Navigation = () => {
             >
               <li>
                 <a
-                  href="#"
+                  href="#our_difference"
                   className="font-karla block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
                   aria-current="page"
                 >
-                  Home
+                  296 Difference
                 </a>
               </li>
               <li>
@@ -99,10 +99,10 @@ const Navigation = () => {
               </li>
               <li>
                 <a
-                  href="#our_focus"
+                  href="#leadership"
                   className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
                 >
-                  Our Focus
+                  Leadership
                 </a>
               </li>
               <li>
@@ -110,7 +110,7 @@ const Navigation = () => {
                   href="#contact"
                   className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
                 >
-                  Contact
+                  Contact Us
                 </a>
               </li>
             </ul>
@@ -139,18 +139,18 @@ const Navigation = () => {
             </li>
             <li>
               <a
-                href="#what_we_do"
+                href="#our_difference"
                 className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
               >
-                What We Do
+                296 Difference
               </a>
             </li>
             <li>
               <a
-                href="#our_focus"
+                href="#leadership"
                 className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
               >
-                Our Focus
+                Leadership
               </a>
             </li>
             <li>
@@ -158,7 +158,7 @@ const Navigation = () => {
                 href="#contact"
                 className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
               >
-                Contact
+                Contact Us
               </a>
             </li>
           </ul>

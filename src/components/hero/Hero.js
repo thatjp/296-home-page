@@ -24,7 +24,6 @@ const Hero = () => {
   const [leftRef, leftSprings] = useInView(() => ({
     from: {
       x: "42.5%",
-      // y: 0,
     },
     to: {
       x: "5%",
@@ -39,7 +38,6 @@ const Hero = () => {
   const [rightRef, rightSprings] = useInView(() => ({
     from: {
       x: "42.5%",
-      // y: 0,
     },
     to: {
       x: "80%",
@@ -83,25 +81,13 @@ const Hero = () => {
     []
   );
 
-  const [logoProps, logoApi] = useSpring(
-    () => ({
-      from: { opacity: 0 },
-      to: { opacity: 1 },
-      config: {
-        mass: 5,
-        friction: 150,
-        tension: 1000,
-      },
-    }),
-    []
-  );
-
   const [doorsProps, doorApi] = useSpring(
     () => ({
       from: {
         width: "50%",
       },
       to: { width: "0%" },
+      // loop: true,
       config: {
         mass: 15,
         friction: 100,
@@ -118,6 +104,7 @@ const Hero = () => {
         right: "0%",
       },
       to: { width: "0%" },
+      // loop: true,
       config: {
         mass: 15,
         friction: 100,
@@ -134,7 +121,7 @@ const Hero = () => {
         className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-[90%] max-sm:h-[calc(100vh-170px)]"
       >
         <div className="lg:w-1/2 items-center relative -z-20">
-          <animated.div style={logoProps}>
+          <div>
             <Image
               priority
               src={logo.src}
@@ -147,9 +134,9 @@ const Hero = () => {
               className="bg-groupWhite"
               style={{
                 ...doorsProps,
-                height: "40%",
+                height: "100%",
                 position: "absolute",
-                bottom: "65%",
+                bottom: "10%",
                 // border: "2px solid red"
               }}
             />
@@ -157,13 +144,13 @@ const Hero = () => {
               className={`bg-groupWhite ${styles.door}`}
               style={{
                 ...rightDoorsProps,
-                height: "40%",
+                height: "100%",
                 position: "absolute",
-                bottom: "65%",
+                bottom: "10%",
                 // border: "2px solid red"
               }}
             />
-          </animated.div>
+          </div>
           {isMobile ? (
             <Trail open={true}>
               <span>Launch</span>
@@ -175,19 +162,19 @@ const Hero = () => {
           )}
 
           <div className="max-sm:top-10">
-            <animated.p
-              style={props}
-              className="font-body text-center max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16"
-            >
-              A boutique technology consulting and development firm that
-              specializes in helping start-ups and emerging business ventures
-              launch, scale and grow rapidly.
-            </animated.p>
-            <animated.div
-              style={props}
-              className="flex flex-row justify-around max-sm:w-full max-sm:justify-between"
-            ></animated.div>
+            <p className="test font-body text-center max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16">
+              We are a results driven boutique technology consulting and
+              software development firm that specializes in helping both
+              emerging and established businesses solve complex technical
+              challenges. Our team of technologists blend innovation with
+              practicality to build custom, enterprise-grade software solutions
+              that prioritize your business strategy and goals.
+            </p>
           </div>
+          <animated.div
+            style={props}
+            className="flex flex-row justify-around max-sm:w-full max-sm:justify-between"
+          ></animated.div>
         </div>
         <animated.div style={props} className="flex w-1/2 justify-around">
           <Button
@@ -214,7 +201,7 @@ const Hero = () => {
           />
         </animated.div>
       </div>
-      <div className="lg:w-full h-full relative max-lg:hidden top-[-75%] -z-10">
+      <div className="lg:w-full h-full relative max-lg:hidden top-[-80%] -z-10">
         <ParallaxLayer offset={0} speed={1.3} className="absolute">
           <animated.div ref={leftRef} style={leftSprings}>
             <Image
