@@ -44,7 +44,7 @@ const CaseStudies = ({ isMobile, data }) => {
         </div>
         <animated.div ref={ref} style={springs}>
           {
-            <ul className="flex flex-row justify-between w-full overflow-y-hidden max-sm:mt-10">
+            <ul className="flex flex-row justify-between w-full max-sm:mt-10">
               {data.map((study, idx) => {
                 return (
                   <li key={idx} className="w-1/4 max-sm:w-full max-sm:mx-4 relative">
