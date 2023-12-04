@@ -6,9 +6,9 @@ export default function Document() {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap"
-          rel="stylesheet"
+        <meta
+          name="description"
+          content="We are a results driven boutique technology consulting and software development firm that specializes in helping both emerging and established businesses solve complex technical challenges. Our team of technologists blend innovation with practicality to build custom, enterprise-grade software solutions that prioritize your business strategy and goals."
         />
       </Head>
       <body>

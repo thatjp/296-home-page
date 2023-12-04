@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Head from "next/head"
 import { ParallaxLayer } from "@react-spring/parallax";
-import { useTransition, animated } from "@react-spring/web";
 import { isMobile } from "react-device-detect";
 
 import Button from "@/components/button/Button";
@@ -59,9 +59,11 @@ export default function Home() {
     }
   }, [isFirstSession]);
 
-  console.log("modalVisible", modalVisible);
   return (
     <main>
+      <Head>
+        <title>296 Group - Boutique Technology Services</title>
+      </Head>
       <FirstSessionContext.Provider value={isFirstSession}>
         <div className="fixed top-0 w-full z-10">
           <Navigation />
