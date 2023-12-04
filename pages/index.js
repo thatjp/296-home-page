@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { useSpringRef, animated } from "@react-spring/web";
+import { useTransition, animated } from "@react-spring/web";
 import { isMobile } from "react-device-detect";
 
 import Button from "@/components/button/Button";
@@ -33,15 +33,11 @@ import HalfImage from "@/components/halfImage/halfImage";
 import "../src/app/globals.css";
 
 import FirstSessionContext from "../src/components/context/FirstSessionContext";
+import Modal from "@/components/modal/Modal";
 
 export default function Home() {
-  const [clicked, setClicked] = useState(false);
+  const [modalVisible, setIsModalVisible] = useState(false);
   const [isFirstSession, setFirstSession] = useState(true);
-  const transRef = useSpringRef();
-
-  useEffect(() => {
-    transRef.start();
-  }, [clicked]);
 
   const selectProfilePicture = (member) => {
     switch (member.name) {
@@ -63,8 +59,7 @@ export default function Home() {
     }
   }, [isFirstSession]);
 
-  const [flipped, set] = useState(false);
-
+  console.log("modalVisible", modalVisible);
   return (
     <main>
       <FirstSessionContext.Provider value={isFirstSession}>
@@ -109,16 +104,16 @@ export default function Home() {
             className="flex justify-center absolute bottom-0 left-0 w-full m-auto items-end"
             sticky={{ start: 1, end: 7 }}
           >
-              <a className="test z-20 hover:h-24" href="#our_difference">
-                <Image
-                  priority
-                  src={chevronWhite}
-                  height={90}
-                  width={isMobile ? 60 : 90}
-                  alt="Chevron Down"
-                  className="shadow"
-                />
-              </a>
+            <a className="test z-20 hover:h-24" href="#our_difference">
+              <Image
+                priority
+                src={chevronWhite}
+                height={90}
+                width={isMobile ? 60 : 90}
+                alt="Chevron Down"
+                className="shadow"
+              />
+            </a>
           </ParallaxLayer>
           <ParallaxLayer
             offset={6}
@@ -159,18 +154,29 @@ export default function Home() {
               isMobile={isMobile}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={8} className="bg-groupWhite" >
+          <ParallaxLayer offset={8} className="bg-groupWhite">
             <Container>
               <div id="leadership" className="anchor"></div>
               <div className="flex flex-col h-[calc(100vh/1.3)] relative">
-                <div className="my-[15%] w-fit">
+                {modalVisible && modalVisible.name && (
+                  <Modal
+                    title={modalVisible.name}
+                    text={modalVisible.bio}
+                    setModalState={() => setIsModalVisible()}
+                    modalState={modalVisible}
+                  />
+                )}
+                <div className="max-sm:my-[15%] my-[8%] w-fit">
                   <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
                     Leadership
                   </h2>
                   <span className="block w-full border-y-[1px] border-groupBlack my-61"></span>
                 </div>
                 <div className="md:hidden">
-                  <Slider data={team.team} />
+                  <Slider
+                    data={team.team}
+                    setIsModalVisible={(member) => setIsModalVisible(member)}
+                  />
                 </div>
                 <div>
                   <ul className="flex flex-row space-x-5 max-sm:hidden">
@@ -188,39 +194,17 @@ export default function Home() {
                               width: "100%",
                               height: "350px",
                             }}
-                            onClick={() => set(idx)}
+                            onClick={() => setIsModalVisible(member)}
                           ></div>
-                          <div className="my-3" onClick={() => set(idx)}>
+                          <div
+                            className="my-3"
+                            onClick={() => setIsModalVisible(member)}
+                          >
                             <h2 className="text-groupBlue text-2xl">
                               {member.name}
                             </h2>
                             <p className="text-xl">{member.position}</p>
                           </div>
-                          {flipped === idx ? (
-                            <animated.div
-                              className={`z-10 absolute top-20 left-0 overflow-auto bg-groupBlue p-10 rounded-xl h-fit`}
-                            >
-                              <h3 className="text-groupWhite mb-3 font-semibold lg:text-3xl md:text-5xl max-sm:text-5xl">
-                                {member.name}
-                              </h3>
-                              <h3 className="text-groupWhite">{member.bio}</h3>
-                              <div className="relative md:h-[65%] w-[50%] m-auto">
-                                <Button
-                                  text="Close"
-                                  styles="bottom-0 right-0 w-full pt-10"
-                                  onClick={() => set(null)}
-                                  purpose="button"
-                                  colors={{
-                                    bgColor: "groupWhite",
-                                    textColor: "groupBlue",
-                                    activeColor: "groupWhite",
-                                  }}
-                                />
-                              </div>
-                            </animated.div>
-                          ) : (
-                            <></>
-                          )}
                         </li>
                       );
                     })}
@@ -230,7 +214,19 @@ export default function Home() {
             </Container>
           </ParallaxLayer>
           <ParallaxLayer offset={9} className="bg-groupWhite">
-            <CaseStudies isMobile={isMobile} data={caseStudies.studies} />
+            {modalVisible && modalVisible.company && (
+              <Modal
+                title={modalVisible.company}
+                text={modalVisible.content}
+                modalState={modalVisible}
+                setModalState={() => setIsModalVisible()}
+              />
+            )}
+            <CaseStudies
+              isMobile={isMobile}
+              data={caseStudies.studies}
+              setModalState={(study) => setIsModalVisible(study)}
+            />
           </ParallaxLayer>
           <ParallaxLayer offset={10}>
             <div id="contact" className="anchor h-[100px]"></div>
