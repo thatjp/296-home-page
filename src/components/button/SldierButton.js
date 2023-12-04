@@ -8,13 +8,13 @@ const SliderButton = ({ direction, moveSlide }) => {
   return (
     <button
       onClick={moveSlide}
-      className={classnames("h-20", direction === "next" ? "btn-slide next" : "btn-slide prev")}
+      className={classnames("h-10", direction === "next" ? "btn-slide next" : "btn-slide prev")}
     >
       <Image
         priority
         src={direction === "next" ? leftArrow : rightArrow}
         height={30}
-        width={90}
+        width={40}
         alt="Follow us on Twitter"
       />
     </button>

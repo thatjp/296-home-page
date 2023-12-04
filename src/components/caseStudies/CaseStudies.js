@@ -47,7 +47,7 @@ const CaseStudies = ({ isMobile, data }) => {
             <ul className="flex flex-row justify-between w-full overflow-y-hidden max-sm:mt-10">
               {data.map((study, idx) => {
                 return (
-                  <li key={idx} className="w-1/4 max-sm:w-full">
+                  <li key={idx} className="w-1/4 max-sm:w-full max-sm:mx-4 relative">
                     {!flipped ? (
                       <animated.div
                         className={`${styles.c} bg-groupBlue p-10 rounded-xl h-[60vh] w-1/5 max-sm:w-full max-sm:relative`}
@@ -65,7 +65,7 @@ const CaseStudies = ({ isMobile, data }) => {
                             {study.industry}
                           </h3>
                           <div className="py-10 h-[100px] w-[100px] max-sm:w-full">
-                            <p className="text-groupWhite absolute max-sm:relative top-[35%] m-3 right-0 left-0 text-center">
+                            <p className="text-groupWhite max-sm:relative top-[35%] m-3 right-0 left-0 text-center">
                               {study.snippet}
                             </p>
                           </div>

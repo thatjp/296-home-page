@@ -79,7 +79,7 @@ export const Slider = ({ data, children, type }) => {
               })}
             </ul>
           }
-          <div className="flex justify my-20 max-sm:my-2">
+          <div className="flex justify-between my-20 max-sm:my-2">
             <SliderButton moveSlide={nextSlide} direction={"next"} />
             <SliderButton moveSlide={prevSlide} direction={"prev"} />
           </div>
