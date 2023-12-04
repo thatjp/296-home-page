@@ -47,7 +47,7 @@ const CaseStudies = ({ isMobile, data }) => {
             <ul className="flex h-screen flex-row justify-between overflow-auto w-full max-sm:mt-10">
               {data.map((study, idx) => {
                 return (
-                  <li key={idx} className="max-sm:mx-4 relative">
+                  <li key={idx} className="max-sm:mx-4 min-w-full relative">
                     {!flipped ? (
                       <animated.div
                         className={`${styles.c} bg-groupBlue p-10 rounded-xl h-[60vh] max-sm:w-min-full max-sm:relative`}
