@@ -44,10 +44,10 @@ const CaseStudies = ({ isMobile, data }) => {
         </div>
         <animated.div ref={ref} style={springs}>
           {
-            <ul className="max-sm:h-screen flex-row justify-between overflow-auto w-full max-sm:mt-10">
+            <ul className="flex max-sm:h-screen flex-row justify-between overflow-auto w-full max-sm:mt-10">
               {data.map((study, idx) => {
                 return (
-                  <li key={idx} className="w-1/4 max-sm:w-full max-sm:mx-4 relative">
+                  <li key={idx} className="flex-1 max-sm:w-full max-sm:mx-4 relative">
                     {!flipped ? (
                       <animated.div
                         className={`${styles.c} bg-groupBlue p-10 rounded-xl h-[60vh] w-1/5 max-sm:w-full max-sm:relative`}
