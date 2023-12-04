@@ -35,7 +35,7 @@ const CaseStudies = ({ isMobile, data }) => {
   return (
     <Container>
       <div id="case_studies" className="anchor"></div>
-      <div className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative max-sm:my-10">
+      <div className="flex flex-col h-[calc(100vh/1.3)] relative max-sm:my-10">
         <div className="md:my-10 max-sm:mb-3 w-fit">
           <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
             Case <span className="text-groupBlue">Studies</span>
@@ -44,7 +44,7 @@ const CaseStudies = ({ isMobile, data }) => {
         </div>
         <animated.div ref={ref} style={springs}>
           {
-            <ul className="flex flex-row justify-between overflow-auto w-full max-sm:mt-10">
+            <ul className="max-sm:h-screen flex-row justify-between overflow-auto w-full max-sm:mt-10">
               {data.map((study, idx) => {
                 return (
                   <li key={idx} className="w-1/4 max-sm:w-full max-sm:mx-4 relative">
