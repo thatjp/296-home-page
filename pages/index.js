@@ -159,11 +159,11 @@ export default function Home() {
               isMobile={isMobile}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={8} className="bg-groupWhite">
+          <ParallaxLayer offset={8} className="bg-groupWhite" >
             <Container>
               <div id="leadership" className="anchor"></div>
               <div className="flex flex-col h-[calc(100vh/1.3)] relative">
-                <div className="my-[5%] max-sm:my-[15%]  w-fit">
+                <div className="my-[15%] w-fit">
                   <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
                     Leadership
                   </h2>

@@ -44,7 +44,7 @@ const HalfImage = ({
       <h2
         className={
           isAlignedRight
-            ? "text-right text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
+            ? "text-right text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl"
             : "text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
         }
       >
@@ -107,11 +107,11 @@ const HalfImage = ({
         <animated.div
           ref={ref}
           style={springs}
-          className="flex flex-row max-sm:flex-col h-[calc(65vh)] max-sm:h-screen relative bg-groupWhite"
+          className="flex flex-row max-sm:flex-col h-[calc(65vh)] max-sm:h-full relative bg-groupWhite"
         >
           {handleMobileImage(anchorId)}
           <div
-            className="justify-center flex flex-col overflow-hidden max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full lg:w-1/2"
+            className="justify-center flex flex-col overflow-x-hidden max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full lg:w-1/2"
             style={{ top: isMobile ? "-15%" : "none" }}
           >
             <animated.div
@@ -126,7 +126,7 @@ const HalfImage = ({
               {data.map((focus, idx) => {
                 return (
                   <li key={idx} className="py-1">
-                    <p className="text-2xl max-sm:text-2xl font-body text-groupBlack max-sm:text-end md:text-end">
+                    <p className="text-2xl max-sm:text-xl font-body text-groupBlack max-sm:text-end md:text-end">
                       {focus}
                     </p>
                   </li>
@@ -139,7 +139,7 @@ const HalfImage = ({
         <animated.div
           ref={ref}
           style={{ ...springs, scrollBehavior: "smooth;" }}
-          className="flex flex-row max-sm:flex-col-reverse max-sm:justify-end h-[calc(65vh)] max-sm:h-screen relative bg-groupWhite"
+          className="flex flex-row max-sm:flex-col-reverse max-sm:justify-end h-[calc(65vh)] max-sm:h-full relative bg-groupWhite"
         >
           <div className="w-1/2"></div>
           {!isMobile ? (
@@ -147,7 +147,7 @@ const HalfImage = ({
           ) : (
             <div className="hidden"></div>
           )}
-          <div className="justify-center overflow-hidden max-sm:z-10 max-sm:items-start flex flex-col max-sm:relative absolute max-sm:top-[-50px]">
+          <div className="justify-center overflow-x-hidden max-sm:z-10 max-sm:items-start flex flex-col max-sm:relative absolute max-sm:top-[-50px]">
             <animated.div
               ref={titleRightRef}
               style={titleRightSprings}
@@ -161,7 +161,7 @@ const HalfImage = ({
                 {data.map((service, idx) => {
                   return (
                     <li key={idx} className="py-1">
-                      <p className="text-3xl max-sm:text-2xl font-body text-groupBlack">
+                      <p className="text-3xl max-sm:text-xl font-body text-groupBlack">
                         {service}
                       </p>
                     </li>
