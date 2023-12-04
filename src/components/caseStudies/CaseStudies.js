@@ -29,16 +29,13 @@ const CaseStudies = ({ isMobile, data }) => {
   const [flipped, set] = useState(null);
 
   const { transform, opacity } = useSpring({
-    // opacity: flipped ? 1 : 0,
-    // transform: `perspective(600px) rotateY(${flipped ? 180 : 0}deg)`,
-    // transform: `translateX(${flipped ? 180 : 0}px)`,
     config: { mass: 5, tension: 500, friction: 80 },
   });
 
   return (
     <Container>
       <div id="case_studies" className="anchor"></div>
-      <div className="test flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative max-sm:my-10">
+      <div className="flex flex-col h-[calc(100vh/1.3)] max-sm:h-[calc(100vh/1.4)] relative max-sm:my-10">
         <div className="md:my-10 max-sm:mb-3 w-fit">
           <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
             Case <span className="text-groupBlue">Studies</span>
@@ -93,11 +90,10 @@ const CaseStudies = ({ isMobile, data }) => {
                     )}
                     {flipped === idx ? (
                       <animated.div
-                        className={`${styles.c} z-10 max-sm:bottom-[50%] absolute max-sm:relative left-0 overflow-auto bg-groupBlue p-10 rounded-xl h-[60vh]`}
+                        className="z-10 absolute top-[25%] left-0 overflow-auto bg-groupBlue p-10 rounded-xl h-fit"
                         style={{
                           opacity,
                           transform,
-                          // rotateY: "180deg",
                         }}
                       >
                         <h3 className="text-groupWhite mb-3 font-semibold lg:text-3xl md:text-5xl max-sm:text-5xl">

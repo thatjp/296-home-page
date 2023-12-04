@@ -113,7 +113,7 @@ export const Slider = ({ data, children, type }) => {
                     </div>
                     {flipped === idx ? (
                       <div
-                        className={`z-10 absolute top-20 left-0 overflow-auto bg-groupBlue p-10 max-sm:p-2 rounded-xl h-fit`}
+                        className={`z-10 absolute top-20 h-[80%] left-0 overflow-auto bg-groupBlue p-10 max-sm:p-2 rounded-xl`}
                       >
                         <h3 className="text-groupWhite mb-3 font-semibold lg:text-3xl md:text-5xl max-sm:text-2xl">
                           {member.name}

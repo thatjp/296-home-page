@@ -44,7 +44,7 @@ const HalfImage = ({
       <h2
         className={
           isAlignedRight
-            ? "text-left text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
+            ? "text-right text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
             : "text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-5xl"
         }
       >
@@ -111,8 +111,8 @@ const HalfImage = ({
         >
           {handleMobileImage(anchorId)}
           <div
-            className="justify-center flex flex-col max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full lg:w-1/2"
-            style={{ top: isMobile ? "-150px" : "none" }}
+            className="justify-center flex flex-col overflow-hidden max-sm:relative absolute right-0 max-sm:top-10 max-sm:items-end md:items-end h-full lg:w-1/2"
+            style={{ top: isMobile ? "-15%" : "none" }}
           >
             <animated.div
               ref={titleRightRef}
@@ -147,7 +147,7 @@ const HalfImage = ({
           ) : (
             <div className="hidden"></div>
           )}
-          <div className="justify-center max-sm:z-10 max-sm:items-start flex flex-col max-sm:relative absolute max-sm:top-[-50px]">
+          <div className="justify-center overflow-hidden max-sm:z-10 max-sm:items-start flex flex-col max-sm:relative absolute max-sm:top-[-50px]">
             <animated.div
               ref={titleRightRef}
               style={titleRightSprings}

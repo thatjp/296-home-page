@@ -119,7 +119,7 @@ const Hero = () => {
     <Container type="full">
       <div
         id="home"
-        className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full max-sm:h-[calc(100vh-170px)]"
+        className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full"
       >
         <div className="lg:w-1/2 items-center relative -z-20">
           <div>
@@ -150,18 +150,9 @@ const Hero = () => {
               }}
             />
           </div>
-          {isMobile ? (
-            <Trail open={true}>
-              <span>Launch</span>
-              <span>Scale</span>
-              <span>Grow</span>
-            </Trail>
-          ) : (
-            <></>
-          )}
 
           <div className="max-sm:top-10">
-            <p className="test font-body text-center max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16">
+            <p className="font-body text-center max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16">
               We are a results driven boutique technology consulting and
               software development firm that specializes in helping both
               emerging and established businesses solve complex technical
