@@ -156,7 +156,6 @@ const HalfImage = ({
               {createHighlightedTitle(title, true)}
               <span className="block border-y-[1px] border-gray-800 my-6"></span>
             </animated.div>
-            <ul>
               <ul>
                 {data.map((service, idx) => {
                   return (
@@ -168,7 +167,6 @@ const HalfImage = ({
                   );
                 })}
               </ul>
-            </ul>
           </div>
           {isMobile ? (
             handleMobileImage(anchorId)
