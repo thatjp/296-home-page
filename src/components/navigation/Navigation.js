@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import classnames from "tailwindcss-classnames";
 
+import OutsideAlerter from "@/components/outsideAlerter/OutsideAlerter"
+
 import styles from "../../app/Animation.module.css";
 
 const Navigation = () => {
@@ -38,7 +40,9 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`${styles.slide__top_medium} sticky top-0 bg-groupWhite z-20`}>
+      <nav
+        className={`${styles.slide__top_medium} sticky top-0 bg-groupWhite z-20`}
+      >
         <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#home" className="flex items-center">
             <Image
@@ -73,10 +77,7 @@ const Navigation = () => {
               />
             </svg>
           </button>
-          <div
-            className={"w-full max-md:hidden md:w-auto"}
-            id="navbar-default"
-          >
+          <div className={"w-full max-md:hidden md:w-auto"} id="navbar-default">
             <ul
               className={classnames`${styles.slide__top_medium} font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0 md:border-0 max-sm:bg-groupBlack max-sm:fixed max-sm:w-full`}
             >
@@ -117,54 +118,54 @@ const Navigation = () => {
           </div>
         </div>
       </nav>
-      {navOpen ? (
-        <div
-          className={classnames("z-10 w-full md:w-auto md:hidden", {
-            block: navOpen,
-            hidden: !navOpen,
-          })}
-          id="navbar-mobile"
-        >
-          <ul
-            className={classnames`${styles.slide__top_medium} z-10 font-medium flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 max-md:bg-groupWhite max-md:fixed max-md:w-full`}
+      {navOpen && (
+        <OutsideAlerter onOutsideClick={() => handleMobileNavClick()}>
+          <div
+            className={classnames("z-10 w-full md:w-auto md:hidden", {
+              block: navOpen,
+              hidden: !navOpen,
+            })}
+            id="navbar-mobile"
           >
-            <li>
-              <a
-                href="#"
-                className="font-karla block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
-                aria-current="page"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#our_difference"
-                className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
-              >
-                296 Difference
-              </a>
-            </li>
-            <li>
-              <a
-                href="#leadership"
-                className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
-              >
-                Leadership
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
-              >
-                Contact Us
-              </a>
-            </li>
-          </ul>
-        </div>
-      ) : (
-        <div></div>
+            <ul
+              className={classnames`${styles.slide__top_medium} z-10 font-medium flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 max-md:bg-groupWhite max-md:fixed max-md:w-full`}
+            >
+              <li>
+                <a
+                  href="#"
+                  className="font-karla block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                  aria-current="page"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#our_difference"
+                  className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                >
+                  296 Difference
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#leadership"
+                  className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                >
+                  Leadership
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                >
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+        </OutsideAlerter>
       )}
     </>
   );

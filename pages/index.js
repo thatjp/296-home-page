@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Head from "next/head"
+import Head from "next/head";
 import { ParallaxLayer } from "@react-spring/parallax";
 import { isMobile } from "react-device-detect";
 
-import Button from "@/components/button/Button";
+// Components
 import Scroll from "@/components/scroll/Scroll";
-import Navigation from "../src/components/navigation/Navigation";
-import Container from "../src/components/container/Container";
-import Slider from "../src/components/slider/Slider";
-import ContactForm from "../src/components/contactForm/ContactForm";
+import Navigation from "@/components/navigation/Navigation";
+import Container from "@/components/container/Container";
+import Slider from "@/components/slider/Slider";
+import ContactForm from "@/components/contactForm/ContactForm";
 import Hero from "@/components/hero/Hero";
 import ScrollLayer from "@/components/scrollLayer/ScrollLayer";
+import Modal from "@/components/modal/Modal";
+import HalfImage from "@/components/halfImage/HalfImage";
+import CaseStudies from "@/components/caseStudies/CaseStudies";
 
 // Site Images
 import jeffPhoto from "../public/jeff.jpeg";
@@ -27,13 +30,10 @@ import team from "../public/team.json";
 import industryExperience from "../public/industry-experience.json";
 import differences from "../public/differences.json";
 
-import CaseStudies from "@/components/caseStudies/CaseStudies";
-import HalfImage from "@/components/halfImage/halfImage";
+import FirstSessionContext from "../src/components/context/FirstSessionContext";
 
 import "../src/app/globals.css";
-
-import FirstSessionContext from "../src/components/context/FirstSessionContext";
-import Modal from "@/components/modal/Modal";
+import OutsideAlerter from "@/components/outsideAlerter/OutsideAlerter";
 
 export default function Home() {
   const [modalVisible, setIsModalVisible] = useState(false);
@@ -161,12 +161,16 @@ export default function Home() {
               <div id="leadership" className="anchor"></div>
               <div className="flex flex-col h-[calc(100vh/1.3)] relative">
                 {modalVisible && modalVisible.name && (
-                  <Modal
-                    title={modalVisible.name}
-                    text={modalVisible.bio}
-                    setModalState={() => setIsModalVisible()}
-                    modalState={modalVisible}
-                  />
+                  <OutsideAlerter
+                    onOutsideClick={() => setIsModalVisible(null)}
+                  >
+                    <Modal
+                      title={modalVisible.name}
+                      text={modalVisible.bio}
+                      setModalState={() => setIsModalVisible()}
+                      modalState={modalVisible}
+                    />
+                  </OutsideAlerter>
                 )}
                 <div className="max-sm:my-[15%] my-[8%] w-fit">
                   <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
@@ -217,12 +221,14 @@ export default function Home() {
           </ParallaxLayer>
           <ParallaxLayer offset={9} className="bg-groupWhite">
             {modalVisible && modalVisible.company && (
-              <Modal
-                title={modalVisible.company}
-                text={modalVisible.content}
-                modalState={modalVisible}
-                setModalState={() => setIsModalVisible()}
-              />
+              <OutsideAlerter onOutsideClick={() => setIsModalVisible(null)}>
+                <Modal
+                  title={modalVisible.company}
+                  text={modalVisible.content}
+                  modalState={modalVisible}
+                  setModalState={() => setIsModalVisible()}
+                />
+              </OutsideAlerter>
             )}
             <CaseStudies
               isMobile={isMobile}
