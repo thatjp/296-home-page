@@ -19,6 +19,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-main));
@@ -43,4 +47,28 @@ body {
 .shadow {
   filter: drop-shadow(rgba(0,0,0,0.5) 10px 10px 10px);
   --tw-shadow: none
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #398BF9;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #398BF9;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

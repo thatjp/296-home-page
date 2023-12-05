@@ -36,7 +36,7 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
     <Container>
       <div id="case_studies" className="anchor"></div>
       <div className="flex flex-col relative max-sm:my-10">
-        <div className="md:my-10 max-sm:mb-3 w-fit">
+        <div className="mb-10 max-sm:mb-3 w-fit">
           <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
             Case <span className="text-groupBlue">Studies</span>
           </h2>

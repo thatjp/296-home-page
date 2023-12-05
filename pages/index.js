@@ -172,7 +172,7 @@ export default function Home() {
                     />
                   </OutsideAlerter>
                 )}
-                <div className="max-sm:my-[15%] my-[8%] w-fit">
+                <div className="max-sm:my-[15%] mb-[8%] w-fit">
                   <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
                     Leadership
                   </h2>

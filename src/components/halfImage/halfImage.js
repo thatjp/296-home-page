@@ -138,7 +138,7 @@ const HalfImage = ({
       ) : (
         <animated.div
           ref={ref}
-          style={{ ...springs, scrollBehavior: "smooth;" }}
+          style={{ ...springs }}
           className="flex flex-row max-sm:flex-col-reverse max-sm:justify-end h-[calc(65vh)] max-sm:h-full relative bg-groupWhite"
         >
           <div className="w-1/2"></div>

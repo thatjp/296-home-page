@@ -2,14 +2,14 @@
   "differences": [
     {
       "offset": 2,
-      "sticky": { "start": 1, "end": 1.5 },
+      "sticky": { "start": 1, "end": 1.2 },
       "heading": "Strategic Business Partner, Not Just an IT Vendor",
       "body": "We prioritize establishing a strategic business partnership with our clients.  Our commitment to long-term relationships allows us to develop enterprise-grade solutions, incrementally.  This approach accelerates our partners’ growth compared to traditional development methods.",
       "icon": "../../../handshake-white.svg"
     },
     {
       "offset": 3,
-      "sticky": { "start": 2, "end": 2.5 },
+      "sticky": { "start": 2, "end": 2.2 },
       "heading": "On Time & On Budget",
       "body": "Our entrepreneurial mindset and experience ensure timely and budget conscious project delivery.  We take pride in identifying efficient solutions and implementing them quickly.",
       "icon": "../../../execute.svg"

@@ -18,7 +18,7 @@ const Modal = ({ title, text, setModalState, modalState }) => {
       <div className="flex flex-row justify-between items mb-5">
         <h3 className="modal-title text-groupWhite text-2xl">{title}</h3>
         <p className="text-groupWhite" onClick={() => setModalState(null)}>
-          close
+          X
         </p>
       </div>
       <p className="modal-content text-groupWhite">{text}</p>

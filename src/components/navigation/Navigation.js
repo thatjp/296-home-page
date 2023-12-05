@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import classnames from "tailwindcss-classnames";
 
-import OutsideAlerter from "@/components/outsideAlerter/OutsideAlerter"
+import OutsideAlerter from "@/components/outsideAlerter/OutsideAlerter";
 
 import styles from "../../app/Animation.module.css";
 
@@ -43,7 +43,7 @@ const Navigation = () => {
       <nav
         className={`${styles.slide__top_medium} sticky top-0 bg-groupWhite z-20`}
       >
-        <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#home" className="flex items-center">
             <Image
               src="/296-group-logo.png"
@@ -84,7 +84,7 @@ const Navigation = () => {
               <li>
                 <a
                   href="#our_difference"
-                  className="font-karla block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                  className="hover-underline-animation font-karla blocktext-groupBlue text-lg"
                   aria-current="page"
                 >
                   296 Difference
@@ -93,7 +93,7 @@ const Navigation = () => {
               <li>
                 <a
                   href="#what_we_do"
-                  className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                  className="hover-underline-animation blocktext-groupBlue md:text-lg"
                 >
                   What We Do
                 </a>
@@ -101,7 +101,7 @@ const Navigation = () => {
               <li>
                 <a
                   href="#leadership"
-                  className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                  className="hover-underline-animation blocktext-groupBlue text-lg"
                 >
                   Leadership
                 </a>
@@ -109,7 +109,7 @@ const Navigation = () => {
               <li>
                 <a
                   href="#contact"
-                  className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                  className="hover-underline-animation blocktext-groupBlue text-lg"
                 >
                   Contact Us
                 </a>
@@ -133,7 +133,7 @@ const Navigation = () => {
               <li>
                 <a
                   href="#"
-                  className="font-karla block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                  className="font-karla block py-2 text-groupBlue lg:text-2xl md:text-xl"
                   aria-current="page"
                 >
                   Home
@@ -142,7 +142,7 @@ const Navigation = () => {
               <li>
                 <a
                   href="#our_difference"
-                  className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                  className="block py-2  text-groupBlue lg:text-2xl md:text-xl"
                 >
                   296 Difference
                 </a>
@@ -150,7 +150,7 @@ const Navigation = () => {
               <li>
                 <a
                   href="#leadership"
-                  className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                  className="block py-2 text-groupBlue lg:text-2xl md:text-xl"
                 >
                   Leadership
                 </a>
@@ -158,7 +158,7 @@ const Navigation = () => {
               <li>
                 <a
                   href="#contact"
-                  className="block py-2 pl-3 pr-4 text-groupBlue lg:text-2xl md:text-xl"
+                  className="block py-2  text-groupBlue lg:text-2xl md:text-xl"
                 >
                   Contact Us
                 </a>
