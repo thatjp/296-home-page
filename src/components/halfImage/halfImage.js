@@ -23,7 +23,7 @@ const HalfImage = ({
 
   const [titleRightRef, titleRightSprings] = useInView(() => ({
     from: {
-      x: 100,
+      x: imageSide === "right" ? -100 : 100,
     },
     to: {
       x: 0,

@@ -47,7 +47,7 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
             <ul className="flex h-screen flex-row justify-between overflow-auto w-full max-sm:mt-10">
               {data.map((study, idx) => {
                 return (
-                  <li key={idx} className="max-sm:mx-4 max-sm:min-w-[90%] w-[24%] relative">
+                  <li key={idx} className="max-sm:mx-4 max-sm:min-w-[90%] max-lg:min-w-[50%] mr-2 w-[24%] relative">
                     <animated.div
                       className={`${styles.c} bg-groupBlue p-10 rounded-xl h-[60vh] max-sm:w-min-full max-sm:relative`}
                       style={
@@ -62,7 +62,7 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
                         <h3 className="text-groupWhite mb-3 font-semibold text-center lg:text-3xl md:text-5xl max-sm:text-5xl">
                           {study.industry}
                         </h3>
-                        <div className="py-10 w-full">
+                        <div className="py-10 max-sm:py-2 w-full">
                           <p className="text-groupWhite max-sm:relative top-[35%] m-3 right-0 left-0 text-center">
                             {study.snippet}
                           </p>

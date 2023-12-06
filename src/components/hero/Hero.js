@@ -132,7 +132,7 @@ const Hero = () => {
               className="m-auto"
             />
             <animated.div
-              className="bg-groupWhite max-sm:hidden"
+              className="bg-groupWhite max-lg:hidden"
               style={{
                 ...doorsProps,
                 height: "100%",
@@ -141,7 +141,7 @@ const Hero = () => {
               }}
             />
             <animated.div
-              className={`bg-groupWhite max-sm:hidden`}
+              className={`bg-groupWhite max-lg:hidden`}
               style={{
                 ...rightDoorsProps,
                 height: "100%",
@@ -166,11 +166,11 @@ const Hero = () => {
             className="flex flex-row justify-around max-sm:w-full max-sm:justify-between"
           ></animated.div>
         </div>
-        <animated.div style={props} className="flex w-1/2 max-sm:w-full justify-around">
+        <animated.div style={props} className="flex w-1/2 max-lg:w-full justify-around">
           <Button
             text="Our Work"
             type="primary"
-            link="#case-studies"
+            link="#case_studies"
             styles="w-1/3"
             colors={{
               bgColor: "groupBlue",

@@ -74,7 +74,7 @@ const ContactForm = () => {
         <textarea
           placeholder="Your message"
           name="message"
-          className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
+          className="resize-none h-36 focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
           required
         />
       </div>
