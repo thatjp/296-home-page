@@ -13,7 +13,7 @@ import ContactForm from "@/components/contactForm/ContactForm";
 import Hero from "@/components/hero/Hero";
 import ScrollLayer from "@/components/scrollLayer/ScrollLayer";
 import Modal from "@/components/modal/Modal";
-import HalfImage from "../src/components/halfImage/HalfImage";
+import HalfImage from "../src/components/halfImage/halfImage";
 import CaseStudies from "@/components/caseStudies/CaseStudies";
 
 // Site Images
