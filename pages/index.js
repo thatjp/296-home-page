@@ -41,7 +41,7 @@ export default function Home() {
 
   const selectProfilePicture = (member) => {
     switch (member.name) {
-      case "Jeff Kendal":
+      case "Jeff Kendall":
         return jeffPhoto.src;
       case "Bharat Gidwani":
         return bharatPhoto.src;
@@ -172,11 +172,11 @@ export default function Home() {
                     />
                   </OutsideAlerter>
                 )}
-                <div className="max-sm:my-[15%] mb-[8%] w-fit">
-                  <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
+                <div className="max-sm:my-[5%] mb-[8%] w-fit">
+                  <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl">
                     Leadership
                   </h2>
-                  <span className="block w-full border-y-[1px] border-groupBlack my-61"></span>
+                  <span className="block border-y-[1px] border-gray-800 my-6"></span>
                 </div>
                 <div className="md:hidden">
                   <Slider
@@ -189,7 +189,7 @@ export default function Home() {
                     {team.team.map((member, idx) => {
                       return (
                         <li key={idx} className="w-1/3 cursor-pointer">
-                          <div
+                          {/* <div
                             className="rounded-xl"
                             style={{
                               backgroundImage: `url(${selectProfilePicture(
@@ -201,7 +201,7 @@ export default function Home() {
                               height: "350px",
                             }}
                             onClick={() => setIsModalVisible(member)}
-                          ></div>
+                          ></div> */}
                           <div
                             className="my-3"
                             onClick={() => setIsModalVisible(member)}
@@ -237,7 +237,7 @@ export default function Home() {
             />
           </ParallaxLayer>
           <ParallaxLayer offset={10}>
-            <div id="contact" className="anchor h-[100px]"></div>
+            <div id="contact" className="anchor h-[80px]"></div>
             <section className="h-full contact flex bg-groupBlue w-full lg:px-40 py-28 max-md:py-10 max-sm:py-16 max-sm:px-4">
               <div className="flex flex-row max-sm:flex-col max-sm:place-content-center h-[calc(100vh/1.6)] relative my-7 justify-evenly">
                 <div className="w-1/2 max-sm:w-full m-auto sm:px-10">

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import classnames from "tailwindcss-classnames";
 
-import OutsideAlerter from "@/components/outsideAlerter/OutsideAlerter";
-
 import styles from "../../app/Animation.module.css";
 
 const Navigation = () => {
@@ -119,53 +117,51 @@ const Navigation = () => {
         </div>
       </nav>
       {navOpen && (
-        <OutsideAlerter onOutsideClick={() => handleMobileNavClick()}>
-          <div
-            className={classnames("z-10 w-full md:w-auto md:hidden", {
-              block: navOpen,
-              hidden: !navOpen,
-            })}
-            id="navbar-mobile"
+        <div
+          className={classnames("z-10 w-full md:w-auto md:hidden", {
+            block: navOpen,
+            hidden: !navOpen,
+          })}
+          id="navbar-mobile"
+        >
+          <ul
+            className={classnames`${styles.slide__top_medium} z-10 font-medium flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 max-md:bg-groupWhite max-md:fixed max-md:w-full`}
           >
-            <ul
-              className={classnames`${styles.slide__top_medium} z-10 font-medium flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 max-md:bg-groupWhite max-md:fixed max-md:w-full`}
-            >
-              <li>
-                <a
-                  href="#"
-                  className="font-karla block py-2 text-groupBlue lg:text-2xl md:text-xl"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#our_difference"
-                  className="block py-2  text-groupBlue lg:text-2xl md:text-xl"
-                >
-                  296 Difference
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#leadership"
-                  className="block py-2 text-groupBlue lg:text-2xl md:text-xl"
-                >
-                  Leadership
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="block py-2  text-groupBlue lg:text-2xl md:text-xl"
-                >
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
-        </OutsideAlerter>
+            <li>
+              <a
+                href="#our_difference"
+                className="font-karla block py-2 text-groupBlue lg:text-2xl md:text-xl"
+                aria-current="page"
+              >
+                296 Difference
+              </a>
+            </li>
+            <li>
+              <a
+                href="#what_we_do"
+                className="block py-2  text-groupBlue lg:text-2xl md:text-xl"
+              >
+                What We Do
+              </a>
+            </li>
+            <li>
+              <a
+                href="#leadership"
+                className="block py-2 text-groupBlue lg:text-2xl md:text-xl"
+              >
+                Leadership
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="block py-2  text-groupBlue lg:text-2xl md:text-xl"
+              >
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </div>
       )}
     </>
   );

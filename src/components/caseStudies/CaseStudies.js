@@ -36,18 +36,18 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
     <Container>
       <div id="case_studies" className="anchor"></div>
       <div className="flex flex-col relative max-sm:my-10">
-        <div className="mb-10 max-sm:mb-3 w-fit">
-          <h2 className="text-groupBlack mb-3 font-semibold lg:text-4xl md:text-5xl max-sm:text-5xl">
+        <div className="mb-10 max-sm:mb-[5%] w-fit">
+          <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl">
             Case <span className="text-groupBlue">Studies</span>
           </h2>
-          <span className="block border-y-[1px] border-groupBlack my-61"></span>
+          <span className="block border-y-[1px] border-gray-800 my-6"></span>
         </div>
         <animated.div ref={ref} style={springs}>
           {
-            <ul className="flex h-screen flex-row justify-between overflow-auto w-full max-sm:mt-10">
+            <ul className="flex h-screen flex-row justify-between overflow-auto w-full max-sm:mt-0">
               {data.map((study, idx) => {
                 return (
-                  <li key={idx} className="max-sm:mx-4 max-sm:min-w-[90%] max-lg:min-w-[50%] mr-2 w-[24%] relative">
+                  <li key={idx} className="max-sm:mr-4 max-sm:min-w-[90%] max-lg:min-w-[50%] mr-2 w-[24%] relative">
                     <animated.div
                       className={`${styles.c} bg-groupBlue p-10 rounded-xl h-[60vh] max-sm:w-min-full max-sm:relative`}
                       style={

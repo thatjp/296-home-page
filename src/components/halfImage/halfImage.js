@@ -160,7 +160,7 @@ const HalfImage = ({
                 {data.map((service, idx) => {
                   return (
                     <li key={idx} className="py-1">
-                      <p className="text-3xl max-sm:text-xl font-body text-groupBlack">
+                      <p className="text-2xl max-sm:text-xl font-body text-groupBlack">
                         {service}
                       </p>
                     </li>

@@ -70,7 +70,7 @@ const Hero = () => {
 
   const [props, api] = useSpring(
     () => ({
-      from: { opacity: 0, y: 100 },
+      from: { opacity: 0, y: 100},
       delay: 1300,
       to: { opacity: 1, y: 0 },
       config: {
@@ -122,14 +122,13 @@ const Hero = () => {
         className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full"
       >
         <div className="lg:w-1/2 items-center relative -z-20">
-          <div>
             <Image
               priority
               src={logo.src}
               height={30}
               width={900}
-              alt="right"
-              className="m-auto"
+              alt="296 Group Logo"
+              className="m-auto md:mb-12"
             />
             <animated.div
               className="bg-groupWhite max-lg:hidden"
@@ -149,14 +148,13 @@ const Hero = () => {
                 bottom: "10%",
               }}
             />
-          </div>
 
           <div className="max-sm:top-10">
             <p className="font-body text-center max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16">
               We are a results driven boutique technology consulting and
               software development firm that specializes in helping both
               emerging and established businesses solve complex technical
-              challenges. Our team of technologists blend innovation with
+              challenges. <br/> <br/>Our team of technologists blend innovation with
               practicality to build custom, enterprise-grade software solutions
               that prioritize your business strategy and goals.
             </p>
@@ -166,7 +164,7 @@ const Hero = () => {
             className="flex flex-row justify-around max-sm:w-full max-sm:justify-between"
           ></animated.div>
         </div>
-        <animated.div style={props} className="flex w-1/2 max-lg:w-full justify-around">
+        <animated.div style={props} className="flex w-1/2 max-lg:w-full justify-around h-[0%]">
           <Button
             text="Our Work"
             type="primary"
