@@ -12,28 +12,6 @@ const Navigation = () => {
   };
 
   useEffect(() => {
-    const threshold = 100;
-    let previousScrollYPosition = window.scrollY;
-
-    const scrolledMoreThanThreshold = (currentScrollYPosition) =>
-      Math.abs(currentScrollYPosition - previousScrollYPosition) > threshold;
-
-    const updateScrollDirection = () => {
-      const currentScrollYPosition = window.scrollY;
-
-      if (scrolledMoreThanThreshold(currentScrollYPosition)) {
-        setNavOpen(false);
-
-        previousScrollYPosition =
-          currentScrollYPosition > 0 ? currentScrollYPosition : 0;
-      }
-    };
-
-    const onScroll = () => window.requestAnimationFrame(updateScrollDirection);
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (

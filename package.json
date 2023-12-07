@@ -17,6 +17,7 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
+    "react-use-scroll-direction": "^0.1.0",
     "tailwindcss-classnames": "^3.1.0"
   },
   "devDependencies": {

@@ -150,7 +150,7 @@ const Hero = () => {
             />
 
           <div className="max-sm:top-10">
-            <p className="font-body text-center max-sm:text-xl max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16">
+            <p className="font-body text-center max-sm:text-lg max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16">
               We are a results driven boutique technology consulting and
               software development firm that specializes in helping both
               emerging and established businesses solve complex technical
@@ -159,10 +159,6 @@ const Hero = () => {
               that prioritize your business strategy and goals.
             </p>
           </div>
-          <animated.div
-            style={props}
-            className="flex flex-row justify-around max-sm:w-full max-sm:justify-between"
-          ></animated.div>
         </div>
         <animated.div style={props} className="flex w-1/2 max-lg:w-full justify-around h-[0%]">
           <Button
@@ -190,7 +186,7 @@ const Hero = () => {
         </animated.div>
       </div>
       <div className="lg:w-full h-full relative max-lg:hidden top-[-80%] -z-10">
-        <ParallaxLayer offset={0} speed={1.3} className="absolute">
+        <ParallaxLayer offset={0} speed={1} className="bottom-0 absolute">
           <animated.div ref={leftRef} style={leftSprings}>
             <Image
               priority
@@ -202,7 +198,7 @@ const Hero = () => {
             />
           </animated.div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={1} className="absolute">
+        <ParallaxLayer offset={0} speed={1} className="bottom-0 absolute">
           <animated.div ref={rightRef} style={rightSprings}>
             <Image
               priority
@@ -235,7 +231,7 @@ const Hero = () => {
             priority
             src={chevron}
             height={90}
-            width={90}
+            width={isMobile ? 60 : 90}
             alt="Chevron Down"
             className="shadow"
           />

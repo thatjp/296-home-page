@@ -3,6 +3,7 @@ import { useInView, animated, useSpring } from "@react-spring/web";
 
 import Modal from "../modal/Modal";
 import Slider from "../slider/Slider";
+import SliderButton from "../button/SldierButton";
 import Container from "../container/Container";
 import Button from "../button/Button";
 
@@ -44,10 +45,13 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
         </div>
         <animated.div ref={ref} style={springs}>
           {
-            <ul className="flex h-screen flex-row justify-between overflow-auto w-full max-sm:mt-0">
+            <ul className="flex md:h-screen flex-row justify-between overflow-auto w-full max-sm:mt-0">
               {data.map((study, idx) => {
                 return (
-                  <li key={idx} className="max-sm:mr-4 max-sm:min-w-[90%] max-lg:min-w-[50%] mr-2 w-[24%] relative">
+                  <li
+                    key={idx}
+                    className="max-sm:mr-4 max-sm:min-w-[90%] max-lg:min-w-[50%] mr-2 w-[24%] relative"
+                  >
                     <animated.div
                       className={`${styles.c} bg-groupBlue p-10 rounded-xl h-[60vh] max-sm:w-min-full max-sm:relative`}
                       style={
@@ -88,6 +92,10 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
               })}
             </ul>
           }
+          <div className="test-slide flex max-sm:my-2 justify-between">
+            <SliderButton direction={"next"} />
+            <SliderButton direction={"prev"} />
+          </div>
         </animated.div>
       </div>
     </Container>

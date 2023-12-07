@@ -69,7 +69,11 @@ export default function Home() {
           <Navigation />
         </div>
         <Scroll>
-          <ParallaxLayer offset={0} className="bg-groupWhite">
+          <ParallaxLayer
+            offset={0}
+            sticky={{ start: 0, end: 0.1 }}
+            className="bg-groupWhite"
+          >
             <Hero />
           </ParallaxLayer>
 
