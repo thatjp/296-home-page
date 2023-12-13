@@ -17,9 +17,6 @@ import HalfImage from "../src/components/halfImage/HalfImage";
 import CaseStudies from "@/components/caseStudies/CaseStudies";
 
 // Site Images
-import jeffPhoto from "../public/jeff.jpeg";
-import bharatPhoto from "../public/bharat.jpg";
-import noprofile from "../public/noprofile.png";
 import chevronWhite from "../public/296-chevron-white.svg";
 
 // Site Copy
@@ -34,23 +31,11 @@ import FirstSessionContext from "../src/components/context/FirstSessionContext";
 
 import "../src/app/globals.css";
 import OutsideAlerter from "@/components/outsideAlerter/OutsideAlerter";
+import Leadership from "@/components/leadership/Leadership";
 
 export default function Home() {
   const [modalVisible, setIsModalVisible] = useState(false);
   const [isFirstSession, setFirstSession] = useState(true);
-
-  const selectProfilePicture = (member) => {
-    switch (member.name) {
-      case "Jeff Kendall":
-        return jeffPhoto.src;
-      case "Bharat Gidwani":
-        return bharatPhoto.src;
-      case "Mike Yakubovich":
-        return noprofile.src;
-      default:
-        break;
-    }
-  };
 
   useEffect(() => {
     if (window.sessionStorage.getItem("firstLoadDone") === null) {
@@ -161,67 +146,7 @@ export default function Home() {
             />
           </ParallaxLayer>
           <ParallaxLayer offset={8} className="bg-groupWhite">
-            <Container>
-              <div id="leadership" className="anchor"></div>
-              <div className="flex flex-col h-[calc(100vh/1.3)] relative">
-                {modalVisible && modalVisible.name && (
-                  <OutsideAlerter
-                    onOutsideClick={() => setIsModalVisible(null)}
-                  >
-                    <Modal
-                      title={modalVisible.name}
-                      text={modalVisible.bio}
-                      setModalState={() => setIsModalVisible()}
-                      modalState={modalVisible}
-                    />
-                  </OutsideAlerter>
-                )}
-                <div className="max-sm:my-[5%] mb-[8%] w-fit">
-                  <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl">
-                    Leadership
-                  </h2>
-                  <span className="block border-y-[1px] border-gray-800 my-6"></span>
-                </div>
-                <div className="md:hidden">
-                  <Slider
-                    data={team.team}
-                    setIsModalVisible={(member) => setIsModalVisible(member)}
-                  />
-                </div>
-                <div>
-                  <ul className="flex flex-row space-x-5 max-sm:hidden">
-                    {team.team.map((member, idx) => {
-                      return (
-                        <li key={idx} className="w-1/3 cursor-pointer">
-                          {/* <div
-                            className="rounded-xl"
-                            style={{
-                              backgroundImage: `url(${selectProfilePicture(
-                                member
-                              )})`,
-                              backgroundRepeat: "no-repeat",
-                              backgroundSize: "100%",
-                              width: "100%",
-                              height: "350px",
-                            }}
-                            onClick={() => setIsModalVisible(member)}
-                          ></div> */}
-                          <div
-                            className="my-3"
-                            onClick={() => setIsModalVisible(member)}
-                          >
-                            <h2 className="text-groupBlue text-2xl">
-                              {member.name}
-                            </h2>
-                            <p className="text-xl">{member.position}</p>
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </div>
-            </Container>
+            <Leadership teamData={team.team}/>
           </ParallaxLayer>
           <ParallaxLayer offset={9} className="bg-groupWhite">
             {modalVisible && modalVisible.company && (

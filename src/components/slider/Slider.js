@@ -39,8 +39,6 @@ export const Slider = ({ data, children, type, setIsModalVisible }) => {
     }
   };
 
-  const [flipped, set] = useState(false);
-
   return (
     <>
       {type === "caseStudy" ? (
