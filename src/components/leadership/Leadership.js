@@ -6,7 +6,7 @@ import Slider from "../slider/Slider";
 import OutsideAlerter from "../outsideAlerter/OutsideAlerter";
 import Modal from "../modal/Modal";
 
-const Leadership = ({ teamData }) => {
+const Leadership = ({ teamData, setModalState }) => {
   const [modalVisible, setIsModalVisible] = useState();
 
   return (
@@ -19,12 +19,6 @@ const Leadership = ({ teamData }) => {
           </h2>
           <span className="block border-y-[1px] border-gray-800 my-6"></span>
         </div>
-        {/* <div >
-          <Slider
-            data={teamData}
-            setIsModalVisible={(member) => setIsModalVisible(member)}
-          />
-        </div> */}
         <div className="md:hidden"></div>
         <div className="flex flex-row justify-between">
           <ul className="flex flex-col md:w-1/2 w-full pr-5">
@@ -38,6 +32,7 @@ const Leadership = ({ teamData }) => {
                     className="my-3 flex"
                     onMouseEnter={() => setIsModalVisible(member)}
                     onMouseLeave={() => setIsModalVisible(null)}
+                    onClick={() => setModalState(member)}
                   >
                     <div>
                       <h2 className=" text-groupBlue text-2xl">

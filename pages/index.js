@@ -28,6 +28,7 @@ import industryExperience from "../public/industry-experience.json";
 import differences from "../public/differences.json";
 
 import FirstSessionContext from "../src/components/context/FirstSessionContext";
+import ModalContext from "../src/components/context/modalContext";
 
 import "../src/app/globals.css";
 import OutsideAlerter from "@/components/outsideAlerter/OutsideAlerter";
@@ -146,19 +147,12 @@ export default function Home() {
             />
           </ParallaxLayer>
           <ParallaxLayer offset={8} className="bg-groupWhite">
-            <Leadership teamData={team.team}/>
+            <Leadership
+              teamData={team.team}
+              setModalState={(bio) => setIsModalVisible(bio)}
+            />
           </ParallaxLayer>
-          <ParallaxLayer offset={9} className="bg-groupWhite">
-            {modalVisible && modalVisible.company && (
-              <OutsideAlerter onOutsideClick={() => setIsModalVisible(null)}>
-                <Modal
-                  title={modalVisible.company}
-                  text={modalVisible.content}
-                  modalState={modalVisible}
-                  setModalState={() => setIsModalVisible()}
-                />
-              </OutsideAlerter>
-            )}
+          <ParallaxLayer offset={8.7} className="bg-groupWhite">
             <CaseStudies
               isMobile={isMobile}
               data={caseStudies.studies}
@@ -187,6 +181,17 @@ export default function Home() {
             </footer>
           </ParallaxLayer>
         </Scroll>
+        {modalVisible && (modalVisible.company || modalVisible.bio) && (
+          <OutsideAlerter onOutsideClick={() => setIsModalVisible(null)}>
+            <Modal
+              title={modalVisible.company || modalVisible.name}
+              text={modalVisible.content || modalVisible.bio}
+              modalState={modalVisible}
+              setModalState={() => setIsModalVisible()}
+              mobileOnly={ modalVisible.bio ? true : false}
+            />
+          </OutsideAlerter>
+        )}
       </FirstSessionContext.Provider>
     </main>
   );
