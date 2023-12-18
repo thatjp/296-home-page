@@ -13,13 +13,19 @@ const Leadership = ({ teamData, setModalState }) => {
     <Container>
       <div id="leadership" className="anchor"></div>
       <div className="flex flex-col relative">
-        <div className="max-sm:my-[5%] mb-[3%] w-fit">
-          <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl">
-            Leadership
-          </h2>
-          <span className="block border-y-[1px] border-gray-800 my-6"></span>
+        <div className="max-sm:my-[5%] mb-[3%]">
+          <div className="w-fit">
+            <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl">
+              Leadership
+            </h2>
+            <span className="block border-y-[1px] border-gray-800 my-6"></span>
+          </div>
+          <p>
+            Our team of technologists blend innovation with practicality to
+            build custom, enterprise-grade software solutions that prioritize
+            your business strategy and goals.
+          </p>
         </div>
-        <div className="md:hidden"></div>
         <div className="flex flex-row justify-between">
           <ul className="flex flex-col md:w-1/2 w-full pr-5">
             {teamData.map((member, idx) => {

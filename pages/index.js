@@ -152,7 +152,7 @@ export default function Home() {
               setModalState={(bio) => setIsModalVisible(bio)}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={8.7} className="bg-groupWhite">
+          <ParallaxLayer offset={8.9} className="bg-groupWhite">
             <CaseStudies
               isMobile={isMobile}
               data={caseStudies.studies}

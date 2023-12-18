@@ -17,8 +17,6 @@ import FirstSessionContext from "../context/FirstSessionContext";
 
 import { isMobile } from "react-device-detect";
 
-import styles from "./styles.module.css";
-
 const Hero = () => {
   let isFirstSession = useContext(FirstSessionContext);
 
@@ -27,7 +25,7 @@ const Hero = () => {
       x: "300%",
     },
     to: {
-      x: "20%",
+      x: isMobile ? "0%" : "20%",
     },
     config: {
       mass: 20,
@@ -41,7 +39,7 @@ const Hero = () => {
       x: "300%",
     },
     to: {
-      x: "550%",
+      x: isMobile ? "570%" : "550%",
     },
     config: {
       mass: 20,
@@ -52,7 +50,7 @@ const Hero = () => {
 
   const [squaresRef, squaresSprings] = useInView(() => ({
     from: {
-      x: "75%",
+      x: "400%",
       opacity: "0",
       y: "-315%",
     },
@@ -70,9 +68,23 @@ const Hero = () => {
 
   const [props, api] = useSpring(
     () => ({
-      from: { opacity: 0, y: 100},
+      from: { opacity: 0, y: 100 },
       delay: 1300,
       to: { opacity: 1, y: 0 },
+      config: {
+        mass: 5,
+        friction: 150,
+        tension: 400,
+      },
+    }),
+    []
+  );
+
+  const [textProps, textAPI] = useSpring(
+    () => ({
+      from: { opacity: 0,},
+      delay: 1300,
+      to: { opacity: 1, },
       config: {
         mass: 5,
         friction: 150,
@@ -91,7 +103,7 @@ const Hero = () => {
       // loop: true,
       config: {
         mass: 15,
-        friction: 100,
+        friction: isMobile ? 270 : 100,
         tension: 300,
       },
     }),
@@ -108,7 +120,7 @@ const Hero = () => {
       // loop: true,
       config: {
         mass: 15,
-        friction: 100,
+        friction: isMobile ? 220 : 80,
         tension: 300,
       },
     }),
@@ -121,46 +133,49 @@ const Hero = () => {
         id="home"
         className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full"
       >
-        <div className="lg:w-1/2 items-center relative -z-20">
+        <div className="lg:w-1/2 items-center relative -z-20 min-h-[44%]">
+          <div className="w-[70%] m-auto">
             <Image
               priority
               src={logo.src}
               height={30}
               width={900}
               alt="296 Group Logo"
-              className="m-auto md:mb-12"
+              className="logo m-auto md:mb-12"
             />
-            <animated.div
-              className="bg-groupWhite max-lg:hidden"
-              style={{
-                ...doorsProps,
-                height: "100%",
-                position: "absolute",
-                bottom: "10%",
-              }}
-            />
-            <animated.div
-              className={`bg-groupWhite max-lg:hidden`}
-              style={{
-                ...rightDoorsProps,
-                height: "100%",
-                position: "absolute",
-                bottom: "10%",
-              }}
-            />
+          </div>
+          <animated.div
+            className="bg-groupWhite"
+            style={{
+              ...doorsProps,
+              height: isMobile ? "50%" : "100%",
+              position: "absolute",
+              bottom: isMobile ? "60%" : "10%",
+            }}
+          />
+          <animated.div
+            className={`bg-groupWhite`}
+            style={{
+              ...rightDoorsProps,
+              height: isMobile ? "50%" : "100%",
+              position: "absolute",
+              bottom: isMobile ? "60%" : "10%",
+            }}
+          />
 
-          <div className="max-sm:top-10">
-            <p className="font-body text-center max-sm:text-lg max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16">
+          <animated.div style={isMobile ? textProps : {}} className="max-sm:mt-[25%]">
+            <p className="font-body text-center max-sm:text-lg max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16 md:w-[50%] lg:w-full m-auto">
               We are a results driven boutique technology consulting and
               software development firm that specializes in helping both
               emerging and established businesses solve complex technical
-              challenges. <br/> <br/>Our team of technologists blend innovation with
-              practicality to build custom, enterprise-grade software solutions
-              that prioritize your business strategy and goals.
+              challenges.
             </p>
-          </div>
+          </animated.div>
         </div>
-        <animated.div style={props} className="flex w-1/2 max-lg:w-full justify-around h-[0%]">
+        <animated.div
+          style={props}
+          className="flex w-1/2 max-lg:w-full justify-around h-[0%]"
+        >
           <Button
             text="Our Work"
             type="primary"
@@ -185,9 +200,13 @@ const Hero = () => {
           />
         </animated.div>
       </div>
-      <div className="lg:w-full h-full relative max-lg:hidden top-[-80%] -z-10">
+      <div className="lg:w-full h-full relative top-[-80%] -z-10">
         <ParallaxLayer offset={0} speed={1} className="bottom-0 absolute">
-          <animated.div ref={leftBracketRef} style={leftSprings} className="w-[15%]">
+          <animated.div
+            ref={leftBracketRef}
+            style={leftSprings}
+            className="w-[15%]"
+          >
             <Image
               priority
               src={bracketLeft}
@@ -199,7 +218,11 @@ const Hero = () => {
           </animated.div>
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={1} className="bottom-0 absolute">
-          <animated.div ref={rightBracketRef} style={rightSprings} className="w-[15%]">
+          <animated.div
+            ref={rightBracketRef}
+            style={rightSprings}
+            className="w-[15%]"
+          >
             <Image
               priority
               src={bracketRight}
@@ -220,7 +243,7 @@ const Hero = () => {
               height={90}
               width={180}
               alt="left"
-              className="shadow"
+              className="shadow max-md:hidden"
             />
           </animated.div>
         </ParallaxLayer>

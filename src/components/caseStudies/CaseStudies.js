@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useInView, animated, useSpring } from "@react-spring/web";
+import Image from "next/image";
 
 import Modal from "../modal/Modal";
 import Slider from "../slider/Slider";
@@ -63,6 +64,14 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
                       }
                     >
                       <div className="h-3">
+                      <Image
+                        priority
+                        src={study.icon}
+                        height={90}
+                        width={40}
+                        alt="Case Study Icon"
+                        className="m-auto pb-5"
+                      />
                         <h3 className="text-groupWhite mb-3 font-semibold text-center lg:text-3xl md:text-5xl max-sm:text-5xl">
                           {study.industry}
                         </h3>

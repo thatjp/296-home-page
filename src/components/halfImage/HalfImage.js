@@ -147,7 +147,7 @@ const HalfImage = ({
           ) : (
             <div className="hidden"></div>
           )}
-          <div className="justify-center overflow-x-hidden max-sm:z-10 max-sm:items-start flex flex-col max-sm:relative absolute max-sm:top-[-50px]">
+          <div className="justify-center flex flex-col overflow-x-hidden max-sm:relative absolute left-0 max-sm:top-10 max-sm:items-end md:items-start h-full lg:w-1/2">
             <animated.div
               ref={titleRightRef}
               style={titleRightSprings}
