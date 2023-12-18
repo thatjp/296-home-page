@@ -46,7 +46,7 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
         </div>
         <animated.div ref={ref} style={springs}>
           {
-            <ul className="flex md:h-screen flex-row justify-between max-sm:overflow-auto w-full max-sm:mt-0">
+            <ul className="flex md:h-screen flex-row justify-between w-full max-sm:mt-0">
               {data.map((study, idx) => {
                 return (
                   <li
