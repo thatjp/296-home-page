@@ -28,7 +28,6 @@ import industryExperience from "../public/industry-experience.json";
 import differences from "../public/differences.json";
 
 import FirstSessionContext from "../src/components/context/FirstSessionContext";
-import ModalContext from "../src/components/context/modalContext";
 
 import "../src/app/globals.css";
 import OutsideAlerter from "@/components/outsideAlerter/OutsideAlerter";
