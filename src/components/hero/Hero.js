@@ -22,12 +22,12 @@ import styles from "./styles.module.css";
 const Hero = () => {
   let isFirstSession = useContext(FirstSessionContext);
 
-  const [leftRef, leftSprings] = useInView(() => ({
+  const [leftBracketRef, leftSprings] = useInView(() => ({
     from: {
-      x: "42.5%",
+      x: "300%",
     },
     to: {
-      x: "5%",
+      x: "20%",
     },
     config: {
       mass: 20,
@@ -36,12 +36,12 @@ const Hero = () => {
     },
   }));
 
-  const [rightRef, rightSprings] = useInView(() => ({
+  const [rightBracketRef, rightSprings] = useInView(() => ({
     from: {
-      x: "42.5%",
+      x: "300%",
     },
     to: {
-      x: "80%",
+      x: "550%",
     },
     config: {
       mass: 20,
@@ -57,7 +57,7 @@ const Hero = () => {
       y: "-315%",
     },
     to: {
-      x: "85%",
+      x: "580%",
       opacity: "100%",
       delay: 1300,
     },
@@ -187,7 +187,7 @@ const Hero = () => {
       </div>
       <div className="lg:w-full h-full relative max-lg:hidden top-[-80%] -z-10">
         <ParallaxLayer offset={0} speed={1} className="bottom-0 absolute">
-          <animated.div ref={leftRef} style={leftSprings}>
+          <animated.div ref={leftBracketRef} style={leftSprings} className="w-[15%]">
             <Image
               priority
               src={bracketLeft}
@@ -199,20 +199,20 @@ const Hero = () => {
           </animated.div>
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={1} className="bottom-0 absolute">
-          <animated.div ref={rightRef} style={rightSprings}>
+          <animated.div ref={rightBracketRef} style={rightSprings} className="w-[15%]">
             <Image
               priority
               src={bracketRight}
               height={90}
               width={180}
-              alt="left"
+              alt="right"
               className="shadow"
             />
           </animated.div>
           <animated.div
             ref={squaresRef}
             style={squaresSprings}
-            className="z-10"
+            className="z-10 w-[15%]"
           >
             <Image
               priority
