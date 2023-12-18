@@ -49,9 +49,9 @@ export default function Home() {
     console.log("activeScrollLayer", activeScrollLayer);
     if (activeScrollLayer < 2) {
       setActiveScrollLayer(activeScrollLayer + 1);
-    } else if (activeScrollLayer === 2){
-      setActiveScrollLayer('what_we_do');
-    } else if (activeScrollLayer === 'what_we_do'){
+    } else if (activeScrollLayer === 2) {
+      setActiveScrollLayer("what_we_do");
+    } else if (activeScrollLayer === "what_we_do") {
       setActiveScrollLayer(0);
     }
   };

@@ -82,9 +82,9 @@ const Hero = () => {
 
   const [textProps, textAPI] = useSpring(
     () => ({
-      from: { opacity: 0,},
+      from: { opacity: 0 },
       delay: 1300,
-      to: { opacity: 1, },
+      to: { opacity: 1 },
       config: {
         mass: 5,
         friction: 150,
@@ -127,140 +127,150 @@ const Hero = () => {
     []
   );
 
-  return (
-    <Container type="full">
-      <div
-        id="home"
-        className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full"
-      >
-        <div className="lg:w-1/2 items-center relative -z-20 min-h-[44%]">
-          <div className="w-[70%] m-auto">
-            <Image
-              priority
-              src={logo.src}
-              height={30}
-              width={900}
-              alt="296 Group Logo"
-              className="logo m-auto md:mb-12"
-            />
-          </div>
-          <animated.div
-            className="bg-groupWhite"
-            style={{
-              ...doorsProps,
-              height: isMobile ? "50%" : "100%",
-              position: "absolute",
-              bottom: isMobile ? "60%" : "10%",
-            }}
-          />
-          <animated.div
-            className={`bg-groupWhite`}
-            style={{
-              ...rightDoorsProps,
-              height: isMobile ? "50%" : "100%",
-              position: "absolute",
-              bottom: isMobile ? "60%" : "10%",
-            }}
-          />
 
-          <animated.div style={isMobile ? textProps : {}} className="max-sm:mt-[25%]">
-            <p className="font-body text-center max-sm:text-lg max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16 md:w-[50%] lg:w-full m-auto">
-              We are a results driven boutique technology consulting and
-              software development firm that specializes in helping both
-              emerging and established businesses solve complex technical
-              challenges.
-            </p>
+  /*--------------------------------------------------
+  the area around the bracket svgs is shifting to the top on navigation
+  are they bound to their parent? 
+  --------------------------------------------------*/
+  return (
+    <>
+      <div id="home" className="anchor "></div>
+      <Container type="full">
+        <div className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full">
+          {/* <div className="lg:w-1/2 items-center relative -z-20 min-h-[44%]">
+            <div className="w-[70%] m-auto">
+              <Image
+                priority
+                src={logo.src}
+                height={30}
+                width={900}
+                alt="296 Group Logo"
+                className="logo m-auto md:mb-12"
+              />
+            </div>
+            <animated.div
+              className="bg-groupWhite"
+              style={{
+                ...doorsProps,
+                height: isMobile ? "50%" : "100%",
+                position: "absolute",
+                bottom: isMobile ? "60%" : "10%",
+              }}
+            />
+            <animated.div
+              className={`bg-groupWhite`}
+              style={{
+                ...rightDoorsProps,
+                height: isMobile ? "50%" : "100%",
+                position: "absolute",
+                bottom: isMobile ? "60%" : "10%",
+              }}
+            />
+
+            <animated.div
+              style={isMobile ? textProps : {}}
+              className="max-sm:mt-[25%]"
+            >
+              <p className="font-body text-center max-sm:text-lg max-xs:text-left text-groupBlack lg:text-xl md:text-lg my-6 sm:mb-16 md:w-[50%] lg:w-full m-auto">
+                We are a results driven boutique technology consulting and
+                software development firm that specializes in helping both
+                emerging and established businesses solve complex technical
+                challenges.
+              </p>
+            </animated.div>
+          </div> */}
+          <animated.div
+            style={props}
+            className="flex w-1/2 max-lg:w-full justify-around h-[0%]"
+          >
+            <Button
+              text="Our Work"
+              type="primary"
+              link="#case_studies"
+              styles="w-1/3"
+              colors={{
+                bgColor: "groupBlue",
+                textColor: "groupWhite",
+                activeColor: "groupBlue",
+              }}
+            />
+            <Button
+              text="Contact Us"
+              type="secondary"
+              link="#contact"
+              styles="w-1/3"
+              colors={{
+                bgColor: "groupBlue",
+                textColor: "groupWhite",
+                activeColor: "groupBlue",
+              }}
+            />
           </animated.div>
         </div>
-        <animated.div
-          style={props}
-          className="flex w-1/2 max-lg:w-full justify-around h-[0%]"
-        >
-          <Button
-            text="Our Work"
-            type="primary"
-            link="#case_studies"
-            styles="w-1/3"
-            colors={{
-              bgColor: "groupBlue",
-              textColor: "groupWhite",
-              activeColor: "groupBlue",
-            }}
-          />
-          <Button
-            text="Contact Us"
-            type="secondary"
-            link="#contact"
-            styles="w-1/3"
-            colors={{
-              bgColor: "groupBlue",
-              textColor: "groupWhite",
-              activeColor: "groupBlue",
-            }}
-          />
-        </animated.div>
-      </div>
-      <div className="lg:w-full h-full relative top-[-80%] -z-10">
-        <ParallaxLayer offset={0} speed={1} className="bottom-0 absolute">
-          <animated.div
-            ref={leftBracketRef}
-            style={leftSprings}
-            className="w-[15%]"
-          >
+        <div className="lg:w-full h-full relative bottom-[80%] -z-10">
+          <div className="relative w-screen h-screen">
+          <ParallaxLayer offset={0} speed={1} className="top-0 right-0">
+            <animated.div
+              ref={leftBracketRef}
+              style={leftSprings}
+              className="w-[15%]"
+            >
+              <Image
+                priority
+                src={bracketLeft}
+                height={90}
+                width={180}
+                alt="right"
+                className="shadow"
+              />
+            </animated.div>
+          </ParallaxLayer>
+          <ParallaxLayer offset={0} speed={1}>
+            <animated.div
+              ref={rightBracketRef}
+              style={rightSprings}
+              className="w-[15%]"
+            >
+              <Image
+                priority
+                src={bracketRight}
+                height={90}
+                width={180}
+                alt="right"
+                className="shadow"
+              />
+            </animated.div>
+            <animated.div
+              ref={squaresRef}
+              style={squaresSprings}
+              className="z-10 w-[15%]"
+            >
+              <Image
+                priority
+                src={squares}
+                height={90}
+                width={180}
+                alt="left"
+                className="shadow max-md:hidden"
+              />
+            </animated.div>
+          </ParallaxLayer>
+          </div>
+        </div>
+        <div className="flex justify-center items-center absolute bottom-0 left-0 w-full m-auto">
+          <a className="z-20 hover:h-24" href="#our_difference">
             <Image
               priority
-              src={bracketLeft}
+              src={chevron}
               height={90}
-              width={180}
-              alt="right"
+              width={isMobile ? 60 : 90}
+              alt="Chevron Down"
               className="shadow"
             />
-          </animated.div>
-        </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={1} className="bottom-0 absolute">
-          <animated.div
-            ref={rightBracketRef}
-            style={rightSprings}
-            className="w-[15%]"
-          >
-            <Image
-              priority
-              src={bracketRight}
-              height={90}
-              width={180}
-              alt="right"
-              className="shadow"
-            />
-          </animated.div>
-          <animated.div
-            ref={squaresRef}
-            style={squaresSprings}
-            className="z-10 w-[15%]"
-          >
-            <Image
-              priority
-              src={squares}
-              height={90}
-              width={180}
-              alt="left"
-              className="shadow max-md:hidden"
-            />
-          </animated.div>
-        </ParallaxLayer>
-      </div>
-      <div className="flex justify-center items-center absolute bottom-0 left-0 w-full m-auto">
-        <a className="z-20 hover:h-24" href="#our_difference">
-          <Image
-            priority
-            src={chevron}
-            height={90}
-            width={isMobile ? 60 : 90}
-            alt="Chevron Down"
-            className="shadow"
-          />
-        </a>
-      </div>
-    </Container>
+          </a>
+        </div>
+      </Container>
+    </>
   );
 };
 
