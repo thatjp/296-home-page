@@ -62,6 +62,7 @@ const Navigation = () => {
                   href="#our_difference"
                   className="hover-underline-animation font-karla blocktext-groupBlue text-lg"
                   aria-current="page"
+                  scroll={false}
                 >
                   296 Difference
                 </a>
@@ -70,6 +71,7 @@ const Navigation = () => {
                 <a
                   href="#what_we_do"
                   className="hover-underline-animation blocktext-groupBlue md:text-lg"
+                  scroll={false}
                 >
                   What We Do
                 </a>
@@ -78,6 +80,7 @@ const Navigation = () => {
                 <a
                   href="#leadership"
                   className="hover-underline-animation blocktext-groupBlue text-lg"
+                  scroll={false}
                 >
                   Leadership
                 </a>
@@ -86,6 +89,7 @@ const Navigation = () => {
                 <a
                   href="#contact"
                   className="hover-underline-animation blocktext-groupBlue text-lg"
+                  scroll={false}
                 >
                   Contact Us
                 </a>

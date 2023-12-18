@@ -36,6 +36,7 @@ import Leadership from "@/components/leadership/Leadership";
 export default function Home() {
   const [modalVisible, setIsModalVisible] = useState(false);
   const [isFirstSession, setFirstSession] = useState(true);
+  const [activeScrollLayer, setActiveScrollLayer] = useState(0);
 
   useEffect(() => {
     if (window.sessionStorage.getItem("firstLoadDone") === null) {
@@ -43,6 +44,17 @@ export default function Home() {
       // setFirstSession(false);
     }
   }, [isFirstSession]);
+
+  const handleShiftDown = () => {
+    console.log("activeScrollLayer", activeScrollLayer);
+    if (activeScrollLayer < 2) {
+      setActiveScrollLayer(activeScrollLayer + 1);
+    } else if (activeScrollLayer === 2){
+      setActiveScrollLayer('what_we_do');
+    } else if (activeScrollLayer === 'what_we_do'){
+      setActiveScrollLayer(0);
+    }
+  };
 
   return (
     <main>
@@ -71,7 +83,7 @@ export default function Home() {
               id="our_difference"
               className="bg-groupBlue py-20 max-sm:py-[10%] md:px-40 sm:px-20"
             >
-              <h2 className="text-white font-semibold lg:text-6xl sm:text-7xl max-sm:text-4xl mb-10 mx-sm:m-4">
+              <h2 className="text-white font-semibold lg:text-6xl sm:text-4xl max-sm:text-3xl mb-10 mx-sm:m-4">
                 Why is 296 Group Different?
               </h2>
               <span className="block border-y-[.5px]"></span>
@@ -88,6 +100,8 @@ export default function Home() {
                 imageSrc={difference.icon}
                 sticky={difference.sticky}
                 isMobile={isMobile}
+                setActiveScrollLayer={(e) => setActiveScrollLayer(e, idx)}
+                index={idx}
               />
             );
           })}
@@ -95,7 +109,12 @@ export default function Home() {
             className="flex justify-center absolute bottom-0 left-0 w-full m-auto items-end"
             sticky={{ start: 1, end: 7 }}
           >
-            <a className="test z-20 hover:h-24" href="#our_difference">
+            <a
+              className="z-20 hover:h-24"
+              href={`#${activeScrollLayer}`}
+              onClick={() => handleShiftDown()}
+              scroll={false}
+            >
               <Image
                 priority
                 src={chevronWhite}
@@ -187,7 +206,7 @@ export default function Home() {
               text={modalVisible.content || modalVisible.bio}
               modalState={modalVisible}
               setModalState={() => setIsModalVisible()}
-              mobileOnly={ modalVisible.bio ? true : false}
+              mobileOnly={modalVisible.bio ? true : false}
             />
           </OutsideAlerter>
         )}

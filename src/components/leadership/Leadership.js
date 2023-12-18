@@ -11,7 +11,7 @@ const Leadership = ({ teamData, setModalState }) => {
 
   return (
     <Container>
-      <div id="leadership" className="anchor"></div>
+      <div id="leadership" className="anchor h-[120px] max-md:h-[100px]"></div>
       <div className="flex flex-col relative">
         <div className="max-sm:my-[5%] mb-[3%]">
           <div className="w-fit">
