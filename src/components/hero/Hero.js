@@ -137,7 +137,7 @@ const Hero = () => {
       <div id="home" className="anchor "></div>
       <Container type="full">
         <div className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full">
-          {/* <div className="lg:w-1/2 items-center relative -z-20 min-h-[44%]">
+          <div className="lg:w-1/2 items-center relative -z-20 min-h-[44%]">
             <div className="w-[70%] m-auto">
               <Image
                 priority
@@ -178,7 +178,7 @@ const Hero = () => {
                 challenges.
               </p>
             </animated.div>
-          </div> */}
+          </div>
           <animated.div
             style={props}
             className="flex w-1/2 max-lg:w-full justify-around h-[0%]"
@@ -208,8 +208,8 @@ const Hero = () => {
           </animated.div>
         </div>
         <div className="lg:w-full h-full relative bottom-[80%] -z-10">
-          <div className="relative w-screen h-screen">
-          <ParallaxLayer offset={0} speed={1} className="top-0 right-0">
+          <div className="relative">
+          <ParallaxLayer offset={0} speed={1} className="">
             <animated.div
               ref={leftBracketRef}
               style={leftSprings}
