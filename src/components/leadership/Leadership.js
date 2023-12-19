@@ -56,18 +56,18 @@ const Leadership = ({ teamData, setModalState }) => {
     <Container>
       <div id="leadership" className="anchor h-[120px] max-md:h-[100px]"></div>
       <div className="flex flex-col relative">
-        <div className="max-sm:my-[5%] mb-[3%]">
-          <div className="w-fit overflow-hidden">
+        <div className="max-sm:my-[5%] mb-[3%] overflow-hidden">
+          <div className="w-fit">
             <animated.h2 ref={titleRef} style={titleSprings} className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl">
               Leadership
             </animated.h2>
             <animated.span ref={spanLeftRef} style={spanLeftSprings} className="block border-y-[1px] border-gray-800 my-6"></animated.span>
           </div>
-          <p>
+          <animated.p ref={spanLeftRef} style={spanLeftSprings} className="w-1/2 max-sm:w-full">
             Our team of technologists blend innovation with practicality to
             build custom, enterprise-grade software solutions that prioritize
             your business strategy and goals.
-          </p>
+          </animated.p>
         </div>
         <div className="flex flex-row justify-between">
           <ul className="flex flex-col md:w-1/2 w-full pr-5">

@@ -46,16 +46,16 @@ export default function Home() {
   }, [isFirstSession]);
 
   const handleShiftDown = () => {
-    console.log("activeScrollLayer", activeScrollLayer);
     if (activeScrollLayer < 2) {
       setActiveScrollLayer(activeScrollLayer + 1);
     } else if (activeScrollLayer === 2) {
+      const bounds = Math.abs(whatWeDoRef.current.getBoundingClientRect().y)/.66
       document.querySelector("#parallax").scrollTo({
-        top: 3500,
+        top: bounds,
         behavior: "smooth",
       });
-      setActiveScrollLayer("what_we_do");
-    } else if (activeScrollLayer === "what_we_do") {
+      setActiveScrollLayer(3);
+    } else if (activeScrollLayer === 3) {
       setActiveScrollLayer(0);
     }
   };
@@ -67,12 +67,12 @@ export default function Home() {
       </Head>
       <FirstSessionContext.Provider value={isFirstSession}>
         <div className="fixed top-0 w-full z-10">
-          <Navigation />
+          <Navigation whatWeDoRef={whatWeDoRef}/>
         </div>
         <Scroll>
           <ParallaxLayer
             offset={0}
-            sticky={{ start: 0, end: 0.1 }}
+            sticky={{ start: 0, end: .001 }}
             className="bg-groupWhite"
           >
             <Hero onSmoothScroll={() => handleOnScroll()} />
@@ -114,7 +114,7 @@ export default function Home() {
             sticky={{ start: 1, end: 7 }}
           >
             <a
-              className="z-20 hover:h-24"
+              className="z-20 cursor-pointer"
               href={`#${activeScrollLayer}`}
               onClick={() => handleShiftDown()}
             >
@@ -134,7 +134,6 @@ export default function Home() {
             className="bg-groupWhite py-20"
           >
             <HalfImage
-              compRef={whatWeDoRef}
               anchorId={"what_we_do"}
               imageSide={"left"}
               data={services.services}
@@ -142,6 +141,7 @@ export default function Home() {
               isMobile={isMobile}
             />
           </ParallaxLayer>
+          <div ref={whatWeDoRef}></div>
           <ParallaxLayer
             offset={6}
             sticky={{ start: isMobile ? 5.5 : 5.2, end: 7 }}
@@ -174,7 +174,7 @@ export default function Home() {
               setModalState={(bio) => setIsModalVisible(bio)}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={8.9} className="bg-groupWhite">
+          <ParallaxLayer offset={9} className="bg-groupWhite">
             <CaseStudies
               isMobile={isMobile}
               data={caseStudies.studies}

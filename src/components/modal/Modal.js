@@ -2,11 +2,12 @@ import React from "react";
 import { animated, useTransition } from "@react-spring/web";
 
 import "./styles.module.css";
+import { isMobile } from "react-device-detect";
 
 const Modal = ({ title, text, setModalState, modalState, mobileOnly }) => {
   const transitions = useTransition(modalState, {
     from: { transform: "translateY(100%)" },
-    enter: { transform: "translateY(20%)" },
+    enter: { transform: isMobile ? "translateY(20%)" : "translateY(50%)" },
     leave: { transform: "translateY(100%)" },
   });
 

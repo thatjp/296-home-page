@@ -253,8 +253,8 @@ const Hero = ({onSmoothScroll}) => {
         </div>
         <div className="flex justify-center items-center absolute bottom-0 left-0 w-full m-auto">
           <a
-            className="z-20 hover:h-24 cursor-pointer"
-            onClick={()=>{document.querySelector("#parallax").scrollTo({top: 900, behavior: 'smooth'})}}
+            className="z-20 cursor-pointer"
+            onClick={()=>{document.querySelector("#parallax").scrollTo({top: isMobile ? 670 : 900, behavior: 'smooth'})}}
           >
             <Image
               priority

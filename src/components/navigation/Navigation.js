@@ -12,6 +12,9 @@ const Navigation = () => {
   };
 
   useEffect(() => {
+    document.querySelector("#parallax").addEventListener("scroll", (event) => {
+      setNavOpen(false)
+    })
   }, []);
 
   return (
@@ -62,7 +65,6 @@ const Navigation = () => {
                   href="#our_difference"
                   className="hover-underline-animation font-karla blocktext-groupBlue text-lg"
                   aria-current="page"
-                  scroll="false"
                 >
                   296 Difference
                 </a>

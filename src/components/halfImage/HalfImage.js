@@ -132,7 +132,7 @@ const HalfImage = ({
       <div
         className="anchor"
         style={{ height: isMobile ? "30px" : "60px" }}
-        ref={compRef}
+        id={anchorId}
       ></div>
       {imageSide === "left" ? (
         <animated.div
