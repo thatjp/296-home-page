@@ -11,6 +11,7 @@ const HalfImage = ({
   data,
   title = "",
   isMobile,
+  compRef
 }) => {
   const [ref, springs] = useInView(() => ({
     from: {
@@ -33,6 +34,36 @@ const HalfImage = ({
       mass: 5,
       friction: 150,
       tension: 600,
+    },
+  }));
+
+  const [spanRighttRef, spanRightSprings] = useInView(() => ({
+    from: {
+      x: imageSide === "right" ? -100 : 100,
+    },
+    to: {
+      x: 0,
+      delay: 250,
+    },
+    config: {
+      mass: 5,
+      friction: 400,
+      tension: 700,
+    },
+  }));
+
+  const [spanLeftRef, spanLeftSprings] = useInView(() => ({
+    from: {
+      x: imageSide === "right" ? -100 : 100,
+    },
+    to: {
+      x: 0,
+      delay: 250,
+    },
+    config: {
+      mass: 5,
+      friction: 400,
+      tension: 700,
     },
   }));
 
@@ -99,9 +130,9 @@ const HalfImage = ({
   return (
     <Container>
       <div
-        id={anchorId}
         className="anchor"
         style={{ height: isMobile ? "30px" : "60px" }}
+        ref={compRef}
       ></div>
       {imageSide === "left" ? (
         <animated.div
@@ -120,7 +151,7 @@ const HalfImage = ({
               className="w-fit"
             >
               {createHighlightedTitle(title, true)}
-              <span className="block border-y-[1px] border-gray-800 my-6"></span>
+              <animated.span ref={spanRighttRef} style={spanRightSprings} className="block border-y-[1px] border-gray-800 my-6"></animated.span>
             </animated.div>
             <ul>
               {data.map((focus, idx) => {
@@ -147,14 +178,14 @@ const HalfImage = ({
           ) : (
             <div className="hidden"></div>
           )}
-          <div className="justify-center flex flex-col overflow-x-hidden max-sm:relative absolute left-0 max-sm:top-10 items-start h-full lg:w-1/2">
+          <div className="z-10 justify-center flex flex-col overflow-x-hidden max-sm:relative absolute left-0 max-sm:-top-20 items-start h-full lg:w-1/2">
             <animated.div
               ref={titleRightRef}
               style={titleRightSprings}
               className="w-fit"
             >
               {createHighlightedTitle(title, true)}
-              <span className="block border-y-[1px] border-gray-800 my-6"></span>
+              <animated.span ref={spanLeftRef} style={spanLeftSprings} className="block border-y-[1px] border-gray-800 my-6"></animated.span>
             </animated.div>
               <ul>
                 {data.map((service, idx) => {

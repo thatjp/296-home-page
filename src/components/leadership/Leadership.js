@@ -1,24 +1,67 @@
 import React, { useState } from "react";
-import { useTransition, animated } from "@react-spring/web";
+import { animated, useSpring, useInView } from "@react-spring/web";
 
 import Container from "../container/Container";
-import Slider from "../slider/Slider";
-import OutsideAlerter from "../outsideAlerter/OutsideAlerter";
-import Modal from "../modal/Modal";
 
 const Leadership = ({ teamData, setModalState }) => {
   const [modalVisible, setIsModalVisible] = useState();
+
+  const [props, api] = useSpring(
+    () => ({
+      config: {
+        from: {opacity: 0},
+        mass: 5,
+        friction: 150,
+        tension: 400,
+      },
+    }),
+    []
+  );
+
+  api.start({
+    opacity: modalVisible ? 1 : 0
+  })
+
+  const [titleRef, titleSprings] = useInView(() => ({
+    from: {
+      x: -100,
+    },
+    to: {
+      x: 0,
+      delay: 200,
+    },
+    config: {
+      mass: 5,
+      friction: 150,
+      tension: 600,
+    },
+  }));
+
+  const [spanLeftRef, spanLeftSprings] = useInView(() => ({
+    from: {
+      x: -100,
+    },
+    to: {
+      x: 0,
+      delay: 250,
+    },
+    config: {
+      mass: 5,
+      friction: 400,
+      tension: 700,
+    },
+  }));
 
   return (
     <Container>
       <div id="leadership" className="anchor h-[120px] max-md:h-[100px]"></div>
       <div className="flex flex-col relative">
         <div className="max-sm:my-[5%] mb-[3%]">
-          <div className="w-fit">
-            <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl">
+          <div className="w-fit overflow-hidden">
+            <animated.h2 ref={titleRef} style={titleSprings} className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl">
               Leadership
-            </h2>
-            <span className="block border-y-[1px] border-gray-800 my-6"></span>
+            </animated.h2>
+            <animated.span ref={spanLeftRef} style={spanLeftSprings} className="block border-y-[1px] border-gray-800 my-6"></animated.span>
           </div>
           <p>
             Our team of technologists blend innovation with practicality to
@@ -70,9 +113,9 @@ const Leadership = ({ teamData, setModalState }) => {
             })}
           </ul>
           {modalVisible && (
-            <div className="shadow w-1/2 bg-groupBlue p-4 rounded-xl max-sm:hidden">
+            <animated.div style={props} className="shadow w-1/2 bg-groupBlue p-4 rounded-xl max-sm:hidden">
               <p className="text-groupWhite">{modalVisible.bio}</p>
-            </div>
+            </animated.div>
           )}
         </div>
       </div>

@@ -5,23 +5,30 @@ import "./styles.module.css";
 
 const Modal = ({ title, text, setModalState, modalState, mobileOnly }) => {
   const transitions = useTransition(modalState, {
-    from: { opacity: 0, transform: "translateY(100%)" },
-    enter: { opacity: 1, transform: "translateY(20%)" },
-    leave: { opacity: 0, transform: "translateY(100%)" },
+    from: { transform: "translateY(100%)" },
+    enter: { transform: "translateY(20%)" },
+    leave: { transform: "translateY(100%)" },
   });
 
   return transitions((style, item) => (
     <animated.div
       style={style}
-      className={`${mobileOnly && 'sm:hidden'} z-10 max-sm:mx-auto shadow p-10 translate-x-[50%] translate-y-[30%] max-sm:translate-x-0 max-sm:h-[70%] max-sm:w-[100%] max-sm:overflow-auto absolute top-[25%] left-[25%] max-sm:top-0 max-sm:left-0 bg-groupBlue h-fit w-[50%] rounded-lg`}
+      className={`${
+        mobileOnly && "sm:hidden"
+      } flex flex-row z-10 max-sm:mx-auto shadow p-10 translate-x-[50%] translate-y-[30%] max-sm:translate-x-0 max-sm:h-[90%] max-sm:w-[100%] absolute top-[0%] left-[25%] max-sm:top-0 max-sm:left-0 bg-groupBlue h-fit w-[50%] rounded-lg`}
     >
-      <div className="flex flex-row justify-between items mb-5">
-        <h3 className="modal-title text-groupWhite text-2xl">{title}</h3>
-        <p className="text-groupWhite" onClick={() => setModalState(null)}>
-          X
-        </p>
+      <div className="flex flex-col justify-between items mb-5">
+        <div className="w-fit">
+          <h3 className="modal-title text-groupWhite text-2xl">{title}</h3>
+          <span className="block border-y-[.5px] my-4"></span>
+        </div>
+        <div className="overflow-scroll py-4 pr-2">
+          <p className="modal-content text-groupWhite">{text}</p>
+        </div>
       </div>
-      <p className="modal-content text-groupWhite">{text}</p>
+      <p className="text-groupWhite pr-2" onClick={() => setModalState(null)}>
+        X
+      </p>
     </animated.div>
   ));
 };

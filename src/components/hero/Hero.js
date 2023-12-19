@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import Image from "next/image";
-import { useSpring, animated, useInView } from "@react-spring/web";
+import { useSpring, animated, useInView, config } from "@react-spring/web";
 import { ParallaxLayer } from "@react-spring/parallax";
 
-import Trail from "../trail/Trail";
 import Container from "../container/Container";
 import Button from "../button/Button";
 
@@ -17,7 +16,7 @@ import FirstSessionContext from "../context/FirstSessionContext";
 
 import { isMobile } from "react-device-detect";
 
-const Hero = () => {
+const Hero = ({onSmoothScroll}) => {
   let isFirstSession = useContext(FirstSessionContext);
 
   const [leftBracketRef, leftSprings] = useInView(() => ({
@@ -127,14 +126,9 @@ const Hero = () => {
     []
   );
 
-
-  /*--------------------------------------------------
-  the area around the bracket svgs is shifting to the top on navigation
-  are they bound to their parent? 
-  --------------------------------------------------*/
   return (
     <>
-      <div id="home" className="anchor "></div>
+      <div id="home" className="anchor"></div>
       <Container type="full">
         <div className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full">
           <div className="lg:w-1/2 items-center relative -z-20 min-h-[44%]">
@@ -209,56 +203,59 @@ const Hero = () => {
         </div>
         <div className="lg:w-full h-full relative bottom-[80%] -z-10">
           <div className="relative">
-          <ParallaxLayer offset={0} speed={1} className="">
-            <animated.div
-              ref={leftBracketRef}
-              style={leftSprings}
-              className="w-[15%]"
-            >
-              <Image
-                priority
-                src={bracketLeft}
-                height={90}
-                width={180}
-                alt="right"
-                className="shadow"
-              />
-            </animated.div>
-          </ParallaxLayer>
-          <ParallaxLayer offset={0} speed={1}>
-            <animated.div
-              ref={rightBracketRef}
-              style={rightSprings}
-              className="w-[15%]"
-            >
-              <Image
-                priority
-                src={bracketRight}
-                height={90}
-                width={180}
-                alt="right"
-                className="shadow"
-              />
-            </animated.div>
-            <animated.div
-              ref={squaresRef}
-              style={squaresSprings}
-              className="z-10 w-[15%]"
-            >
-              <Image
-                priority
-                src={squares}
-                height={90}
-                width={180}
-                alt="left"
-                className="shadow max-md:hidden"
-              />
-            </animated.div>
-          </ParallaxLayer>
+            <ParallaxLayer offset={0} speed={1} className="">
+              <animated.div
+                ref={leftBracketRef}
+                style={leftSprings}
+                className="w-[15%]"
+              >
+                <Image
+                  priority
+                  src={bracketLeft}
+                  height={90}
+                  width={180}
+                  alt="right"
+                  className="shadow"
+                />
+              </animated.div>
+            </ParallaxLayer>
+            <ParallaxLayer offset={0} speed={1}>
+              <animated.div
+                ref={rightBracketRef}
+                style={rightSprings}
+                className="w-[15%]"
+              >
+                <Image
+                  priority
+                  src={bracketRight}
+                  height={90}
+                  width={180}
+                  alt="right"
+                  className="shadow"
+                />
+              </animated.div>
+              <animated.div
+                ref={squaresRef}
+                style={squaresSprings}
+                className="z-10 w-[15%]"
+              >
+                <Image
+                  priority
+                  src={squares}
+                  height={90}
+                  width={180}
+                  alt="left"
+                  className="shadow max-md:hidden"
+                />
+              </animated.div>
+            </ParallaxLayer>
           </div>
         </div>
         <div className="flex justify-center items-center absolute bottom-0 left-0 w-full m-auto">
-          <a className="z-20 hover:h-24" href="#our_difference">
+          <a
+            className="z-20 hover:h-24 cursor-pointer"
+            onClick={()=>{document.querySelector("#parallax").scrollTo({top: 900, behavior: 'smooth'})}}
+          >
             <Image
               priority
               src={chevron}

@@ -34,15 +34,49 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
     config: { mass: 5, tension: 500, friction: 80 },
   });
 
+  const [titleRef, titleSprings] = useInView(() => ({
+    from: {
+      x: -100,
+    },
+    to: {
+      x: 0,
+      delay: 200,
+    },
+    config: {
+      mass: 5,
+      friction: 150,
+      tension: 600,
+    },
+  }));
+
+  const [spanLeftRef, spanLeftSprings] = useInView(() => ({
+    from: {
+      x: -100,
+    },
+    to: {
+      x: 0,
+      delay: 250,
+    },
+    config: {
+      mass: 5,
+      friction: 400,
+      tension: 700,
+    },
+  }));
+
   return (
     <Container>
       <div id="case_studies" className="anchor"></div>
       <div className="flex flex-col relative max-sm:my-10">
-        <div className="mb-10 max-sm:mb-[5%] w-fit">
-          <h2 className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl">
+        <div className="mb-10 max-sm:mb-[5%] w-fit overflow-hidden">
+          <animated.h2
+            ref={titleRef}
+            style={titleSprings}
+            className="text-groupBlack font-semibold lg:text-6xl md:text-5xl max-sm:text-4xl"
+          >
             Case <span className="text-groupBlue">Studies</span>
-          </h2>
-          <span className="block border-y-[1px] border-gray-800 my-6"></span>
+          </animated.h2>
+          <animated.span ref={spanLeftRef} style={spanLeftSprings} className="block border-y-[1px] border-gray-800 my-6"></animated.span>
         </div>
         <animated.div ref={ref} style={springs}>
           {
@@ -64,14 +98,14 @@ const CaseStudies = ({ isMobile, data, setModalState }) => {
                       }
                     >
                       <div className="h-3">
-                      <Image
-                        priority
-                        src={study.icon}
-                        height={90}
-                        width={40}
-                        alt="Case Study Icon"
-                        className="m-auto pb-5"
-                      />
+                        <Image
+                          priority
+                          src={study.icon}
+                          height={90}
+                          width={40}
+                          alt="Case Study Icon"
+                          className="m-auto pb-5"
+                        />
                         <h3 className="text-groupWhite mb-3 font-semibold text-center lg:text-3xl md:text-5xl max-sm:text-5xl">
                           {study.industry}
                         </h3>

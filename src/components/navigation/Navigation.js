@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import classnames from "tailwindcss-classnames";
 
@@ -62,7 +62,7 @@ const Navigation = () => {
                   href="#our_difference"
                   className="hover-underline-animation font-karla blocktext-groupBlue text-lg"
                   aria-current="page"
-                  scroll={false}
+                  scroll="false"
                 >
                   296 Difference
                 </a>
@@ -71,7 +71,7 @@ const Navigation = () => {
                 <a
                   href="#what_we_do"
                   className="hover-underline-animation blocktext-groupBlue md:text-lg"
-                  scroll={false}
+                  scroll="false"
                 >
                   What We Do
                 </a>
@@ -80,7 +80,7 @@ const Navigation = () => {
                 <a
                   href="#leadership"
                   className="hover-underline-animation blocktext-groupBlue text-lg"
-                  scroll={false}
+                  scroll="false"
                 >
                   Leadership
                 </a>
@@ -89,7 +89,7 @@ const Navigation = () => {
                 <a
                   href="#contact"
                   className="hover-underline-animation blocktext-groupBlue text-lg"
-                  scroll={false}
+                  scroll="false"
                 >
                   Contact Us
                 </a>
@@ -114,6 +114,7 @@ const Navigation = () => {
                 href="#our_difference"
                 className="font-karla block py-2 text-groupBlue lg:text-2xl md:text-xl"
                 aria-current="page"
+                scroll="false"
               >
                 296 Difference
               </a>
@@ -122,6 +123,7 @@ const Navigation = () => {
               <a
                 href="#what_we_do"
                 className="block py-2  text-groupBlue lg:text-2xl md:text-xl"
+                scroll="false"
               >
                 What We Do
               </a>
@@ -130,6 +132,7 @@ const Navigation = () => {
               <a
                 href="#leadership"
                 className="block py-2 text-groupBlue lg:text-2xl md:text-xl"
+                scroll="false"
               >
                 Leadership
               </a>
@@ -138,6 +141,7 @@ const Navigation = () => {
               <a
                 href="#contact"
                 className="block py-2  text-groupBlue lg:text-2xl md:text-xl"
+                scroll="false"
               >
                 Contact Us
               </a>

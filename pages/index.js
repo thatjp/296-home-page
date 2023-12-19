@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import { ParallaxLayer } from "@react-spring/parallax";
@@ -7,14 +7,13 @@ import { isMobile } from "react-device-detect";
 // Components
 import Scroll from "@/components/scroll/Scroll";
 import Navigation from "@/components/navigation/Navigation";
-import Container from "@/components/container/Container";
-import Slider from "@/components/slider/Slider";
 import ContactForm from "@/components/contactForm/ContactForm";
 import Hero from "@/components/hero/Hero";
 import ScrollLayer from "@/components/scrollLayer/ScrollLayer";
 import Modal from "@/components/modal/Modal";
 import HalfImage from "../src/components/halfImage/HalfImage";
 import CaseStudies from "@/components/caseStudies/CaseStudies";
+import WhatWeDo from "@/components/whatWeDo/WhatWeDo";
 
 // Site Images
 import chevronWhite from "../public/296-chevron-white.svg";
@@ -37,6 +36,7 @@ export default function Home() {
   const [modalVisible, setIsModalVisible] = useState(false);
   const [isFirstSession, setFirstSession] = useState(true);
   const [activeScrollLayer, setActiveScrollLayer] = useState(0);
+  const whatWeDoRef = useRef();
 
   useEffect(() => {
     if (window.sessionStorage.getItem("firstLoadDone") === null) {
@@ -50,6 +50,10 @@ export default function Home() {
     if (activeScrollLayer < 2) {
       setActiveScrollLayer(activeScrollLayer + 1);
     } else if (activeScrollLayer === 2) {
+      document.querySelector("#parallax").scrollTo({
+        top: 3500,
+        behavior: "smooth",
+      });
       setActiveScrollLayer("what_we_do");
     } else if (activeScrollLayer === "what_we_do") {
       setActiveScrollLayer(0);
@@ -71,7 +75,7 @@ export default function Home() {
             sticky={{ start: 0, end: 0.1 }}
             className="bg-groupWhite"
           >
-            <Hero />
+            <Hero onSmoothScroll={() => handleOnScroll()} />
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -113,7 +117,6 @@ export default function Home() {
               className="z-20 hover:h-24"
               href={`#${activeScrollLayer}`}
               onClick={() => handleShiftDown()}
-              scroll={false}
             >
               <Image
                 priority
@@ -131,6 +134,7 @@ export default function Home() {
             className="bg-groupWhite py-20"
           >
             <HalfImage
+              compRef={whatWeDoRef}
               anchorId={"what_we_do"}
               imageSide={"left"}
               data={services.services}
