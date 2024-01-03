@@ -13,6 +13,7 @@ const ScrollLayer = ({
   setActiveScrollLayer,
   index
 }) => {
+
   const [ref, springs] = useInView(
     () => ({
       from: {
@@ -49,7 +50,7 @@ const ScrollLayer = ({
     <ParallaxLayer
       offset={offset}
       speed={1.5}
-      className="test z-[-10] place-content-start flex flex-col lg:px-30 mt-auto sm:px-40 max-sm:px-10 lg:py-[22rem] max-sm:py-[20%] bg-groupBlue"
+      className="z-[-10] place-content-start flex flex-col lg:px-30  sm:px-40 max-sm:px-10 max-md:pt-[22rem] lg:py-[22rem] max-sm:py-[20%] bg-groupBlue"
       sticky={sticky}
       id={index}
     >

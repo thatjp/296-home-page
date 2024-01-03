@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <main>
       <Head>
-        <title>296 Group - Boutique Technology Services</title>
+        <title>296 Group - Technology Services</title>
       </Head>
       <FirstSessionContext.Provider value={isFirstSession}>
         <div className="fixed top-0 w-full z-10">

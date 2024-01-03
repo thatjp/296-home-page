@@ -16,6 +16,9 @@ module.exports = {
         "2xl": "6rem",
       },
     },
+    screens: {
+      smallPhone: '376px'
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

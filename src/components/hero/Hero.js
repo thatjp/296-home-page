@@ -16,8 +16,7 @@ import FirstSessionContext from "../context/FirstSessionContext";
 
 import { isMobile } from "react-device-detect";
 
-const Hero = ({onSmoothScroll}) => {
-  let isFirstSession = useContext(FirstSessionContext);
+const Hero = () => {
 
   const [leftBracketRef, leftSprings] = useInView(() => ({
     from: {
@@ -131,8 +130,8 @@ const Hero = ({onSmoothScroll}) => {
       <div id="home" className="anchor"></div>
       <Container type="full">
         <div className="flex flex-col justify-center md:items-center max-sm:flex-col max-sm:justify-center h-full">
-          <div className="lg:w-1/2 items-center relative -z-20 min-h-[44%]">
-            <div className="w-[70%] m-auto">
+          <div className="lg:w-1/2 items-center relative -z-20 min-h-[20%]">
+            <div className="w-[70%] max-lg:w-[50%] max-sm:w-[60%] m-auto">
               <Image
                 priority
                 src={logo.src}
@@ -201,7 +200,7 @@ const Hero = ({onSmoothScroll}) => {
             />
           </animated.div>
         </div>
-        <div className="lg:w-full h-full relative bottom-[80%] -z-10">
+        <div className="lg:w-full h-full relative bottom-[75%] max-lg:bottom-[67%] max-sm:bottom-[80%] max-smallPhone:bottom-[85%] -z-10">
           <div className="relative">
             <ParallaxLayer offset={0} speed={1} className="">
               <animated.div
@@ -245,7 +244,7 @@ const Hero = ({onSmoothScroll}) => {
                   height={90}
                   width={180}
                   alt="left"
-                  className="shadow max-md:hidden"
+                  className="shadow max-lg:hidden"
                 />
               </animated.div>
             </ParallaxLayer>
